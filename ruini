@@ -1,0 +1,3115 @@
+--[[ Credits to NoobyGames12 For The Arm thing 
+pepfre: Omg i have sex with NoobyGames12, omg ambatublow
+not the tiny big part k ]]--
+function Reanimate()
+ game:GetService("Players").LocalPlayer.Character.Head.Anchored = true
+ for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+  if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then
+  game:GetService("RunService").Heartbeat:connect(function()
+  v.Velocity = Vector3.new(0,35,0)
+     wait(0.5)
+    end)
+   end
+ end
+ game.TestService.IsSleepAllowed = false
+ for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+	 if v:IsA("BasePart") then 
+		 game:GetService("RunService").Heartbeat:connect(function()
+			 v.Velocity = Vector3.new(-40,0,-10)
+			 pcall(function()
+				 v.CanCollide = false
+			 end)
+			 pcall(function()
+				 v.CanQuery = false
+			 end)
+		 end)
+	 end
+ end
+ --loadstring(game:HttpGet(("https://raw.githubusercontent.com/BloxinStud10/RNTE/main/Tool%20Fling%20Reanimate"),true))()
+ loadstring(game:HttpGet(("https://raw.githubusercontent.com/BloxinStud10/RNTE/main/idk%20lol"),true))()
+ local cplayer = game.Players.LocalPlayer.Character
+ local function gp(parent, name, className)
+     if typeof(parent) == "Instance" then
+         for i, v in pairs(parent:GetChildren()) do
+             if (v.Name == name) and v:IsA(className) then
+                 return v
+             end
+         end
+     end
+     return nil
+ end
+
+ local hat2 = gp(cplayer, "MeshPartAccessory", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Torso"] --any part of humanoid
+ att2.Position = Vector3.new(-0, 0.025, 0)
+ att2.Rotation = Vector3.new(180, 0, -15)--you can delete this 
+
+ local hat2 = gp(cplayer, "Extra Left hand (Blocky)_white", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Left Arm"]
+ att2.Position = Vector3.new(-0, -0, -0)
+ att2.Rotation = Vector3.new(-120, 0, 0)
+
+ local hat2 = gp(cplayer, "Extra Right hand (Blocky)_white", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Right Arm"]
+ att2.Position = Vector3.new(0, -0, 0)
+ att2.Rotation = Vector3.new(-120, 0, 0) --LavanderHair
+
+ local hat2 = gp(cplayer, "Lipstick_Bag_3.0", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Right Leg"]
+ att2.Position = Vector3.new(0, -0, 0.5) --Robloxclassicred
+ att2.Rotation = Vector3.new(0, -5, -45)
+
+ local hat2 = gp(cplayer, "Lipstick_Bag_1.0", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Left Leg"]
+ att2.Position = Vector3.new(-0, -0, 0.5) 
+ att2.Rotation = Vector3.new(0, 0, -45)
+ 
+ game:GetService("Players").LocalPlayer.Character.Head.Anchored = false
+ setfpscap(120)
+end
+Reanimate() --Reanimate your character (idk why i did this lmao)
+
+--Best Netless Ever
+coroutine.resume(coroutine.create(function()
+	while true do
+	    if game.TestService.IsSleepAllowed == true then
+		    game.TestService.IsSleepAllowed = false
+		end
+		game:GetService("RunService").Heartbeat:Wait()
+	end
+end))
+
+plr = game.Players.LocalPlayer
+char = plr.Character
+hum = char.Humanoid
+t = char.Torso
+h = char.Head
+ra = char["Right Arm"]
+la = char["Left Arm"]
+rl = char["Right Leg"]
+ll = char["Left Leg"]
+tors = char.Torso
+lleg = char["Left Leg"]
+root = char.HumanoidRootPart
+hed = char.Head
+rleg = char["Right Leg"]
+rarm = char["Right Arm"]
+larm = char["Left Arm"]
+vt = Vector3.new
+bc = BrickColor.new
+br = BrickColor.random
+it = Instance.new
+cf = CFrame.new
+
+local maincolor = BrickColor.new("Really black")
+local maincolor2 = BrickColor.new("Really black")
+
+function CreatePart(parent,transparency,reflectance,material,brickcolor)
+local p = Instance.new("Part")
+p.Parent = parent
+p.Size = Vector3.new(1,1,1)
+p.Transparency = transparency
+p.Reflectance = reflectance
+p.CanCollide = false
+p.Locked = true
+p.BrickColor = brickcolor
+p.Material = material
+return p
+end
+
+function CreateMesh(parent,meshtype,x1,y1,z1)
+local mesh = Instance.new("SpecialMesh",parent)
+mesh.MeshType = meshtype
+mesh.Scale = Vector3.new(x1,y1,z1)
+return mesh
+end
+
+function CreateSpecialGlowMesh(parent,meshid,x1,y1,z1)
+local mesh = Instance.new("SpecialMesh",parent)
+mesh.MeshType = "FileMesh"
+mesh.MeshId = meshid
+mesh.TextureId = "http://www.roblox.com/asset/?id=269748808"
+mesh.Scale = Vector3.new(x1,y1,z1)
+mesh.VertexColor = Vector3.new(parent.BrickColor.r, parent.BrickColor.g, parent.BrickColor.b)
+return mesh
+end
+
+function CreateWeld(parent,part0,part1,C1X,C1Y,C1Z,C1Xa,C1Ya,C1Za,C0X,C0Y,C0Z,C0Xa,C0Ya,C0Za)
+local weld = Instance.new("Weld")
+weld.Parent = parent
+weld.Part0 = part0
+weld.Part1 = part1
+weld.C1 = CFrame.new(C1X,C1Y,C1Z)*CFrame.Angles(C1Xa,C1Ya,C1Za)
+weld.C0 = CFrame.new(C0X,C0Y,C0Z)*CFrame.Angles(C0Xa,C0Ya,C0Za)
+return weld
+end
+local m = Instance.new("Model",char)
+m.Name = "wot"
+
+-------------- Arms section
+---- Right arm
+local handle = CreatePart(m,0,0,"SmoothPlastic",maincolor2)
+CreateMesh(handle,"Brick",1.05,1.5,1.05)
+CreateWeld(handle,rarm,handle,0,-0.265,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local handleg = CreatePart(m,0,0,"Neon",maincolor)
+CreateMesh(handleg,"Brick",1.025,1.5,1.025)
+CreateWeld(handleg,handle,handleg,0,0.1,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local handleo = CreatePart(m,0,0,"Neon",maincolor)
+CreateMesh(handleo,"Brick",1.085,1.35,1.085)
+CreateWeld(handleo,handle,handleo,0,0,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local handleon = CreatePart(m,0,0,"SmoothPlastic",maincolor2)
+CreateMesh(handleon,"Brick",1.1,1.225,1.1)
+CreateWeld(handleon,handle,handleon,0,0,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local wngr = CreatePart(m,0,0,"Neon",maincolor)
+CreateSpecialGlowMesh(wngr,"http://www.roblox.com/asset/?id=111896510",0.65,0.35,0.65)
+CreateWeld(wngr,handle,wngr,0.485,-0.5,-0.5,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(90),math.rad(0))
+local wngr2 = CreatePart(m,0,0,"Neon",maincolor)
+CreateSpecialGlowMesh(wngr2,"http://www.roblox.com/asset/?id=111896510",0.25,0.5,0.55)
+CreateWeld(wngr2,handle,wngr2,0.485,-0.75,-0.5,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(90),math.rad(0))
+local wngr3 = CreatePart(m,0,0,"Neon",maincolor)
+CreateSpecialGlowMesh(wngr3,"http://www.roblox.com/asset/?id=111896510",0.25,0.5,0.55)
+CreateWeld(wngr3,handle,wngr3,0.425,-0.75,-0.5,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(60),math.rad(90),math.rad(0))
+local rig = CreatePart(m,0,0,"Neon",maincolor)
+CreateSpecialGlowMesh(rig,"http://www.roblox.com/asset/?id=15392960",0.2,0.325,0.2)
+CreateWeld(rig,handle,rig,0,-0.5,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local glowb = CreatePart(m,0,0,"SmoothPlastic",maincolor2)
+CreateMesh(glowb,"Sphere",0.65,0.085,0.65)
+CreateWeld(glowb,handle,glowb,0,-0.75,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local glowbo = CreatePart(m,0,0,"Neon",maincolor)
+CreateMesh(glowbo,"Sphere",0.75,0.05,0.75)
+CreateWeld(glowbo,glowb,glowbo,0,0,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+
+---Section A
+local glown = CreatePart(m,0,0,"SmoothPlastic",maincolor2)
+CreateMesh(glown,"Sphere",0.085,0.35,0.35)
+CreateWeld(glown,handle,glown,-0.55,-0.35,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local glownb = CreatePart(m,0,0,"Neon",maincolor)
+CreateMesh(glownb,"Sphere",0.075,0.4,0.4)
+CreateWeld(glownb,glown,glownb,0,0,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local glown2 = CreatePart(m,0,0,"SmoothPlastic",maincolor2)
+CreateMesh(glown2,"Sphere",0.085,0.35,0.35)
+CreateWeld(glown2,handle,glown2,-0.55,0,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local glownb2 = CreatePart(m,0,0,"Neon",maincolor)
+CreateMesh(glownb2,"Sphere",0.075,0.4,0.4)
+CreateWeld(glownb2,glown2,glownb2,0,0,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local glown3 = CreatePart(m,0,0,"SmoothPlastic",maincolor2)
+CreateMesh(glown3,"Sphere",0.085,0.35,0.35)
+CreateWeld(glown3,handle,glown3,-0.55,0.35,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local glownb3 = CreatePart(m,0,0,"Neon",maincolor)
+CreateMesh(glownb3,"Sphere",0.075,0.4,0.4)
+CreateWeld(glownb3,glown3,glownb3,0,0,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+
+---Section A2
+local blak = CreatePart(m,0,0,"Neon",maincolor)
+CreateMesh(blak,"Brick",0.35,0.95,1.125)
+CreateWeld(blak,handle,blak,0.235,0,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local blak2 = CreatePart(m,0,0,"SmoothPlastic",maincolor2)
+CreateMesh(blak2,"Brick",0.305,0.905,1.145)
+CreateWeld(blak2,blak,blak2,0,0,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+
+local line = CreatePart(m,0,0,"Neon",maincolor)
+CreateMesh(line,"Brick",0.75,0.1,1.125)
+CreateWeld(line,handle,line,-0.2,-0.35,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local line2 = CreatePart(m,0,0,"Neon",maincolor)
+CreateMesh(line2,"Brick",0.75,0.1,1.125)
+CreateWeld(line2,handle,line2,-0.2,0.35,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local line3 = CreatePart(m,0,0,"Neon",maincolor)
+CreateMesh(line3,"Brick",0.75,0.1,1.125)
+CreateWeld(line3,handle,line3,-0.2,0,0,math.rad(0),math.rad(0),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+
+--[[
+DF IS THIS?!?!?
+Ruin
+By
+When_kun
+Im so proud of this work
+Credits to Injectioneer for Ruined's laser
+and Salvo_Starly for helping me with teleport and other stuff :)
+--]]
+wait(1 / 60)
+Effects = { }
+print("Ruin Loaded")
+print("By When_kun")
+local Player = game.Players.localPlayer
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+local cam = game.Workspace.CurrentCamera
+local Mouse = Player:GetMouse()
+local LeftArm = Character["Left Arm"]
+local RightArm = Character["Right Arm"]
+local triger = false
+local yl = false
+local lust = false
+local icecrusher = false
+local LeftLeg = Character["Left Leg"]
+local RightLeg = Character["Right Leg"]
+local Head = Character.Head
+local Torso = Character.Torso
+local Camera = game.Workspace.CurrentCamera
+local Trail = Instance.new("Trail")
+local RootPart = Character.HumanoidRootPart
+local RootJoint = RootPart.RootJoint
+local mouse, Mouse = Player:GetMouse(), Player:GetMouse()
+local attack = false
+local Anim = 'Idle'
+local attacktype = 1
+local Torsovelocity = (RootPart.Velocity * Vector3.new(1, 0, 1)).magnitude 
+local velocity = RootPart.Velocity.y
+local sine = 0
+local change = 1
+FELOADLIBRARY = {}
+loadstring(game:GetObjects("rbxassetid://5209815302")[1].Source)()
+local Create = FELOADLIBRARY.Create
+
+renderstepped = game:GetService('RunService').RenderStepped
+userinput = game:GetService('UserInputService')
+mainmodel = Instance.new('Model',Character)
+mainchord = 5
+
+children = mainmodel:GetChildren()
+my = 0
+function rot()
+	for i,v in pairs(children) do
+--		v.Size = Vector3.new(mainchord/5,mainchord/5,mainchord/5)
+		v.CFrame = v.CFrame*CFrame.Angles(math.rad(1),math.rad(1),math.rad(2))
+	end
+end
+function rotA()
+	while renderstepped:wait() do
+		spawn(rot)
+		my = my + 1.5
+		if my > 360 then
+			my = 0
+		end
+	end
+end
+spawn(rotA)
+
+function lerp(dist,inc)
+	for i = 0,10 do
+		renderstepped:wait()
+		for x,v in pairs(children) do
+			--lookvector
+			--( centerPoint.Y + distance * Math.Sin( angle ) )
+			--diff rot is 90
+			v.Size = v.Size + Vector3.new(.1/(dist/math.abs(dist)),.1/(dist/math.abs(dist)),.1/(dist/math.abs(dist)))
+			v.Transparency = v.Transparency - .1/(dist/math.abs(dist))
+			v.CFrame = CFrame.new(v.Position)*CFrame.Angles(0,math.rad(90*x+my),0)*CFrame.new(dist/10,0,0)
+		end
+	end
+end
+
+CV="Maroon"
+	p = game.Players.LocalPlayer
+	char = p.Character
+	local txt = Instance.new("BillboardGui", char)
+	txt.Adornee = char .Head
+	txt.Name = "_status"
+	txt.Size = UDim2.new(2, 0, 1.2, 0)
+	txt.StudsOffset = Vector3.new(-9, 8, 0)
+	local text = Instance.new("TextLabel", txt)
+	text.Size = UDim2.new(10, 0, 7, 0)
+	text.FontSize = "Size24"
+	text.TextScaled = true
+	text.TextTransparency = 1
+	text.BackgroundTransparency = 1 
+	text.TextTransparency = 1
+	text.TextStrokeTransparency = 1
+	text.Font = "Bodoni"
+	text.TextStrokeColor3 = Color3.new(0,0,0)
+
+	v=Instance.new("Part")
+	v.Name = "ColorBrick"
+	v.Parent=p.Character
+	v.FormFactor="Symmetric"
+	v.Anchored=true
+	v.CanCollide=false
+	v.BottomSurface="Smooth"
+	v.TopSurface="Smooth"
+	v.Size=Vector3.new(10,5,3)
+	v.Transparency=1
+	v.CFrame=char.Torso.CFrame
+	v.BrickColor=BrickColor.new(CV)
+	v.Transparency=1
+	text.TextColor3 = Color3.new(0,0,0)
+	v.Shape="Block"
+	text.Text = "Doomfist"
+
+local m = Create("Model"){
+	Parent = Character,
+	Name = "WeaponModel",
+}
+
+Humanoid.Animator.Parent = nil
+Character.Animate.Parent = nil
+
+local newMotor = function(part0, part1, c0, c1)
+	local w = Create('Motor'){
+		Parent = part0,
+		Part0 = part0,
+		Part1 = part1,
+		C0 = c0,
+		C1 = c1,
+	}
+	return w
+end
+
+function clerp(a, b, t)
+	return a:lerp(b, t)
+end
+
+RootCF = CFrame.fromEulerAnglesXYZ(-1.57, 0, 3.14)
+NeckCF = CFrame.new(0, 1, 0, -1, -0, -0, 0, 0, 1, 0, 1, 0)
+
+local RW = newMotor(Torso, RightArm, CFrame.new(1.5, 0, 0), CFrame.new(0, 0, 0)) 
+local LW = newMotor(Torso, LeftArm, CFrame.new(-1.5, 0, 0), CFrame.new(0, 0, 0))
+local RH = newMotor(Torso, RightLeg, CFrame.new(.5, -2, 0), CFrame.new(0, 0, 0))
+local LH = newMotor(Torso, LeftLeg, CFrame.new(-.5, -2, 0), CFrame.new(0, 0, 0))
+RootJoint.C1 = CFrame.new(0, 0, 0)
+RootJoint.C0 = CFrame.new(0, 0, 0)
+Torso.Neck.C1 = CFrame.new(0, 0, 0)
+Torso.Neck.C0 = CFrame.new(0, 1.5, 0)
+
+local rarmc1 = RW.C1
+local larmc1 = LW.C1
+local rlegc1 = RH.C1
+local llegc1 = LH.C1
+
+local resetc1 = false
+
+function PlayAnimationFromTable(table, speed, bool)
+	RootJoint.C0 = clerp(RootJoint.C0, table[1], speed) 
+	Torso.Neck.C0 = clerp(Torso.Neck.C0, table[2], speed) 
+	RW.C0 = clerp(RW.C0, table[3], speed) 
+	LW.C0 = clerp(LW.C0, table[4], speed) 
+	RH.C0 = clerp(RH.C0, table[5], speed) 
+	LH.C0 = clerp(LH.C0, table[6], speed) 
+	if bool == true then
+		if resetc1 == false then
+			resetc1 = true
+			RootJoint.C1 = RootJoint.C1
+			Torso.Neck.C1 = Torso.Neck.C1
+			RW.C1 = rarmc1
+			LW.C1 = larmc1
+			RH.C1 = rlegc1
+			LH.C1 = llegc1
+		end
+	end
+end
+
+
+	local co1 = 15
+	local co2 = 8
+	local co3 = 20
+	local co5 = 30
+	local co4 = 32
+	local cooldown1 = 5
+	local cooldown2 = 7
+	local cooldown3 = 3
+	local cooldown4 = 2
+	local cooldown5 = 0
+	local skillcolorscheme = BrickColor.new("Pastel light blue").Color
+	local scrn = Instance.new("ScreenGui", Player.PlayerGui)
+	makeframe = function(par, trans, pos, size, color)
+	
+	local frame = Instance.new("Frame", par)
+	frame.BackgroundTransparency = trans
+	frame.BorderSizePixel = 0
+	frame.Position = pos
+	frame.Size = size
+	frame.BackgroundColor3 = color
+	return frame
+end
+
+	makelabel = function(par, text)
+	
+	local label = Instance.new("TextLabel", par)
+	label.BackgroundTransparency = 1
+	label.Size = UDim2.new(1, 0, 1, 0)
+	label.Position = UDim2.new(0, 0, 0, 0)
+	label.TextColor3 = Color3.new(255, 250, 190)
+	label.TextStrokeTransparency = 0
+	label.FontSize = Enum.FontSize.Size32
+	label.Font = Enum.Font.SourceSansLight
+	label.BorderSizePixel = 0
+	label.TextScaled = true
+	label.Text = text
+end
+
+	framesk1 = makeframe(scrn, 0.5, UDim2.new(0.8, 0, 0.85, 0), UDim2.new(0.16, 0, 0.1, 0), skillcolorscheme)
+	framesk2 = makeframe(scrn, 0.5, UDim2.new(0.8, 0, 0.74, 0), UDim2.new(0.16, 0, 0.1, 0), skillcolorscheme)
+	framesk3 = makeframe(scrn, 0.5, UDim2.new(0.8, 0, 0.63, 0), UDim2.new(0.16, 0, 0.1, 0), skillcolorscheme)
+	framesk4 = makeframe(scrn, 0.5, UDim2.new(0.8, 0, 0.52, 0), UDim2.new(0.16, 0, 0.1, 0), skillcolorscheme)
+	bar1 = makeframe(framesk1, 0, UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), skillcolorscheme)
+	bar2 = makeframe(framesk2, 0, UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), skillcolorscheme)
+	bar3 = makeframe(framesk3, 0, UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), skillcolorscheme)
+	bar4 = makeframe(framesk4, 0, UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), skillcolorscheme)
+	text1 = Instance.new("TextLabel", framesk1)
+	text1.BackgroundTransparency = 1
+	text1.Size = UDim2.new(1, 0, 1, 0)
+	text1.Position = UDim2.new(0, 0, 0, 0)
+	text1.TextColor3 = Color3.new(255, 250, 190)
+	text1.TextStrokeTransparency = 0
+	text1.FontSize = Enum.FontSize.Size18
+	text1.Font = Enum.Font.SourceSansLight
+	text1.BorderSizePixel = 0
+	text1.TextScaled = true
+	text1.Text = "[Z]\n Shrug or STARING AT THE SKY"
+	text2 = Instance.new("TextLabel", framesk2)
+	text2.BackgroundTransparency = 1
+	text2.Size = UDim2.new(1, 0, 1, 0)
+	text2.Position = UDim2.new(0, 0, 0, 0)
+	text2.TextColor3 = Color3.new(255, 250, 190)
+	text2.TextStrokeTransparency = 0
+	text2.FontSize = Enum.FontSize.Size18
+	text2.Font = Enum.Font.SourceSansLight
+	text2.BorderSizePixel = 0
+	text2.TextScaled = true
+	text2.Text = "[X]\n Uppercut or LETS BASH OUR HEADS TOGETHER"
+	text3 = Instance.new("TextLabel", framesk3)
+	text3.BackgroundTransparency = 1
+	text3.Size = UDim2.new(1, 0, 1, 0)
+	text3.Position = UDim2.new(0, 0, 0, 0)
+	text3.TextColor3 = Color3.new(255, 250, 190)
+	text3.TextStrokeTransparency = 0
+	text3.FontSize = Enum.FontSize.Size18
+	text3.Font = Enum.Font.SourceSansLight
+	text3.BorderSizePixel = 0
+	text3.TextScaled = false
+	text3.Text = "[C]\n The Ruin's Sacred Words"
+	text4 = Instance.new("TextLabel", framesk4)
+	text4.BackgroundTransparency = 1
+	text4.Size = UDim2.new(1, 0, 1, 0)
+	text4.Position = UDim2.new(0, 0, 0, 0)
+	text4.TextColor3 = Color3.new(255, 250, 190)
+	text4.TextStrokeTransparency = 0
+	text4.FontSize = Enum.FontSize.Size18
+	text4.Font = Enum.Font.SourceSansLight
+	text4.BorderSizePixel = 0
+	text4.TextScaled = true
+	text4.Text = "[V]\n Doomfist or Ruined"
+
+ArtificialHB = Create("BindableEvent", script){
+	Parent = script,
+	Name = "Heartbeat",
+}
+
+script:WaitForChild("Heartbeat")
+
+frame = 1 / 30
+tf = 0
+allowframeloss = false
+tossremainder = false
+lastframe = tick()
+script.Heartbeat:Fire()
+
+game:GetService("RunService").Heartbeat:connect(function(s, p)
+	tf = tf + s
+	if tf >= frame then
+		if allowframeloss then
+			script.Heartbeat:Fire()
+			lastframe = tick()
+		else
+			for i = 1, math.floor(tf / frame) do
+				script.Heartbeat:Fire()
+			end
+			lastframe = tick()
+		end
+		if tossremainder then
+			tf = 0
+		else
+			tf = tf - frame * math.floor(tf / frame)
+		end
+	end
+end)
+
+function swait(num)
+	if num == 0 or num == nil then
+		ArtificialHB.Event:wait()
+	else
+		for i = 0, num do
+			ArtificialHB.Event:wait()
+		end
+	end
+end
+
+function RemoveOutlines(part)
+	part.TopSurface, part.BottomSurface, part.LeftSurface, part.RightSurface, part.FrontSurface, part.BackSurface = 10, 10, 10, 10, 10, 10
+end
+	
+CFuncs = {	
+	["Part"] = {
+		Create = function(Parent, Material, Reflectance, Transparency, BColor, Name, Size)
+			local Part = Create("Part"){
+				Parent = Parent,
+				Reflectance = Reflectance,
+				Transparency = Transparency,
+				CanCollide = false,
+				Locked = true,
+				BrickColor = BrickColor.new(tostring(BColor)),
+				Name = Name,
+				Size = Size,
+				Material = Material,
+			}
+			RemoveOutlines(Part)
+			return Part
+		end;
+	};
+	
+	["Mesh"] = {
+		Create = function(Mesh, Part, MeshType, MeshId, OffSet, Scale)
+			local Msh = Create(Mesh){
+				Parent = Part,
+				Offset = OffSet,
+				Scale = Scale,
+			}
+			if Mesh == "SpecialMesh" then
+				Msh.MeshType = MeshType
+				Msh.MeshId = MeshId
+			end
+			return Msh
+		end;
+	};
+	
+	["Mesh"] = {
+		Create = function(Mesh, Part, MeshType, MeshId, OffSet, Scale)
+			local Msh = Create(Mesh){
+				Parent = Part,
+				Offset = OffSet,
+				Scale = Scale,
+			}
+			if Mesh == "SpecialMesh" then
+				Msh.MeshType = MeshType
+				Msh.MeshId = MeshId
+			end
+			return Msh
+		end;
+	};
+	
+	["Weld"] = {
+		Create = function(Parent, Part0, Part1, C0, C1)
+			local Weld = Create("Weld"){
+				Parent = Parent,
+				Part0 = Part0,
+				Part1 = Part1,
+				C0 = C0,
+				C1 = C1,
+			}
+			return Weld
+		end;
+	};
+
+	["Sound"] = {
+		Create = function(id, par, vol, pit) 
+			coroutine.resume(coroutine.create(function()
+				local S = Create("Sound"){
+					Volume = vol,
+					Pitch = pit or 1,
+					SoundId = id,
+					Parent = par or workspace,
+				}
+				wait() 
+				S:play() 
+				game:GetService("Debris"):AddItem(S, 6)
+			end))
+		end;
+	};
+	
+	["ParticleEmitter"] = {
+		Create = function(Parent, Color1, Color2, LightEmission, Size, Texture, Transparency, ZOffset, Accel, Drag, LockedToPart, VelocityInheritance, EmissionDirection, Enabled, LifeTime, Rate, Rotation, RotSpeed, Speed, VelocitySpread)
+			local fp = Create("ParticleEmitter"){
+				Parent = Parent,
+				Color = ColorSequence.new(Color1, Color2),
+				LightEmission = LightEmission,
+				Size = Size,
+				Texture = Texture,
+				Transparency = Transparency,
+				ZOffset = ZOffset,
+				Acceleration = Accel,
+				Drag = Drag,
+				LockedToPart = LockedToPart,
+				VelocityInheritance = VelocityInheritance,
+				EmissionDirection = EmissionDirection,
+				Enabled = Enabled,
+				Lifetime = LifeTime,
+				Rate = Rate,
+				Rotation = Rotation,
+				RotSpeed = RotSpeed,
+				Speed = Speed,
+				VelocitySpread = VelocitySpread,
+			}
+			return fp
+		end;
+	};
+
+	CreateTemplate = {
+	
+	};
+}
+
+--[[
+		Thanks for using Build-To-Lua by jarredbcv.
+]]--
+
+New = function(Object, Parent, Name, Data)
+	local Object = Instance.new(Object)
+	for Index, Value in pairs(Data or {}) do
+		Object[Index] = Value
+	end
+	Object.Parent = Parent
+	Object.Name = Name
+	return Object
+end
+	
+game.ContentProvider:Preload("rbxassetid://341336485")
+game.ContentProvider:Preload("rbxassetid://196969716") -- Trail Texutre
+ game.ContentProvider:Preload("rbxassetid://341336307") 
+game.ContentProvider:Preload("rbxassetid://199149409")
+game.ContentProvider:Preload("rbxassetid://512594351")
+
+	local hello = Instance.new("Sound")
+	hello.SoundId = "rbxassetid://515593602"
+	hello.PlaybackSpeed = 1
+	hello.Volume = 2
+	hello.Parent = Head
+        hello.Looped = true
+        hello:Play()
+
+
+Faild = New("Model",Character,"Faild",{})
+WristPart2 = New("Part",Faild,"WristPart2",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.Fabric,Size = Vector3.new(0.449999899, 0.549999952, 1.05000031),CFrame = CFrame.new(16.675005, -0.324995995, 12.725008, 1, 0, 0, 0, 1, 0, 0, 0, 1),Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
+weld = New("Weld",WristPart2,"weld",{Part0 = WristPart2,Part1 = RightArm,C0 = CFrame.new(-0.300600052, 0.324995995, 0.0107479095, 1, 0, 0, 0, 1, 0, 0, 0, 1),})
+FistPart2 = New("Part",Faild,"FistPart2",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.Fabric,Size = Vector3.new(0.599999964, 0.99999994, 1.05000031),CFrame = CFrame.new(16.675005, -0.324995995, 12.725008, 1, 0, 0, 0, 1, 0, 0, 0, 1),Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
+weld = New("Weld",FistPart2,"weld",{Part0 = FistPart2,Part1 = RightArm,C0 = CFrame.new(-0.300600052, 0.324995995, 0.0107479095, 1, 0, 0, 0, 1, 0, 0, 0, 1),})
+pone = New("Part",Faild,"pone",{BrickColor = BrickColor.new("Maroon"),Material = Enum.Material.Granite,Size = Vector3.new(0.15000008, 0.949999988, 0.300000072),CFrame = CFrame.new(16.8750076, -0.574990988, 12.7250061, 0, 0, 1, 1, 0, 0, 0, 1, 0),Color = Color3.new(0.458824, 0, 0),})
+weld = New("Weld",pone,"weld",{Part0 = pone,Part1 = pthree,C0 = CFrame.new(0.299998879, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),})
+weld = New("Weld",pone,"weld",{Part0 = pone,Part1 = ptwo,C0 = CFrame.new(0.599999845, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),})
+pthree = New("Part",Faild,"pthree",{BrickColor = BrickColor.new("Maroon"),Material = Enum.Material.Granite,Size = Vector3.new(0.15000008, 0.949999988, 0.300000072),CFrame = CFrame.new(16.8750076, -0.274992108, 12.7250061, 0, 0, 1, 1, 0, 0, 0, 1, 0),Color = Color3.new(0.458824, 0, 0),})
+ptwo = New("Part",Faild,"ptwo",{BrickColor = BrickColor.new("Maroon"),Material = Enum.Material.Granite,Size = Vector3.new(0.15000008, 0.949999988, 0.300000072),CFrame = CFrame.new(16.8750076, 0.0250088573, 12.7250061, 0, 0, 1, 1, 0, 0, 0, 1, 0),Color = Color3.new(0.458824, 0, 0),})
+Shadow = New("Part",Character,"Shadow",{BrickColor = BrickColor.new("Really black"),Size = Vector3.new(1.20000005, 0.600000024, 1),CFrame = CFrame.new(68.5999985, 0.700013041, 9.89999962, 1, 0, 0, 0, 1, 0, 0, 0, 1),Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
+Mesh = New("SpecialMesh",Shadow,"Mesh",{Scale = Vector3.new(1.25999999, 1.5, 1.25999999),})
+Weld = New("ManualWeld",Shadow,"Weld",{Part0 = Shadow,Part1 = Character.Head,C1 = CFrame.new(0, 0.200000048, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),})
+Shadow.Transparency = 1
+
+function rayCast(Position, Direction, Range, Ignore)
+	return game:service("Workspace"):FindPartOnRay(Ray.new(Position, Direction.unit * (Range or 999.999)), Ignore) 
+end 
+
+FindNearestTorso = function(pos)
+	local list = (game.Workspace:children())
+	local torso = nil
+	local dist = 1000
+	local temp, human, temp2 = nil, nil, nil
+	for x = 1, #list do
+		temp2 = list[x]
+		if temp2.className == "Model" and temp2.Name ~= Character.Name then
+			temp = temp2:findFirstChild("torso")
+			human = temp2:findFirstChild("Humanoid")
+			if temp ~= nil and human ~= nil and human.Health > 0 and (temp.Position - pos).magnitude < dist then
+				local dohit = true
+				if dohit == true then
+					torso = temp
+					dist = (temp.Position - pos).magnitude
+				end
+			end
+		end
+	end
+	return torso, dist
+end
+
+function Damage(Part, hit, minim, maxim, knockback, Type, Property, Delay, HitSound, HitPitch)
+	
+end
+
+function ShowDamage(Pos, Text, Time, Color)
+	local Rate = (1 / 30)
+	local Pos = (Pos or Vector3.new(0, 0, 0))
+	local Text = (Text or "")
+	local Time = (Time or 2)
+	local Color = (Color or Color3.new(1, 0, 1))
+	local EffectPart = CFuncs.Part.Create(workspace, "SmoothPlastic", 0, 1, BrickColor.new(Color), "Effect", Vector3.new(0, 0, 0))
+	EffectPart.Anchored = true
+	local BillboardGui = Create("BillboardGui"){
+		Size = UDim2.new(3, 0, 3, 0),
+		Adornee = EffectPart,
+		Parent = EffectPart,
+	}
+	local TextLabel = Create("TextLabel"){
+		BackgroundTransparency = 1,
+		Size = UDim2.new(1, 0, 1, 0),
+		Text = Text,
+		Font = "SciFi",
+		TextColor3 = Color,
+		TextScaled = true,
+		Parent = BillboardGui,
+	}
+	game.Debris:AddItem(EffectPart, (Time))
+	EffectPart.Parent = game:GetService("Workspace")
+	delay(0, function()
+		local Frames = (Time / Rate)
+		for Frame = 1, Frames do
+			wait(Rate)
+			local Percent = (Frame / Frames)
+			EffectPart.CFrame = CFrame.new(Pos) + Vector3.new(0, Percent, 0)
+			TextLabel.TextTransparency = Percent
+		end
+		if EffectPart and EffectPart.Parent then
+			EffectPart:Destroy()
+		end
+	end)
+end
+
+function MagnitudeDamage(Part, Magnitude, MinimumDamage, MaximumDamage, KnockBack, Type, HitSound, HitPitch)
+	for _, c in pairs(workspace:children()) do
+		local hum = c:findFirstChild("Humanoid")
+		if hum ~= nil then
+			local head = c:findFirstChild("Torso")
+			if head ~= nil then
+				local targ = head.Position - Part.Position
+				local mag = targ.magnitude
+				if mag <= Magnitude and c.Name ~= Player.Name then 
+					Damage(head, head, MinimumDamage, MaximumDamage, KnockBack, Type, RootPart, .1, "rbxassetid://" .. HitSound, HitPitch)
+				end
+			end
+		end
+	end
+end
+
+EffectModel = Create("Model"){
+	Parent = Character,
+	Name = "Effects",
+}
+
+Effects = {
+	Block = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay, Type)
+			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("BlockMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			if Type == 1 or Type == nil then
+				table.insert(Effects, {
+					prt,
+					"Block1",
+					delay,
+					x3,
+					y3,
+					z3,
+					msh
+				})
+			elseif Type == 2 then
+				table.insert(Effects, {
+					prt,
+					"Block2",
+					delay,
+					x3,
+					y3,
+					z3,
+					msh
+				})
+			end
+		end;
+	};
+
+		Cylinder = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("CylinderMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Cylinder",
+				delay,
+				x3,
+				y3,
+				z3,
+				msh
+			})
+		end;
+	};
+	Head = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("SpecialMesh", prt, "Head", "nil", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Cylinder",
+				delay,
+				x3,
+				y3,
+				z3,
+				msh
+			})
+		end;
+	};
+	
+	Sphere = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("SpecialMesh", prt, "Sphere", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Cylinder",
+				delay,
+				x3,
+				y3,
+				z3,
+				msh
+			})
+		end;
+	};
+	
+	Elect = {
+		Create = function(cff, x, y, z)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, BrickColor.new("Lime green"), "Part", Vector3.new(1, 1, 1))
+			prt.Anchored = true
+			prt.CFrame = cff * CFrame.new(math.random(-x, x), math.random(-y, y), math.random(-z, z))
+			prt.CFrame = CFrame.new(prt.Position)
+			game:GetService("Debris"):AddItem(prt, 2)
+			local xval = math.random() / 2
+			local yval = math.random() / 2
+			local zval = math.random() / 2
+			local msh = CFuncs.Mesh.Create("BlockMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(xval, yval, zval))
+			table.insert(Effects, {
+				prt,
+				"Elec",
+				0.1,
+				x,
+				y,
+				z,
+				xval,
+				yval,
+				zval
+			})
+		end;
+
+	};
+	
+	Ring = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("SpecialMesh", prt, "FileMesh", "rbxassetid://3270017", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Cylinder",
+				delay,
+				x3,
+				y3,
+				z3,
+				msh
+			})
+		end;
+	};
+
+
+	Wave = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("SpecialMesh", prt, "FileMesh", "rbxassetid://20329976", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Cylinder",
+				delay,
+				x3,
+				y3,
+				z3,
+				msh
+			})
+		end;
+	};
+
+	Break = {
+		Create = function(brickcolor, cframe, x1, y1, z1)
+			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new(0.5, 0.5, 0.5))
+			prt.Anchored = true
+			prt.CFrame = cframe * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50))
+			local msh = CFuncs.Mesh.Create("SpecialMesh", prt, "Sphere", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			local num = math.random(10, 50) / 1000
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Shatter",
+				num,
+				prt.CFrame,
+				math.random() - math.random(),
+				0,
+				math.random(50, 100) / 100
+			})
+		end;
+	};
+	
+	Fire = {
+		Create = function(brickcolor, cframe, x1, y1, z1, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			msh = CFuncs.Mesh.Create("BlockMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Fire",
+				delay,
+				1,
+				1,
+				1,
+				msh
+			})
+		end;
+	};
+
+	Blast = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay, Part)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("SpecialMesh", prt, "FileMesh", "rbxassetid://1323306", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Block4",
+				delay,
+				x3,
+				y3,
+				z3,
+				msh,
+				Part
+			})
+		end
+	},
+
+
+	FireWave = {
+		Create = function(brickcolor, cframe, x1, y1, z1)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 1, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			msh = CFuncs.Mesh.Create("BlockMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			local d = Create("Decal"){
+				Parent = prt,
+				Texture = "rbxassetid://26356434",
+				Face = "Top",
+			}
+			local d = Create("Decal"){
+				Parent = prt,
+				Texture = "rbxassetid://26356434",
+				Face = "Bottom",
+			}
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"FireWave",
+				1,
+				30,
+				math.random(400, 600) / 100,
+				msh
+			})
+		end;
+	};
+	
+	Ice = {
+		Create = function(brickcolor, cframe, x1, y1, z1, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			msh = CFuncs.Mesh.Create("SpecialMesh", prt, "FileMesh", "rbxassetid://1778999", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			for i = 1, 5 do
+				Effects.Break.Create(BrickColor.new(brickcolor), prt.CFrame * CFrame.new(0, 4, 0), math.random(20, 80) / 100, math.random(2, 10), math.random(20, 80) / 100)
+			end
+			for i = 1, 15 do
+				local freezepart = CFuncs.Part.Create(EffectModel, "Neon", 0.5, 0.5, BrickColor.new("Bright blue"), "Ice Part", Vector3.new(math.random(1, 2) + math.random(), math.random(1, 2) + math.random(), math.random(1, 2) + math.random()))
+				freezepart.Anchored = true
+				freezepart.CanCollide = true
+				freezepart.CFrame = cframe * CFrame.new(math.random(-300, 300) / 100, 4, math.random(-300, 300) / 100) * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50))
+				game:GetService("Debris"):AddItem(freezepart, 10)
+			end
+			table.insert(Effects, {
+				prt,
+				"Ice",
+				delay,
+				msh,
+				1,
+				.2
+			})
+		end
+	},
+
+	Lightning = {
+		Create = function(p0, p1, tym, ofs, col, th, tra, last)
+			local magz = (p0 - p1).magnitude
+			local curpos = p0
+			local trz = {
+				-ofs,
+				ofs
+			}
+			for i = 1, tym do
+				local li = CFuncs.Part.Create(EffectModel, "Neon", 0, tra or 0.4, col, "Ref", Vector3.new(th, th, magz / tym))
+				local ofz = Vector3.new(trz[math.random(1, 2)], trz[math.random(1, 2)], trz[math.random(1, 2)])
+				local trolpos = CFrame.new(curpos, p1) * CFrame.new(0, 0, magz / tym).p + ofz
+				li.Material = "Neon"
+				if tym == i then
+					local magz2 = (curpos - p1).magnitude
+					li.Size = Vector3.new(th, th, magz2)
+					li.CFrame = CFrame.new(curpos, p1) * CFrame.new(0, 0, -magz2 / 2)
+					table.insert(Effects, {
+						li,
+						"Disappear",
+						last
+					})
+				else
+					do
+						do
+							li.CFrame = CFrame.new(curpos, trolpos) * CFrame.new(0, 0, magz / tym / 2)
+							curpos = li.CFrame * CFrame.new(0, 0, magz / tym / 2).p
+							game.Debris:AddItem(li, 10)
+							table.insert(Effects, {
+								li,
+								"Disappear",
+								last
+							})
+						end
+					end
+				end
+			end
+		end
+	};
+
+	EffectTemplate = {
+
+	};
+}
+
+	Laser = function(brickcolor, reflect, cframe, x1, y1, z1, x3, y3, z3, delay)
+	
+	local prt = CFuncs.Part.Create(EffectModel, "Neon", reflect, 0, brickcolor, "Effect", Vector3.new(0.5, 0.5, 0.5))
+	prt.Anchored = true
+	prt.CFrame = cframe
+	prt.Material = "Neon"
+	local msh = CFuncs.Mesh.Create("CylinderMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+	game:GetService("Debris"):AddItem(prt, 10)
+	coroutine.resume(coroutine.create(function(Part, Mesh)
+		
+		for i = 0, 1, delay do
+			swait()
+			Part.Transparency = i
+			Mesh.Scale = Mesh.Scale + Vector3.new(x3, y3, z3)
+		end
+		Part.Parent = nil
+	end
+), prt, msh)
+end
+
+	shoot = function(mouse, partt, SpreadAmount, multiply)
+	
+	local SpreadVectors = Vector3.new(math.random(-SpreadAmount, SpreadAmount), math.random(-SpreadAmount, SpreadAmount), math.random(-SpreadAmount, SpreadAmount))
+	local MainPos = partt.Position
+	local MainPos2 = mouse.Hit.p + SpreadVectors
+	local MouseLook = CFrame.new((MainPos + MainPos2) / 2, MainPos2)
+	local speed = 90
+	local num = 20
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1.5)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1.05)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1.5)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1)
+	coroutine.resume(coroutine.create(function()
+		
+		repeat
+			swait()
+			local hit, pos = rayCast(MainPos, MouseLook.lookVector, speed, RootPart.Parent)
+			local mag = (MainPos - pos).magnitude
+			Laser(BrickColor.new("Crimson"), 0.35, CFrame.new((MainPos + pos) / 2, pos) * CFrame.Angles(1.57, 0, 0), 1, mag * (speed / (speed / 2)), 1, -0.5, 0, -0.5, 0.15)
+			MainPos = MainPos + MouseLook.lookVector * speed
+			num = num - 1
+			MouseLook = MouseLook * CFrame.Angles(math.rad(-1), 0, 0)
+			if hit ~= nil then
+				num = 0
+				local refpart = CFuncs.Part.Create(effect, "SmoothPlastic", 0, 1, "Really black", "Effect", Vector3.new())
+				refpart.Anchored = true
+				refpart.CFrame = CFrame.new(pos)
+				game:GetService("Debris"):AddItem(refpart, 2)
+			end
+			do
+				if num <= 0 then
+					local refpart = CFuncs.Part.Create(effect, "SmoothPlastic", 0, 1, "Really black", "Effect", Vector3.new())
+					refpart.Anchored = true
+					refpart.CFrame = CFrame.new(pos)
+					Effects.Block.Create(BrickColor.new('Crimson'), refpart.CFrame, 10, 10, 10, 5, 5, 5, .1)
+					if hit ~= nil then
+						MagnitudeDamage(refpart, 5, 5 * multiply, 15 * multiply, 0, "Normal", "231917784", 1)
+					end
+					game:GetService("Debris"):AddItem(refpart, 0)
+				end
+			end
+		until num <= 0
+	end
+))
+end
+
+	shoot2 = function(mouse, partt, SpreadAmount, multiply)
+	
+	local SpreadVectors = Vector3.new(math.random(-SpreadAmount, SpreadAmount), math.random(-SpreadAmount, SpreadAmount), math.random(-SpreadAmount, SpreadAmount))
+	local MainPos = partt.Position
+	local MainPos2 = mouse.Hit.p + SpreadVectors
+	local MouseLook = CFrame.new((MainPos + MainPos2) / 2, MainPos2)
+	local speed = 500
+	local num = 30
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1.5)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1.05)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1.5)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1)
+	coroutine.resume(coroutine.create(function()
+		
+		repeat
+			swait()
+			local hit, pos = rayCast(MainPos, MouseLook.lookVector, speed, RootPart.Parent)
+			local mag = (MainPos - pos).magnitude
+			Laser(BrickColor.new("New Yeller"), 0.35, CFrame.new((MainPos + pos) / 2, pos) * CFrame.Angles(1.57, 0, 0), 1, mag * (speed / (speed / 2)), 1, -0.5, 0, -0.5, 0.15)
+			MainPos = MainPos + MouseLook.lookVector * speed
+			num = num - 1
+			MouseLook = MouseLook * CFrame.Angles(math.rad(-1), 0, 0)
+			if hit ~= nil then
+				num = 0
+				local refpart = CFuncs.Part.Create(effect, "SmoothPlastic", 0, 1, "Really black", "Effect", Vector3.new())
+				refpart.Anchored = true
+				refpart.CFrame = CFrame.new(pos)
+				game:GetService("Debris"):AddItem(refpart, 2)
+			end
+			do
+				if num <= 0 then
+					local refpart = CFuncs.Part.Create(effect, "SmoothPlastic", 0, 1, "Really black", "Effect", Vector3.new())
+					refpart.Anchored = true
+					refpart.CFrame = CFrame.new(pos)
+					Effects.Block.Create(BrickColor.new('New Yeller'), refpart.CFrame, 10, 10, 10, 5, 5, 5, .1)
+					if hit ~= nil then
+						MagnitudeDamage(refpart, 5, 5 * multiply, 15 * multiply, 0, "Normal", "231917784", 1)
+					end
+					game:GetService("Debris"):AddItem(refpart, 0)
+				end
+			end
+		until num <= 0
+	end
+))
+end
+
+	shoot3 = function(mouse, partt, SpreadAmount, multiply)
+	
+	local SpreadVectors = Vector3.new(math.random(-SpreadAmount, SpreadAmount), math.random(-SpreadAmount, SpreadAmount), math.random(-SpreadAmount, SpreadAmount))
+	local MainPos = partt.Position
+	local MainPos2 = FistPart2.Position + SpreadVectors
+	local MouseLook = CFrame.new((MainPos + MainPos2) / 2, MainPos2)
+	local speed = 1000
+	local num = 30
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1.5)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1.05)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1.5)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1)
+	coroutine.resume(coroutine.create(function()
+		
+		repeat
+			swait()
+			local hit, pos = rayCast(MainPos, MouseLook.lookVector, speed, RootPart.Parent)
+			local mag = (MainPos - pos).magnitude
+			Laser(BrickColor.new("Crimson"), 0.35, CFrame.new((MainPos + pos) / 2, pos) * CFrame.Angles(1.57, 0, 0), 1, mag * (speed / (speed / 2)), 1, -0.5, 0, -0.5, 0.15)
+			MainPos = MainPos + MouseLook.lookVector * speed
+			num = num - 1
+			MouseLook = MouseLook * CFrame.Angles(math.rad(-1), 0, 0)
+			if hit ~= nil then
+				num = 0
+				local refpart = CFuncs.Part.Create(effect, "SmoothPlastic", 0, 1, "Really black", "Effect", Vector3.new())
+				refpart.Anchored = true
+				refpart.CFrame = CFrame.new(pos)
+				game:GetService("Debris"):AddItem(refpart, 2)
+			end
+			do
+				if num <= 0 then
+					local refpart = CFuncs.Part.Create(effect, "SmoothPlastic", 0, 1, "Really black", "Effect", Vector3.new())
+					refpart.Anchored = true
+					refpart.CFrame = CFrame.new(pos)
+					Effects.Block.Create(BrickColor.new('Crimson'), refpart.CFrame, 10, 10, 10, 5, 5, 5, .1)
+					if hit ~= nil then
+						MagnitudeDamage(refpart, 5, 5 * multiply, 15 * multiply, 0, "Normal", "231917784", 1)
+					end
+					game:GetService("Debris"):AddItem(refpart, 0)
+				end
+			end
+		until num <= 0
+	end
+))
+end
+
+	shoot4 = function(mouse, partt, SpreadAmount, multiply)
+	
+	local SpreadVectors = Vector3.new(math.random(-SpreadAmount, SpreadAmount), math.random(-SpreadAmount, SpreadAmount), math.random(-SpreadAmount, SpreadAmount))
+	local MainPos = partt.Position
+	local MainPos2 = FistPart2.Position + SpreadVectors
+	local MouseLook = CFrame.new((MainPos + MainPos2) / 2, MainPos2)
+	local speed = 5000
+	local num = 50
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1.5)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1.5)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", partt, 1, 1)
+	coroutine.resume(coroutine.create(function()
+		
+		repeat
+			swait()
+			local hit, pos = rayCast(MainPos, MouseLook.lookVector, speed, RootPart.Parent)
+			local mag = (MainPos - pos).magnitude
+			Laser(BrickColor.new("Royal purple"), 0.35, CFrame.new((MainPos + pos) / 2, pos) * CFrame.Angles(1.57, 0, 0), 1, mag * (speed / (speed / 2)), 1, -0.5, 0, -0.5, 0.15)
+			MainPos = MainPos + MouseLook.lookVector * speed
+			num = num - 1
+			MouseLook = MouseLook * CFrame.Angles(math.rad(-1), 0, 0)
+			if hit ~= nil then
+				num = 0
+				local refpart = CFuncs.Part.Create(effect, "SmoothPlastic", 0, 1, "Really black", "Effect", Vector3.new())
+				refpart.Anchored = true
+				refpart.CFrame = CFrame.new(pos)
+				game:GetService("Debris"):AddItem(refpart, 2)
+			end
+			do
+				if num <= 0 then
+					local refpart = CFuncs.Part.Create(effect, "SmoothPlastic", 0, 1, "Really black", "Effect", Vector3.new())
+					refpart.Anchored = true
+					refpart.CFrame = CFrame.new(pos)
+					Effects.Block.Create(BrickColor.new('Royal purple'), refpart.CFrame, 10, 10, 10, 5, 5, 5, .1)
+					if hit ~= nil then
+						MagnitudeDamage(refpart, 5, 5 * multiply, 15 * multiply, 0, "Normal", "231917784", 1)
+					end
+					game:GetService("Debris"):AddItem(refpart, 0)
+				end
+			end
+		until num <= 0
+	end
+))
+end
+
+function attackone()
+	attack = true
+	local con = LeftArm.Touched:connect(function(hit)
+		Damage(Torso, hit, 10, 20, math.random(1, 5), "Normal", RootPart, .2, "rbxassetid://199149409", .5)
+	end)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(7.67409801e-07, -0, -0.400000095, 0.965926528, 0, -0.258819938, 0, 0.999993443, 0, 0.258819938, 0, 0.965926528) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.0258822255, 1.49999022, -0.0965935141, 0.965926886, 0, 0.258820027, 0, 1, 0, -0.258820027, 0, 0.965926886) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.61708832, 0.00815722346, 0.239493698, 0.965926528, -0.212013021, 0.148453072, 0, 0.573576391, 0.819152832, -0.258819938, -0.791241229, 0.554032862) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.89467454, 0.865976274, -1.26875269, 0.890719235, -0.441198587, -0.109383218, -0.271657288, -0.323744506, -0.906306863, 0.364449203, 0.836979628, -0.408220381) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.586488187, -1.99996758, 0.256958455, 0.994850099, -0.044940725, -0.0908505917, 0.0593876205, 0.984804809, 0.163165078, 0.0821370184, -0.16772081, 0.982402742) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.57562083, -1.83165812, -0.41999656, 0.998983264, 0.0449439511, -0.00379736722, -0.044943735, 0.98480916, -0.167732373, -0.00379867852, 0.167732686, 0.985827267) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+con:Disconnect()
+	attack = false
+end
+
+function attacktwo()
+	attack = true
+	local con = LeftLeg.Touched:connect(function(hit)
+		Damage(Torso, hit, 15, 25, math.random(1, 5), "Normal", RootPart, .2, "rbxassetid://199149409", 1)
+	end)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0.618567348, -1.36871898, -2.40339231, 0.9996925, 0.0242785811, 0.00589125603, -0.00339207938, 0.365510643, -0.930799246, -0.0247520506, 0.930490196, 0.365481019) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0106995199, 1.1996901, -0.38240236, 0.992877901, 0.114476554, 0.0331628025, -0.10970524, 0.769073725, 0.629672945, 0.0465782918, -0.628820658, 0.776157141) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.08655715, 0.335366756, 0.899875283, -0.0534515232, -0.0712785274, 0.996026516, -0.997511387, -0.042085439, -0.0565430224, 0.0459471941, -0.996567607, -0.0688510984) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5648247, 0.610865116, 0.88731432, 0.991986752, 0.0894303024, 0.089275077, -0.0544064045, -0.335386127, 0.940506339, 0.114051498, -0.937825561, -0.327831298) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.390845776, -1.70229328, 0.310007572, 0.99198848, 0.0892756805, -0.0894284397, -0.0544069707, 0.940504789, 0.335391492, 0.114050664, -0.327835619, 0.937826276) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.467953414, -1.79987025, -1.03504324, 0.991990924, -0.0813037753, -0.0967237577, -0.0544032604, 0.416079342, -0.907700419, 0.114044107, 0.905686736, 0.408321202) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+con:Disconnect()
+	attack = false
+end
+
+function attackthree()
+	attack = true
+	local con = RightArm.Touched:connect(function(hit)
+		Damage(Torso, hit, 20, 35, math.random(1, 5), "Normal", RootPart, .2, "rbxassetid://199149409", .5)
+	end)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, 0, -0, 0.984810531, -9.12696123e-08, -0.17364873, -0.0151346158, 0.996194661, -0.0858323425, 0.172988653, 0.0871566236, 0.981061578) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.0227019228, 1.49429202, -0.128748506, 0.984810531, -0.0151346158, 0.172988653, -9.12696123e-08, 0.996194661, 0.0871566236, -0.17364873, -0.0858323425, 0.981061578) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.68132329, 0.699578047, 0.217995524, -0.269498229, -0.547550142, 0.792187929, 0.962252557, -0.12068373, 0.243938193, -0.0379642919, 0.82802397, 0.559405088) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.52031291, -0.029903695, 0.0160383582, 0.984807014, 0.0868248194, 0.150384411, -1.21071935e-07, 0.866025865, -0.500002086, -0.173647985, 0.492405504, 0.85286814) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.492791414, -1.74665046, -0.084613204, 0.984807014, -0.0996017307, 0.142244592, -6.70552254e-08, 0.819152594, 0.573578596, -0.173647985, -0.564866483, 0.806704998) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.505381286, -1.97060049, 0.0132237077, 0.984808803, 0.0151339062, 0.172987178, 3.09199095e-07, 0.99619472, -0.0871549547, -0.17364721, 0.0858308673, 0.981059968) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0.605665565, -0.170661986, -2.26038265, 0.97623235, -0.111007221, -0.186149672, 0.164619952, 0.938437879, 0.303701729, 0.140976816, -0.327127397, 0.934407413) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.0227006376, 1.49429286, -0.12874949, 0.907837749, 0.0449439585, 0.41690743, 0.0669896528, 0.965925336, -0.250003517, -0.413937241, 0.254890829, 0.873892605) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.53277278, 0.630477905, -0.478894204, -0.26949504, 0.0058504045, 0.962983429, 0.962253451, 0.0410573184, 0.269040912, -0.0379613042, 0.999138534, -0.0166930854) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.52031672, -0.0299026817, 0.016039744, 0.984808147, 0.111620151, 0.133022487, -5.36441803e-07, 0.766042829, -0.642789483, -0.173649177, 0.633023858, 0.754404962) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.615134656, -1.87373388, 0.609190404, 0.984812021, -0.142245084, 0.0996006206, -9.46223736e-07, 0.573572755, 0.8191607, -0.173650339, -0.806709468, 0.564861596) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.62647289, -1.90959156, -0.673518062, 0.984808266, -0.0301534235, 0.171007901, 5.21540642e-08, 0.984807789, 0.173648447, -0.173646063, -0.171010435, 0.969846487) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0.69999969, -0.567805409, -3.52741432, 0.97622925, -0.0406466275, -0.212890327, 0.16461888, 0.777974665, 0.606352627, 0.140976727, -0.626987994, 0.766170204) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.0389402211, 1.49167383, 0.152227119, 0.965979099, -0.015135929, 0.258162975, 0.0812744945, 0.965482652, -0.247504205, -0.245504856, 0.260070741, 0.933859527) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.294029593, 1.30594206, -1.4316293, 0.0561224371, 0.330903292, 0.941990852, 0.686127126, -0.698188663, 0.204380453, 0.725318313, 0.634852469, -0.26622501) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.44325757, 0.352774143, 0.45478338, 0.98480463, -0.167728797, 0.0449481606, 0.0593858808, 0.568564653, 0.82049787, -0.163176805, -0.80535835, 0.569887161) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.412360877, -1.26817834, -1.19271553, 0.984804213, -0.0151330233, 0.172990888, 0.0593900979, 0.965475559, -0.253640682, -0.163177982, 0.260064244, 0.951709747) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.584387362, -1.21203303, -1.05960286, 0.984804869, 0.142241582, 0.0996007919, 0.059390679, 0.263080806, -0.962949514, -0.163173974, 0.954231262, 0.25063327) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+con:Disconnect()
+	attack = false
+end
+
+function attackfour()
+	attack = true
+	local con = RightLeg.Touched:connect(function(hit)
+		Damage(Torso, hit, 10, 20, math.random(1, 5), "Normal", RootPart, .2, "rbxassetid://199149409", 1)
+	end)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(7.74860382e-07, 0.999999523, -1.29999518, 0.707106411, 0, 0.707105577, 0, 0.999999285, 0, -0.707105517, 0, 0.707105339) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.49999988, 0, 0.707108319, 0, -0.707105994, 0, 1, 0, 0.707106054, 0, 0.707107246) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.39907885, 0.209114939, 0.234230652, 0.996192753, 0.0560370982, -0.0667644739, -1.26320847e-05, 0.766052365, 0.642778277, 0.0871652365, -0.640329659, 0.76313591) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.55390191, 0.13249144, 0.339222729, 0.907673001, 0.330366343, 0.258819818, -0.342020899, 0.939692259, -8.26906614e-08, -0.2432096, -0.0885212421, 0.965925455) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.26301897, -1.02408922, -1.12641656, 0.698963225, -0.704414129, 0.123486295, 0.257842243, 0.0871615782, -0.962247491, 0.667057574, 0.704414546, 0.242550358) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.639584064, -1.57573748, -0.0473095775, 0.996192813, -0.0616351664, 0.0616365373, -1.46377852e-06, 0.707102835, 0.707110763, -0.0871654153, -0.704418063, 0.704409957) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-1.40070915e-06, -0.0999997258, -2.25000334, 0.984805524, 0, 0.173658147, 0, 0.999999285, 0, -0.173658118, 0, 0.984806836) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.86264515e-09, 1.50000024, 1.49011612e-08, 0.984805703, 0.0151354084, -0.172996297, -9.90858718e-15, 0.99619478, 0.087156862, 0.173657134, -0.0858326852, 0.981059611) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.51253664, -0.0087511912, 0.0820311904, 0.968791723, -0.211286023, 0.129615322, 0.144529387, 0.906315029, 0.397119969, -0.201378837, -0.365993708, 0.908568621) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.0783236, 0.132491529, 1.16914785, 0.604030609, 0.219849378, 0.766038716, -0.342020899, 0.939692259, -8.26906614e-08, -0.719841242, -0.262001157, 0.642796636) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.766865075, -1.97876573, -0.720883608, 0.955168366, -0.284950703, -0.0803851709, 0.257842273, 0.9340294, -0.247196019, 0.145521194, 0.215386644, 0.965626001) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.403402478, -1.97303379, 0.115126908, 0.766043901, -0.219845176, 0.60402292, -1.12953171e-06, 0.939692914, 0.342019767, -0.642788291, -0.262003183, 0.719846606) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+con:Disconnect()
+	attack = false
+end
+
+function skill1()
+attack = true
+Humanoid.WalkSpeed = 0
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.100000001, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.46526992, -0.196961537, 1, 0, 0, 0, 0.984807611, 0.173648611, 0, -0.173648611, 0.984807611) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.83582497, 0.579300404, -0, -0.573569059, -0.819157839, 0, 0.81915772, -0.573571205, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.8890444, 0.677628756, 0, -0.57356447, 0.819154739, 0, -0.819157898, -0.573574424, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.647720933, -1.87395251, 4.1120029e-07, 0.984808207, -0.173645422, -2.4959445e-06, 0.173645481, 0.984808147, -2.90200114e-06, 2.9578805e-06, 2.42344368e-06, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.49999997, -1.89999998, 1.68392035e-07, 1, 7.4024689e-07, 8.24771269e-06, -7.40253142e-07, 1, 7.57239889e-07, -8.24771269e-06, -7.57245971e-07, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.100000001, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(5.28991222e-07, 1.46527004, -0.196961462, 0.819153666, -9.58142081e-08, -0.573574185, 0.0996004194, 0.98480773, 0.142244607, 0.564860404, -0.173648417, 0.806709051) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.83582497, 0.579300404, -0, -0.573569059, -0.819157839, 0, 0.81915772, -0.573571205, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.8890444, 0.677628756, 0, -0.57356447, 0.819154739, 0, -0.819157898, -0.573574424, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.647720933, -1.87395251, 4.1120029e-07, 0.984808207, -0.173645422, -2.4959445e-06, 0.173645481, 0.984808147, -2.90200114e-06, 2.9578805e-06, 2.42344368e-06, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.49999997, -1.89999998, 1.68392035e-07, 1, 7.4024689e-07, 8.24771269e-06, -7.40253142e-07, 1, 7.57239889e-07, -8.24771269e-06, -7.57245971e-07, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.100000001, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-4.17232513e-07, 1.4652704, -0.196961567, 0.866024971, -1.92976063e-06, 0.500001013, -0.0868244022, 0.984807312, 0.150387615, -0.492404938, -0.17365171, 0.852867246) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.83582497, 0.579300404, -0, -0.573569059, -0.819157839, 0, 0.81915772, -0.573571205, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.8890444, 0.677628756, 0, -0.57356447, 0.819154739, 0, -0.819157898, -0.573574424, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.647720933, -1.87395251, 4.1120029e-07, 0.984808207, -0.173645422, -2.4959445e-06, 0.173645481, 0.984808147, -2.90200114e-06, 2.9578805e-06, 2.42344368e-06, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.49999997, -1.89999998, 1.68392035e-07, 1, 7.4024689e-07, 8.24771269e-06, -7.40253142e-07, 1, 7.57239889e-07, -8.24771269e-06, -7.57245971e-07, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.100000001, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(5.28991222e-07, 1.46527004, -0.196961462, 0.819153666, -9.58142081e-08, -0.573574185, 0.0996004194, 0.98480773, 0.142244607, 0.564860404, -0.173648417, 0.806709051) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.83582497, 0.579300404, -0, -0.573569059, -0.819157839, 0, 0.81915772, -0.573571205, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.8890444, 0.677628756, 0, -0.57356447, 0.819154739, 0, -0.819157898, -0.573574424, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.647720933, -1.87395251, 4.1120029e-07, 0.984808207, -0.173645422, -2.4959445e-06, 0.173645481, 0.984808147, -2.90200114e-06, 2.9578805e-06, 2.42344368e-06, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.49999997, -1.89999998, 1.68392035e-07, 1, 7.4024689e-07, 8.24771269e-06, -7.40253142e-07, 1, 7.57239889e-07, -8.24771269e-06, -7.57245971e-07, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.100000001, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-4.17232513e-07, 1.4652704, -0.196961567, 0.866024971, -1.92976063e-06, 0.500001013, -0.0868244022, 0.984807312, 0.150387615, -0.492404938, -0.17365171, 0.852867246) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.83582497, 0.579300404, -0, -0.573569059, -0.819157839, 0, 0.81915772, -0.573571205, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.8890444, 0.677628756, 0, -0.57356447, 0.819154739, 0, -0.819157898, -0.573574424, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.647720933, -1.87395251, 4.1120029e-07, 0.984808207, -0.173645422, -2.4959445e-06, 0.173645481, 0.984808147, -2.90200114e-06, 2.9578805e-06, 2.42344368e-06, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.49999997, -1.89999998, 1.68392035e-07, 1, 7.4024689e-07, 8.24771269e-06, -7.40253142e-07, 1, 7.57239889e-07, -8.24771269e-06, -7.57245971e-07, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+	attack = false
+end
+
+function skill2()
+	attack = true
+Humanoid.WalkSpeed = 0
+	local con = RightArm.Touched:connect(function(hit)
+		Damage(Torso, hit, 15, 25, math.random(1, 5), "Normal", RootPart, .2, "rbxassetid://199149409", 1)
+	end)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0.176138967, -0.0999972224, -4.12469387, 0.995963752, -0.0151374443, -0.0884430408, 0.0301537495, 0.98480618, 0.171009958, 0.0845107138, -0.172987312, 0.981288373) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.061854884, 1.47604454, 0.0572112165, 0.995512784, 0.0452755019, -0.0831216052, -0.0449465737, 0.998971522, 0.00582763553, 0.0832996219, -0.00206574798, 0.996524036) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.50862169, 0.111145891, -0.321071625, 0.890598714, -0.444333315, 0.0969376862, 0.4443506, 0.804772198, -0.393564105, 0.0968608484, 0.393582344, 0.914168656) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.60305083, 0.00681911409, 0.127042189, 0.962765872, 0.208414003, 0.172165036, -0.229692265, 0.966508627, 0.114459738, -0.142544091, -0.149742648, 0.978392541) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.676520824, -1.72077942, -0.888676167, 0.992010951, -0.0948303491, -0.0831784233, 0.105281785, 0.985657811, 0.131888494, 0.0694783628, -0.139591515, 0.98776567) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.406215966, -1.89238715, -0.568066597, 0.996426105, -0.022871552, -0.081280157, -0.00900357217, 0.92834723, -0.371602952, 0.0839558542, 0.371006906, 0.924824059) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0.176138103, -0.0999993682, -4.22472191, 0.995966375, -0.00737169664, -0.0894257128, 0.0301538352, 0.966155469, 0.256190449, 0.0845105946, -0.257853776, 0.962481022) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0827770829, 1.45181811, 0.132902265, 0.995512009, 0.00590484403, -0.0944698155, -0.0520365611, 0.867843747, -0.494107485, 0.0790673569, 0.496805727, 0.864254653) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.57049417, 0.0766529441, -0.666982353, 0.95215261, 0.198876724, 0.232076883, 0.127972424, 0.430145264, -0.893638551, -0.277551889, 0.880574703, 0.384120136) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.50006759, 0.0318563357, 0.102909625, 0.975892842, 0.107972428, 0.18967469, -0.131059825, 0.984834075, 0.113696963, -0.174521819, -0.135814369, 0.975242436) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.66454947, -2.00723195, -0.416705668, 0.992013514, -0.0948304832, -0.0831789672, 0.0988257676, 0.994074464, 0.045297727, 0.0783904195, -0.0531559885, 0.995505035) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.389409214, -1.33678436, -0.834882438, 0.996427476, 0.047567755, -0.0697765574, -0.0162877068, 0.918999851, 0.393918902, 0.082860291, -0.391374618, 0.916496277) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0.176137745, 0.299999952, -4.37472105, 0.995966315, -0.0375122838, -0.0815104172, 0.0301537123, 0.995511174, -0.0897040665, 0.0845095962, 0.0868844613, 0.992627442) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0544349551, 1.35909927, -0.0773261487, 0.995509982, 0.0301545188, -0.0897243172, -0.0218559839, 0.995512247, 0.0920747295, 0.0920980796, -0.0897002667, 0.991701603) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.592517555, 0.907450318, -1.1593405, 0.952151477, 0.213861749, -0.218342364, 0.0253327414, -0.767163932, -0.640950024, -0.304579884, 0.604748368, -0.735874772) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.46839154, 0.163064063, 0.194920972, 0.975892365, 0.055203598, 0.211155668, -0.182845831, 0.735058486, 0.652883232, -0.119170278, -0.67575264, 0.727431655) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.640760183, -1.91196001, 0.536404967, 0.992012143, -0.0507932045, -0.115463749, 0.1196777, 0.6682446, 0.734252095, 0.0398629382, -0.742205739, 0.668985009) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.436775386, -1.68812287, -0.937443852, 0.996428609, -0.0228654873, -0.0812846199, 0.0130279623, 0.992742538, -0.119556837, 0.0834280923, 0.118071027, 0.989494979) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+con:Disconnect()
+	attack = false
+end
+
+function skill3()
+	attack = true
+Humanoid.WalkSpeed = 0
+	for i = 0, 5, 0.1 do
+		swait()
+Humanoid.Health = Humanoid.Health + 2
+		PlayAnimationFromTable({
+         CFrame.new(-0, -1.09999764, -2.09999943, 1, 0, 0, 0, 0.999998569, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.41547608, -0.231262475, 1, 0, 0, 0, 0.906306744, 0.422620505, 0, -0.42262122, 0.906306982) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.131641358, 0.387449235, -0.200000525, -0.0871606097, 0.996192276, 0, -0.996191561, -0.0871605501, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.50000083, -0.0999999419, 0.300000191, 0.996195018, 0.00759616354, 0.0868243352, -6.4936212e-10, 0.996193945, -0.0871559158, -0.0871559903, 0.0868243128, 0.992403984) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -0.982085109, -0.946591198, 1, 0, 0, 0, 0.984803915, 0.173659772, 0, -0.173659623, 0.984805703) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.85490823, 0.515498221, 1, 0, 0, 0, 0.422614425, 0.906308651, 0, -0.906309307, 0.422614723) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336485", Head, 3, 1.05)
+CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336485", Head, 3, 1.01)
+CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336485", Head, 3, 1.07)
+CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336485", Head, 3, 1.03)
+Effects.Ring.Create(BrickColor.new("Black"), RightArm.CFrame, 10, 10, 10, 3, 3, 3, .1, 2)
+Effects.Ring.Create(BrickColor.new("Crimson"), FistPart2.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Ring.Create(BrickColor.new("Black"), RightArm.CFrame, 10, 10, 10, 3, 3, 3, .1, .005)
+Effects.Ring.Create(BrickColor.new("Crimson"), FistPart2.CFrame, 10, 10, 10, 3, 3, 3, .1, .05)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.699998438, -1.94999957, 1, 0, 0, 0, 0.999998569, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.49245191, -0.14672415, 1, 0, 0, 0, 0.965931773, 0.258820713, 0, -0.258824468, 0.965928733) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.464483142, 0.288764477, -0.380371541, 0.265879691, 0.776415586, -0.5713889, -0.933034718, 0.356302768, 0.0499929599, 0.242403209, 0.519831359, 0.819155335) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.34829164, -0.201141596, 0.162974223, 0.996195018, 0.00759616354, 0.0868243352, -6.4936212e-10, 0.996193945, -0.0871559158, -0.0871559903, 0.0868243128, 0.992403984) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.64279342, -0.847532153, 1, 0, 0, 0, 0.984803915, 0.173659772, 0, -0.173659623, 0.984805703) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.83064651, -0.0587673783, 1, 0, 0, 0, 0.707104266, 0.707108498, 0, -0.707108974, 0.707104743) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.34999916, -1.49999976, 1, 0, 0, 0, 0.999998569, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.30719674, -0.174990863, 1, 0, 0, 0, 0.996193767, 0.0871615708, 0, -0.0871616676, 0.996194482) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.51181579, -0.0238848925, -0.562622905, 0.5007599, 0.183165461, -0.845984638, -0.493606538, 0.863290429, -0.105265938, 0.711049855, 0.47029683, 0.522713184) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.32202542, 0.0247860458, 0.0131695196, 0.996195018, 0.00759616354, 0.0868243352, -6.4936212e-10, 0.996193945, -0.0871559158, -0.0871559903, 0.0868243128, 0.992403984) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.64811063, -0.458313942, 1, 0, 0, 0, 0.866021454, 0.500009716, 0, -0.500010133, 0.86602205) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.56983936, -0.286454499, 1, 0, 0, 0, 0.642784536, 0.766043544, 0, -0.76604408, 0.642785013) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+	attack = false
+end
+
+function skill4()
+	attack = true
+Humanoid.WalkSpeed = 2
+	local con = RightArm.Touched:connect(function(hit)
+		Damage(Torso, hit, 50, 50, math.random(1, 5), "Normal", RootPart, 1, "rbxassetid://341336485", 1)
+	end)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.34999916, -1.49999976, 1, 0, 0, 0, 0.999998569, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.46534204, -0.0884460062, 1, 0, 0, 0, 0.996193767, 0.0871615708, 0, -0.0871616676, 0.996194482) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.51181686, -0.0238888264, -0.562619925, 0.500762403, -0.117224984, -0.857612133, -0.493607581, 0.775226951, -0.394181073, 0.71105212, 0.620715201, 0.330336988) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.32202375, 0.0247860588, 0.0131698251, 0.819319487, 0.007596293, 0.573288083, 0.0435779206, 0.996194482, -0.0754797533, -0.571679831, 0.0868247077, 0.815870762) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.64810157, -0.458312064, 1, 0, 0, 0, 0.965927243, -0.258808583, 0, 0.258808702, 0.965929091) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.5698452, -0.286455512, 1, 0, 0, 0, 0.866024017, 0.500000954, 0, -0.500001311, 0.866024613) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.34999916, -1.49999976, 1, 0, 0, 0, 0.999998569, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.46534204, -0.0884460062, 1, 0, 0, 0, 0.996193767, 0.0871615708, 0, -0.0871616676, 0.996194482) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.16208696, 0.429169238, -0.929953575, 0.41168344, 0.308257371, -0.85760957, -0.911139727, 0.120185599, -0.394180715, -0.0184368156, 0.943680823, 0.330343992) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.32202375, 0.0247860588, 0.0131698251, 0.819319487, 0.007596293, 0.573288083, 0.0435779206, 0.996194482, -0.0754797533, -0.571679831, 0.0868247077, 0.815870762) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.64810157, -0.458312064, 1, 0, 0, 0, 0.965927243, -0.258808583, 0, 0.258808702, 0.965929091) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.5698452, -0.286455512, 1, 0, 0, 0, 0.866024017, 0.500000954, 0, -0.500001311, 0.866024613) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", Head, 3, 1.05)
+CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", Head, 3, 1.5)
+CFuncs.Sound.Create("http://www.roblox.com/asset/?id=341336307", Head, 3, .5)
+Effects.Ring.Create(BrickColor.new("Black"), RightArm.CFrame, 10, 10, 10, 3, 3, 3, .1, 2)
+Effects.Ring.Create(BrickColor.new("Crimson"), FistPart2.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Break.Create(BrickColor.new("Crimson"), RightArm.CFrame, 10, 10, 10, 1, 1, 1, .1, 1)
+Effects.Break.Create(BrickColor.new("Crimson"), RightArm.CFrame, 10, 10, 10, 1, 1, 1, .1, .03)
+Effects.Break.Create(BrickColor.new("Crimson"), RightArm.CFrame, 10, 10, 10, 1, 1, 1, .1, .05)
+Effects.Sphere.Create(BrickColor.new("Black"), RightArm.CFrame, 10, 10, 10, 3, 3, 3, .1, 2)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.34999916, -1.49999976, 1, 0, 0, 0, 0.999998569, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.46534204, -0.0884460062, 1, 0, 0, 0, 0.996193767, 0.0871615708, 0, -0.0871616676, 0.996194482) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.16208589, 0.429167628, -0.929957509, 0.458957136, 0.232086942, -0.85760957, -0.876426995, 0.276578784, -0.394180983, 0.145712152, 0.932548225, 0.330343664) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.32202375, 0.0247860588, 0.0131698251, 0.819319487, 0.007596293, 0.573288083, 0.0435779206, 0.996194482, -0.0754797533, -0.571679831, 0.0868247077, 0.815870762) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.64810157, -0.458312064, 1, 0, 0, 0, 0.965927243, -0.258808583, 0, 0.258808702, 0.965929091) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.5698452, -0.286455512, 1, 0, 0, 0, 0.866024017, 0.500000954, 0, -0.500001311, 0.866024613) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+shoot3(FistPart2, FistPart2, 100, 1)
+shoot3(FistPart2, FistPart2, 100, 1)
+shoot3(FistPart2, FistPart2, 100, 1)
+	end
+Effects.Ring.Create(BrickColor.new("Black"), RightArm.CFrame, 10, 10, 10, 3, 3, 3, .1, 2)
+Effects.Ring.Create(BrickColor.new("Crimson"), FistPart2.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Break.Create(BrickColor.new("Crimson"), RightArm.CFrame, 10, 10, 10, 1, 1, 1, .1, 1)
+Effects.Break.Create(BrickColor.new("Crimson"), RightArm.CFrame, 10, 10, 10, 1, 1, 1, .1, .03)
+Effects.Break.Create(BrickColor.new("Crimson"), RightArm.CFrame, 10, 10, 10, 1, 1, 1, .1, .05)
+Effects.Sphere.Create(BrickColor.new("Black"), RightArm.CFrame, 10, 10, 10, 3, 3, 3, .1, 2)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.34999916, -1.49999976, 1, 0, 0, 0, 0.999998569, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.46534204, -0.0884460062, 1, 0, 0, 0, 0.996193767, 0.0871615708, 0, -0.0871616676, 0.996194482) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.16208696, 0.429169238, -0.929953575, 0.41168344, 0.308257371, -0.85760957, -0.911139727, 0.120185599, -0.394180715, -0.0184368156, 0.943680823, 0.330343992) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.32202375, 0.0247860588, 0.0131698251, 0.819319487, 0.007596293, 0.573288083, 0.0435779206, 0.996194482, -0.0754797533, -0.571679831, 0.0868247077, 0.815870762) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.64810157, -0.458312064, 1, 0, 0, 0, 0.965927243, -0.258808583, 0, 0.258808702, 0.965929091) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.5698452, -0.286455512, 1, 0, 0, 0, 0.866024017, 0.500000954, 0, -0.500001311, 0.866024613) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+con:Disconnect()
+	attack = false
+end
+
+function tskill1()
+	attack = true
+	local con = Torso.Touched:connect(function(hit)
+		Damage(Torso, hit, 10, 10, math.random(1, 5), "Normal", RootPart, 1, "rbxassetid://341336485", 1)
+	end)
+	for i = 0, 15, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.0647047833, 0.241481826, 1, 0, 0, 0, 0.965925455, -0.258820057, 0, 0.258821845, 0.965927064) * CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.38428938, 0.206644475, 1, 0, 0, 0, 0.866020501, -0.500013709, 0, 0.500014067, 0.866019189)* CFrame.Angles(math.rad(0 - 3 * math.cos(sine/25)), 0, 0), 
+         CFrame.new(1.5, -0.0531108305, 0.240849346, 1, 0, 0, 0, 0.906307876, 0.422623992, 0, -0.42262274, 0.906307399)  * CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, -0.0487760343, 0.17103304, 1, 0, 0, 0, 0.939689577, 0.342035413, 0, -0.342034101, 0.939688861) * CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.9015696, 0.0580465198, 1, 0, 0, 0, 0.965927184, 0.258823961, 0, -0.258822799, 0.965926468) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.79043007, 0.338350534, 1, 0, 0, 0, 0.707104981, 0.707112432, 0, -0.70711112, 0.707104921) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+  end
+con:Disconnect()
+	attack = false
+end
+
+function tskill2()
+	attack = true
+Humanoid.WalkSpeed = 2
+	local con = Head.Touched:connect(function(hit)
+		Damage(Torso, hit, 20, 30, math.random(1, 5), "Normal", RootPart, 1, "rbxassetid://341336485", 1)
+	end)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.0647047833, 0.241481826, 1, 0, 0, 0, 0.965925455, -0.258820057, 0, 0.258821845, 0.965927064) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.45928955, 0.0767420232, 1, 0, 0, 0, 0.965927482, -0.258819938, 0, 0.258820862, 0.965928197) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, -0.114713684, 0.334149241, 1, 0, 0, 0, 0.866024971, 0.50000596, 0, -0.500004649, 0.866024554) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, -0.0786589086, 0.235118181, 1, 0, 0, 0, 0.906303525, 0.422633469, 0, -0.422632158, 0.906302989) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -2.01804042, -0.376617432, 1, 0, 0, 0, 0.939694285, -0.342023015, 0, 0.342021883, 0.939693093) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.79043007, 0.338350534, 1, 0, 0, 0, 0.707104981, 0.707112432, 0, -0.70711112, 0.707104921) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.367393017, -1.16374218, 1, 0, 0, 0, 0.90630573, 0.422616929, 0, -0.422617942, 0.906307876) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.45026004, -0.283373773, 1, 0, 0, 0, 0.939684451, 0.342018217, 0, -0.342018217, 0.939684451) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.132285446, -0.346532732, 1, 0, 0, 0, 0.642787695, -0.766044855, 0, 0.766044855, 0.642787695) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, 0.142007649, -0.417762935, 1, 0, 0, 0, 0.642789006, -0.766043305, 0, 0.766043305, 0.642788887) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.48177505, -0.82655704, 1, 0, 0, 0, 0.642781973, -0.766038001, 0, 0.766038001, 0.642781973) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.83400583, -0.159747735, 1, 0, 0, 0, 0.996194661, 0.0871596336, 0, -0.0871594548, 0.996194303) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=430360986", partt, 1, 1)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=430360986", partt, 1, 1)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.0647047833, 0.241481826, 1, 0, 0, 0, 0.965925455, -0.258820057, 0, 0.258821845, 0.965927064) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.45928955, 0.0767420232, 1, 0, 0, 0, 0.965927482, -0.258819938, 0, 0.258820862, 0.965928197) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, -0.114713684, 0.334149241, 1, 0, 0, 0, 0.866024971, 0.50000596, 0, -0.500004649, 0.866024554) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, -0.0786589086, 0.235118181, 1, 0, 0, 0, 0.906303525, 0.422633469, 0, -0.422632158, 0.906302989) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -2.01804042, -0.376617432, 1, 0, 0, 0, 0.939694285, -0.342023015, 0, 0.342021883, 0.939693093) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.79043007, 0.338350534, 1, 0, 0, 0, 0.707104981, 0.707112432, 0, -0.70711112, 0.707104921) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.367393017, -1.16374218, 1, 0, 0, 0, 0.90630573, 0.422616929, 0, -0.422617942, 0.906307876) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.45026004, -0.283373773, 1, 0, 0, 0, 0.939684451, 0.342018217, 0, -0.342018217, 0.939684451) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.132285446, -0.346532732, 1, 0, 0, 0, 0.642787695, -0.766044855, 0, 0.766044855, 0.642787695) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, 0.142007649, -0.417762935, 1, 0, 0, 0, 0.642789006, -0.766043305, 0, 0.766043305, 0.642788887) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.48177505, -0.82655704, 1, 0, 0, 0, 0.642781973, -0.766038001, 0, 0.766038001, 0.642781973) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.83400583, -0.159747735, 1, 0, 0, 0, 0.996194661, 0.0871596336, 0, -0.0871594548, 0.996194303) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.0647047833, 0.241481826, 1, 0, 0, 0, 0.965925455, -0.258820057, 0, 0.258821845, 0.965927064) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.45928955, 0.0767420232, 1, 0, 0, 0, 0.965927482, -0.258819938, 0, 0.258820862, 0.965928197) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, -0.114713684, 0.334149241, 1, 0, 0, 0, 0.866024971, 0.50000596, 0, -0.500004649, 0.866024554) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, -0.0786589086, 0.235118181, 1, 0, 0, 0, 0.906303525, 0.422633469, 0, -0.422632158, 0.906302989) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -2.01804042, -0.376617432, 1, 0, 0, 0, 0.939694285, -0.342023015, 0, 0.342021883, 0.939693093) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.79043007, 0.338350534, 1, 0, 0, 0, 0.707104981, 0.707112432, 0, -0.70711112, 0.707104921) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.367393017, -1.16374218, 1, 0, 0, 0, 0.90630573, 0.422616929, 0, -0.422617942, 0.906307876) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.45026004, -0.283373773, 1, 0, 0, 0, 0.939684451, 0.342018217, 0, -0.342018217, 0.939684451) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.132285446, -0.346532732, 1, 0, 0, 0, 0.642787695, -0.766044855, 0, 0.766044855, 0.642787695) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, 0.142007649, -0.417762935, 1, 0, 0, 0, 0.642789006, -0.766043305, 0, 0.766043305, 0.642788887) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.48177505, -0.82655704, 1, 0, 0, 0, 0.642781973, -0.766038001, 0, 0.766038001, 0.642781973) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.83400583, -0.159747735, 1, 0, 0, 0, 0.996194661, 0.0871596336, 0, -0.0871594548, 0.996194303) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+con:Disconnect()
+	attack = false
+end
+
+function Ruined()
+	attack = true
+Humanoid.WalkSpeed = .05
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=183863468", partt, 1, 1)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=183863468", partt, 1, 1)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=183863468", partt, 1, 1)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=183863468", partt, 1, 1)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=183863468", partt, 1, 1)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=183863468", partt, 1, 1)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=183863468", partt, 1, 1)
+	CFuncs.Sound.Create("http://www.roblox.com/asset/?id=183863468", partt, 1, 1)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.900000095, -0.249998093, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0812214464, 1.42102158, -0.0499973297, 0.984807611, 0.173648611, 0, -0.173648611, 0.984807611, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.749984741, 0.532633185, -1.2878716, 1, 0, 0, 0, -0.0871541724, -0.996193945, 0, 0.996193945, -0.0871541724) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.484746158, 0.499996215, -0.885450125, 0.422617763, -0.906307995, -5.42393627e-06, -3.5983328e-06, 4.30672299e-06, -1, 0.906307995, 0.422617793, -1.44109981e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.09999418, -0.649999499, 1, 0, 0, 0, 0.965922296, 0.258819312, 0, -0.258819133, 0.965925455) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.54316282, 0.171856701, 1, 0, 0, 0, 0.173642367, 0.984808803, 0, -0.984808862, 0.173642352) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	shoot(mouse, FistPart2, 3, 1.5)	
+end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.900000095, -0.249998093, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0812214464, 1.42102158, -0.0499973297, 0.984807611, 0.173648611, 0, -0.173648611, 0.984807611, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.749984741, 0.532633185, -1.2878716, 1, 0, 0, 0, -0.0871541724, -0.996193945, 0, 0.996193945, -0.0871541724) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.484746158, 0.499996215, -0.885450125, 0.422617763, -0.906307995, -5.42393627e-06, -3.5983328e-06, 4.30672299e-06, -1, 0.906307995, 0.422617793, -1.44109981e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.09999418, -0.649999499, 1, 0, 0, 0, 0.965922296, 0.258819312, 0, -0.258819133, 0.965925455) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.54316282, 0.171856701, 1, 0, 0, 0, 0.173642367, 0.984808803, 0, -0.984808862, 0.173642352) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	shoot(mouse, FistPart2, 3, 1.5)	
+end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.900000095, -0.249998093, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0812214464, 1.42102158, -0.0499973297, 0.984807611, 0.173648611, 0, -0.173648611, 0.984807611, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.749984741, 0.532633185, -1.2878716, 1, 0, 0, 0, -0.0871541724, -0.996193945, 0, 0.996193945, -0.0871541724) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.484746158, 0.499996215, -0.885450125, 0.422617763, -0.906307995, -5.42393627e-06, -3.5983328e-06, 4.30672299e-06, -1, 0.906307995, 0.422617793, -1.44109981e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.09999418, -0.649999499, 1, 0, 0, 0, 0.965922296, 0.258819312, 0, -0.258819133, 0.965925455) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.54316282, 0.171856701, 1, 0, 0, 0, 0.173642367, 0.984808803, 0, -0.984808862, 0.173642352) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	shoot(mouse, FistPart2, 3, 1.5)	
+end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.900000095, -0.249998093, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0812214464, 1.42102158, -0.0499973297, 0.984807611, 0.173648611, 0, -0.173648611, 0.984807611, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.749984741, 0.532633185, -1.2878716, 1, 0, 0, 0, -0.0871541724, -0.996193945, 0, 0.996193945, -0.0871541724) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.484746158, 0.499996215, -0.885450125, 0.422617763, -0.906307995, -5.42393627e-06, -3.5983328e-06, 4.30672299e-06, -1, 0.906307995, 0.422617793, -1.44109981e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.09999418, -0.649999499, 1, 0, 0, 0, 0.965922296, 0.258819312, 0, -0.258819133, 0.965925455) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.54316282, 0.171856701, 1, 0, 0, 0, 0.173642367, 0.984808803, 0, -0.984808862, 0.173642352) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	shoot(mouse, FistPart2, 0, 1.5)	
+end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.900000095, -0.249998093, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0812214464, 1.42102158, -0.0499973297, 0.984807611, 0.173648611, 0, -0.173648611, 0.984807611, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.749984741, 0.532633185, -1.2878716, 1, 0, 0, 0, -0.0871541724, -0.996193945, 0, 0.996193945, -0.0871541724) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.484746158, 0.499996215, -0.885450125, 0.422617763, -0.906307995, -5.42393627e-06, -3.5983328e-06, 4.30672299e-06, -1, 0.906307995, 0.422617793, -1.44109981e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.09999418, -0.649999499, 1, 0, 0, 0, 0.965922296, 0.258819312, 0, -0.258819133, 0.965925455) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.54316282, 0.171856701, 1, 0, 0, 0, 0.173642367, 0.984808803, 0, -0.984808862, 0.173642352) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	shoot(mouse, FistPart2, 3, 1.5)	
+end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.900000095, -0.249998093, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0812214464, 1.42102158, -0.0499973297, 0.984807611, 0.173648611, 0, -0.173648611, 0.984807611, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.749984741, 0.532633185, -1.2878716, 1, 0, 0, 0, -0.0871541724, -0.996193945, 0, 0.996193945, -0.0871541724) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.484746158, 0.499996215, -0.885450125, 0.422617763, -0.906307995, -5.42393627e-06, -3.5983328e-06, 4.30672299e-06, -1, 0.906307995, 0.422617793, -1.44109981e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.09999418, -0.649999499, 1, 0, 0, 0, 0.965922296, 0.258819312, 0, -0.258819133, 0.965925455) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.54316282, 0.171856701, 1, 0, 0, 0, 0.173642367, 0.984808803, 0, -0.984808862, 0.173642352) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	shoot(mouse, FistPart2, 3, 1.5)	
+end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.900000095, -0.249998093, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0812214464, 1.42102158, -0.0499973297, 0.984807611, 0.173648611, 0, -0.173648611, 0.984807611, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.749984741, 0.532633185, -1.2878716, 1, 0, 0, 0, -0.0871541724, -0.996193945, 0, 0.996193945, -0.0871541724) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.484746158, 0.499996215, -0.885450125, 0.422617763, -0.906307995, -5.42393627e-06, -3.5983328e-06, 4.30672299e-06, -1, 0.906307995, 0.422617793, -1.44109981e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.09999418, -0.649999499, 1, 0, 0, 0, 0.965922296, 0.258819312, 0, -0.258819133, 0.965925455) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.54316282, 0.171856701, 1, 0, 0, 0, 0.173642367, 0.984808803, 0, -0.984808862, 0.173642352) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	shoot(mouse, FistPart2, 3, 1.5)	
+end
+Humanoid.WalkSpeed = 16
+	attack = false
+end
+
+function trig()
+attack = true
+hello.SoundId = "rbxassetid://278653326"
+hello:Play()
+Shadow.Transparency = 0
+	text.TextColor3 = Color3.new(155, 0, 0)
+text.Text = "Chaos"
+triger = true
+WristPart2.BrickColor = BrickColor.new("Crimson")
+FistPart2.BrickColor = BrickColor.new("Crimson")
+local maincolor = BrickColor.new("Crimson")
+handleg.BrickColor = maincolor
+handleo.BrickColor = maincolor
+wngr.BrickColor = maincolor
+wngr2.BrickColor = maincolor
+wngr3.BrickColor = maincolor
+rig.BrickColor = maincolor
+glowbo.BrickColor = maincolor
+glownb.BrickColor = maincolor
+glownb2.BrickColor = maincolor
+glownb3.BrickColor = maincolor
+blak.BrickColor = maincolor
+line.BrickColor = maincolor
+line2.BrickColor = maincolor
+line3.BrickColor = maincolor
+WristPart2.Material = "Granite"
+FistPart2.Material = "Granite"
+Humanoid.WalkSpeed = 0
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, 0.0817568898, 1.27801275, 1, 0, 0, 0, 0.819155693, -0.573568821, 0, 0.573570669, 0.819155812) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.47793198, -0.0595833659, 1, 0, 0, 0, 0.866020322, -0.500008106, 0, 0.500008821, 0.866018951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.55297399, 0.984555364, 0.12621817, 0.350945175, -0.935690463, -0.0363518521, -0.932201147, -0.345439285, -0.108037591, 0.0885310173, 0.0718020871, -0.993480682) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.67267251, 0.88692224, 0.473169386, -0.342024088, 0.907669425, 0.243219748, -0.936116338, -0.3516666, -0.00401845574, 0.0818832815, -0.229056731, 0.969961643) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.94714618, 0.63828063, 1, 0, 0, 0, 0.81915617, 0.57357049, 0, -0.573568702, 0.81915617) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.94712663, 0.638255656, 1, 0, 0, 0, 0.819148958, 0.573574662, 0, -0.573564112, 0.819152415) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, 0.0817568898, 1.27801275, 1, 0, 0, 0, 0.819155693, -0.573568821, 0, 0.573570669, 0.819155812) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.47793198, -0.0595833659, 1, 0, 0, 0, 0.866020322, -0.500008106, 0, 0.500008821, 0.866018951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.55297291, 0.984555185, 0.126218855, 0.581159234, -0.812977433, -0.0363553017, -0.811032832, -0.57493782, -0.108035982, 0.0669274628, 0.0922703594, -0.993480921) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.67267406, 0.886923075, 0.473169863, -0.494443476, 0.834488213, 0.243219823, -0.860828161, -0.508879483, -0.00401845574, 0.120414793, -0.211357996, 0.96996218) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.94714618, 0.63828063, 1, 0, 0, 0, 0.81915617, 0.57357049, 0, -0.573568702, 0.81915617) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.94712663, 0.638255656, 1, 0, 0, 0, 0.819148958, 0.573574662, 0, -0.573564112, 0.819152415) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, 0.0817568898, 1.27801275, 1, 0, 0, 0, 0.819155693, -0.573568821, 0, 0.573570669, 0.819155812) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.47793198, -0.0595833659, 1, 0, 0, 0, 0.866020322, -0.500008106, 0, 0.500008821, 0.866018951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.55297291, 0.984555304, 0.126219153, 0.508091986, -0.860535264, -0.0363553651, -0.858056068, -0.502063632, -0.108036101, 0.0747146308, 0.0860860199, -0.993480921) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.67267787, 0.886924624, 0.473170906, -0.419831336, 0.874407411, 0.243220031, -0.901904285, -0.431917131, -0.00401860476, 0.101535708, -0.221048802, 0.969963312) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.94714618, 0.63828063, 1, 0, 0, 0, 0.81915617, 0.57357049, 0, -0.573568702, 0.81915617) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.94712663, 0.638255656, 1, 0, 0, 0, 0.819148958, 0.573574662, 0, -0.573564112, 0.819152415) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, 0.0817568898, 1.27801275, 1, 0, 0, 0, 0.819155693, -0.573568821, 0, 0.573570669, 0.819155812) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.47793198, -0.0595833659, 1, 0, 0, 0, 0.866020322, -0.500008106, 0, 0.500008821, 0.866018951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.52482569, 0.980715632, 0.273518562, 0.50809586, -0.840620935, 0.187604368, -0.858062387, -0.512917399, 0.0255862772, 0.0747139752, -0.173983261, -0.981910229) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.57121503, 0.84050858, 0.480398744, -0.419830978, 0.818886578, 0.391365349, -0.901904225, -0.424657464, -0.078957051, 0.101537853, -0.386122912, 0.916840613) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.94714618, 0.63828063, 1, 0, 0, 0, 0.81915617, 0.57357049, 0, -0.573568702, 0.81915617) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.94712663, 0.638255656, 1, 0, 0, 0, 0.819148958, 0.573574662, 0, -0.573564112, 0.819152415) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, 0.0817568898, 1.27801275, 1, 0, 0, 0, 0.819155693, -0.573568821, 0, 0.573570669, 0.819155812) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.47793198, -0.0595833659, 1, 0, 0, 0, 0.866020322, -0.500008106, 0, 0.500008821, 0.866018951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.52483237, 0.980717301, 0.273505151, 0.508092403, -0.821069837, 0.260166168, -0.85805577, -0.508734643, 0.070204854, 0.0747110248, -0.258908182, -0.963006794) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.57121503, 0.840508461, 0.480398685, -0.419830948, 0.781660676, 0.461247027, -0.901904225, -0.416159928, -0.115668088, 0.101537943, -0.464561671, 0.879698873) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.94714618, 0.63828063, 1, 0, 0, 0, 0.81915617, 0.57357049, 0, -0.573568702, 0.81915617) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.94712663, 0.638255656, 1, 0, 0, 0, 0.819148958, 0.573574662, 0, -0.573564112, 0.819152415) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function notrig()
+attack = true
+hello.SoundId = "rbxassetid://515593602"
+hello:Play()
+	text.TextColor3 = Color3.new(0, 0, 0)
+text.Text = "Doomfist"
+Shadow.Transparency = 1
+triger = false
+WristPart2.BrickColor = BrickColor.new("Really black")
+FistPart2.BrickColor = BrickColor.new("Really black")
+local maincolor = BrickColor.new("Really black")
+handleg.BrickColor = maincolor
+handleo.BrickColor = maincolor
+wngr.BrickColor = maincolor
+wngr2.BrickColor = maincolor
+wngr3.BrickColor = maincolor
+rig.BrickColor = maincolor
+glowbo.BrickColor = maincolor
+glownb.BrickColor = maincolor
+glownb2.BrickColor = maincolor
+glownb3.BrickColor = maincolor
+blak.BrickColor = maincolor
+line.BrickColor = maincolor
+line2.BrickColor = maincolor
+line3.BrickColor = maincolor
+WristPart2.Material = "Fabric"
+FistPart2.Material = "Fabric"
+Humanoid.WalkSpeed = 0
+	for i = 0, 5, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, 0, 1, 0, 0, 0, 0.70709604, 0.707106173, 0, -0.707108855, 0.707104385) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.54484403, -0.285330623, 1, 0, 0, 0, 0.906303763, 0.422618121, 0, -0.422626197, 0.906302512) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.751118839, 0.175457686, -0.732546747, 0.642787814, 0.766044796, 6.2741874e-06, -0.133021086, 0.111626595, -0.984801531, -0.754403114, 0.633018613, 0.173659742) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.700490832, 0.034283042, -0.644817472, 0.642790377, -0.766038716, -1.94553536e-06, 0.19825983, 0.166355431, -0.965920985, 0.739939332, 0.620876789, 0.258822024) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.81258225, -0.845220327, 1, 0, 0, 0, 0.707095981, -0.707109332, 0, 0.707106709, 0.707104266) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.81254935, -0.845202446, 1, 0, 0, 0, 0.707090199, -0.707104862, 0, 0.707100332, 0.707107663) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function yellowify()
+attack = true
+hello.SoundId = "rbxassetid://904321003"
+hello:Play()
+text.TextColor3 = Color3.new(255, 255, 0)
+text.Text = "Yellowlight"
+yl = true
+WristPart2.BrickColor = BrickColor.new("New Yeller")
+FistPart2.BrickColor = BrickColor.new("New Yeller")
+local maincolor = BrickColor.new("New Yeller")
+handleg.BrickColor = maincolor
+handleo.BrickColor = maincolor
+wngr.BrickColor = maincolor
+wngr2.BrickColor = maincolor
+wngr3.BrickColor = maincolor
+rig.BrickColor = maincolor
+glowbo.BrickColor = maincolor
+glownb.BrickColor = maincolor
+glownb2.BrickColor = maincolor
+glownb3.BrickColor = maincolor
+blak.BrickColor = maincolor
+line.BrickColor = maincolor
+line2.BrickColor = maincolor
+line3.BrickColor = maincolor
+WristPart2.Material = "Neon"
+FistPart2.Material = "Neon"
+Humanoid.WalkSpeed = 0
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(3.87430191e-07, 0, -0.99999702, 0.819152951, 0, 0.573576331, 0, 1, 0, -0.573576689, 0, 0.819152951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 0.819152951, 0, -0.573576689, 0, 1, 0, 0.573576331, 0, 0.819152951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.86800253, 0.450003862, -1.01149607, 0.81915319, -0.57357651, 1.1025528e-06, 7.38964445e-13, -1.92224184e-06, -1, 0.573576033, 0.819153368, -1.57460966e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.40743375, -0.0568477958, 0.108895279, 0.981060982, -0.172988713, 0.0871569216, 0.173649371, 0.98480767, -6.13832398e-08, -0.0858329833, 0.0151348561, 0.996195614) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.365429193, -1.99999988, -0.0200182498, 0.939693689, 0, -0.342020929, 0, 1, 0, 0.342020631, 0, 0.93969363) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.418043137, -1.99999988, -0.017666474, 0.939693391, 0, 0.34202081, 0, 1, 0, -0.342020869, 0, 0.939693391) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(3.87430191e-07, 0, -0.99999702, 0.819152951, 0, 0.573576331, 0, 1, 0, -0.573576689, 0, 0.819152951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 0.819152951, 0, -0.573576689, 0, 1, 0, 0.573576331, 0, 0.819152951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.82346892, 0.739783168, -0.947893381, 0.819152832, -0.554034889, 0.148444504, -2.36526191e-07, -0.258805215, -0.965929627, 0.57357645, 0.791243911, -0.21200119) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.40743375, -0.0568477958, 0.108895279, 0.981060982, -0.172988713, 0.0871569216, 0.173649371, 0.98480767, -6.13832398e-08, -0.0858329833, 0.0151348561, 0.996195614) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.365429193, -1.99999988, -0.0200182498, 0.939693689, 0, -0.342020929, 0, 1, 0, 0.342020631, 0, 0.93969363) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.418043137, -1.99999988, -0.017666474, 0.939693391, 0, 0.34202081, 0, 1, 0, -0.342020869, 0, 0.939693391) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(3.87430191e-07, 0, -0.99999702, 0.819152951, 0, 0.573576331, 0, 1, 0, -0.573576689, 0, 0.819152951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 0.819152951, 0, -0.573576689, 0, 1, 0, 0.573576331, 0, 0.819152951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.86800253, 0.450003862, -1.01149607, 0.81915319, -0.57357651, 1.1025528e-06, 7.38964445e-13, -1.92224184e-06, -1, 0.573576033, 0.819153368, -1.57460966e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.40743375, -0.0568477958, 0.108895279, 0.981060982, -0.172988713, 0.0871569216, 0.173649371, 0.98480767, -6.13832398e-08, -0.0858329833, 0.0151348561, 0.996195614) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.365429193, -1.99999988, -0.0200182498, 0.939693689, 0, -0.342020929, 0, 1, 0, 0.342020631, 0, 0.93969363) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.418043137, -1.99999988, -0.017666474, 0.939693391, 0, 0.34202081, 0, 1, 0, -0.342020869, 0, 0.939693391) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(3.87430191e-07, 0, -0.99999702, 0.819152951, 0, 0.573576331, 0, 1, 0, -0.573576689, 0, 0.819152951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 0.819152951, 0, -0.573576689, 0, 1, 0, 0.573576331, 0, 0.819152951) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.82346892, 0.739783168, -0.947893381, 0.819152832, -0.554034889, 0.148444504, -2.36526191e-07, -0.258805215, -0.965929627, 0.57357645, 0.791243911, -0.21200119) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.40743375, -0.0568477958, 0.108895279, 0.981060982, -0.172988713, 0.0871569216, 0.173649371, 0.98480767, -6.13832398e-08, -0.0858329833, 0.0151348561, 0.996195614) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.365429193, -1.99999988, -0.0200182498, 0.939693689, 0, -0.342020929, 0, 1, 0, 0.342020631, 0, 0.93969363) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.418043137, -1.99999988, -0.017666474, 0.939693391, 0, 0.34202081, 0, 1, 0, -0.342020869, 0, 0.939693391) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function unyl()
+attack = true
+hello.SoundId = "rbxassetid://515593602"
+hello:Play()
+	text.TextColor3 = Color3.new(0, 0, 0)
+text.Text = "Doomfist"
+yl = false
+WristPart2.BrickColor = BrickColor.new("Really black")
+FistPart2.BrickColor = BrickColor.new("Really black")
+WristPart2.Material = "Fabric"
+FistPart2.Material = "Fabric"
+local maincolor = BrickColor.new("Really black")
+handleg.BrickColor = maincolor
+handleo.BrickColor = maincolor
+wngr.BrickColor = maincolor
+wngr2.BrickColor = maincolor
+wngr3.BrickColor = maincolor
+rig.BrickColor = maincolor
+glowbo.BrickColor = maincolor
+glownb.BrickColor = maincolor
+glownb2.BrickColor = maincolor
+glownb3.BrickColor = maincolor
+blak.BrickColor = maincolor
+line.BrickColor = maincolor
+line2.BrickColor = maincolor
+line3.BrickColor = maincolor
+Humanoid.WalkSpeed = 0
+	for i = 0, 3, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.00849185884, -0.514704704, 1, 0, 0, 0, 0.866025686, 0.500000119, 0, -0.500000119, 0.866025686) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.44865358, -0.163965926, 1, 0, 0, 0, 0.965925753, 0.258820564, 0, -0.258820564, 0.965925753) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, -0.0915067792, -0.324521631, 1, 0, 0, 0, 0.866025567, -0.500000119, 0, 0.50000006, 0.866025686) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, -0.153107971, -0.417825639, 1, 0, 0, 0, 0.866025686, -0.500000119, 0, 0.500000119, 0.866025686) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.599621952, -1.97450089, -0.545647383, 0.996194661, -0.0871559456, 0, 0.0754792988, 0.862729847, -0.500000119, 0.0435779914, 0.498097271, 0.866025686) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.649429023, -1.97072697, -0.543468595, 0.996194661, 0.0871559456, 0, -0.0754792988, 0.862729847, -0.500000119, -0.0435779914, 0.498097271, 0.866025686) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function yskill1()
+attack = true
+Humanoid.WalkSpeed = 0
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.504751742, -0.503947079, 1, 0, -0, 0, -7.60704279e-06, -0.999998868, 0, 1.00000536, -7.58469105e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.32922888, -0.057770282, 0, 0.965926528, -0.258816659, 0, 0.258816659, 0.965926528, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.499998868, -1.99999988, -2.4586916e-07, 0.965925694, 0, -0.258819699, 0, 1, 0, 0.258819699, 0, 0.965925694) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.500003517, -1.99999988, 4.76838977e-07, 1.00000322, 0, 3.27825546e-07, 0, 1, 0, -9.53674316e-07, 0, 1.0000031) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	shoot2(mouse, FistPart2, 0, 4)	
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.614286602, -0.526358604, 1, 0, -0, 0, -0.258826613, -0.965924859, 0, 0.965924323, -0.258826822) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.32922888, -0.057770282, 0, 0.965926528, -0.258816659, 0, 0.258816659, 0.965926528, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.499998868, -1.99999988, -2.4586916e-07, 0.965925694, 0, -0.258819699, 0, 1, 0, 0.258819699, 0, 0.965925694) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.500003517, -1.99999988, 4.76838977e-07, 1.00000322, 0, 3.27825546e-07, 0, 1, 0, -9.53674316e-07, 0, 1.0000031) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.504751742, -0.503947079, 1, 0, -0, 0, -7.60704279e-06, -0.999998868, 0, 1.00000536, -7.58469105e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.32922888, -0.057770282, 0, 0.965926528, -0.258816659, 0, 0.258816659, 0.965926528, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.499998868, -1.99999988, -2.4586916e-07, 0.965925694, 0, -0.258819699, 0, 1, 0, 0.258819699, 0, 0.965925694) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.500003517, -1.99999988, 4.76838977e-07, 1.00000322, 0, 3.27825546e-07, 0, 1, 0, -9.53674316e-07, 0, 1.0000031) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	shoot2(mouse, FistPart2, 0, 4)	
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.614286602, -0.526358604, 1, 0, -0, 0, -0.258826613, -0.965924859, 0, 0.965924323, -0.258826822) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.32922888, -0.057770282, 0, 0.965926528, -0.258816659, 0, 0.258816659, 0.965926528, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.499998868, -1.99999988, -2.4586916e-07, 0.965925694, 0, -0.258819699, 0, 1, 0, 0.258819699, 0, 0.965925694) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.500003517, -1.99999988, 4.76838977e-07, 1.00000322, 0, 3.27825546e-07, 0, 1, 0, -9.53674316e-07, 0, 1.0000031) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.504751742, -0.503947079, 1, 0, -0, 0, -7.60704279e-06, -0.999998868, 0, 1.00000536, -7.58469105e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.32922888, -0.057770282, 0, 0.965926528, -0.258816659, 0, 0.258816659, 0.965926528, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.499998868, -1.99999988, -2.4586916e-07, 0.965925694, 0, -0.258819699, 0, 1, 0, 0.258819699, 0, 0.965925694) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.500003517, -1.99999988, 4.76838977e-07, 1.00000322, 0, 3.27825546e-07, 0, 1, 0, -9.53674316e-07, 0, 1.0000031) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	shoot2(mouse, FistPart2, 0, 4)	
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.614286602, -0.526358604, 1, 0, -0, 0, -0.258826613, -0.965924859, 0, 0.965924323, -0.258826822) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.32922888, -0.057770282, 0, 0.965926528, -0.258816659, 0, 0.258816659, 0.965926528, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.499998868, -1.99999988, -2.4586916e-07, 0.965925694, 0, -0.258819699, 0, 1, 0, 0.258819699, 0, 0.965925694) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.500003517, -1.99999988, 4.76838977e-07, 1.00000322, 0, 3.27825546e-07, 0, 1, 0, -9.53674316e-07, 0, 1.0000031) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function yskill2()
+attack = true
+Humanoid.WalkSpeed = 0
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.850006104, 0.43025443, -1.39280033, 1, 0, 0, 0, 0.0871498287, -0.996195376, 0, 0.996195376, 0.0871498287) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.197716177, 0.450007558, -1.09271812, 0.642781258, -0.766045928, 2.8975794e-11, -5.29663475e-06, -4.44431407e-06, -1, 0.766045928, 0.642781258, -6.91400919e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.500000358, -1.99998295, -1.43051147e-06, 0.98480773, 0.0151356151, -0.172988772, -5.9923542e-07, 0.996190131, 0.0871590152, 0.173648581, -0.085835427, 0.981067836) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.96526527, -0.196961135, 1, 0, 0, 0, 0.984806538, -0.173648536, 0, 0.173648492, 0.984807611) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+shoot2(mouse, FistPart2, 2.5, 1.7)
+shoot2(mouse, FistPart2, 2.5, 1.7)
+shoot2(mouse, FistPart2, 2.5, 1.7)
+shoot2(mouse, FistPart2, 2.5, 1.7)
+shoot2(mouse, FistPart2, 2.5, 1.7)
+shoot2(mouse, FistPart2, 2.5, 1.7)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, 6.70552254e-08, 0.449998468, 1, 0, 0, 0, 0.984807611, -0.173648611, 0, 0.173648611, 0.984807611) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.39814234, 0.0725734532, 1, 0, 0, 0, 0.965926528, -0.258818567, 0, 0.258818567, 0.965926528) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.850006104, 0.571620584, -1.03803515, 1, 0, 0, 0, -0.173654675, -0.984806418, 0, 0.984806418, -0.173654675) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0146820648, 0.527837276, -0.999364972, 0.620889425, -0.782998204, 0.0375692472, -0.126405105, -0.147303313, -0.980980694, 0.773639917, 0.604332089, -0.190433577) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.480601132, -2.0316577, 0.0130645633, 0.984812498, 0.0733898804, -0.157378554, 0.0301534589, 0.82026571, 0.571190476, 0.171011925, -0.567260444, 0.805588961) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -2.01244569, -0.234624743, 1, 0, 0, 0, 0.965935051, -0.258827269, 0, 0.25882268, 0.965920329) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.850006104, 0.43025443, -1.39280033, 1, 0, 0, 0, 0.0871498287, -0.996195376, 0, 0.996195376, 0.0871498287) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.197716177, 0.450007558, -1.09271812, 0.642781258, -0.766045928, 2.8975794e-11, -5.29663475e-06, -4.44431407e-06, -1, 0.766045928, 0.642781258, -6.91400919e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.500000358, -1.99998295, -1.43051147e-06, 0.98480773, 0.0151356151, -0.172988772, -5.9923542e-07, 0.996190131, 0.0871590152, 0.173648581, -0.085835427, 0.981067836) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.96526527, -0.196961135, 1, 0, 0, 0, 0.984806538, -0.173648536, 0, 0.173648492, 0.984807611) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, 6.70552254e-08, 0.449998468, 1, 0, 0, 0, 0.984807611, -0.173648611, 0, 0.173648611, 0.984807611) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.39814234, 0.0725734532, 1, 0, 0, 0, 0.965926528, -0.258818567, 0, 0.258818567, 0.965926528) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.850006104, 0.571620584, -1.03803515, 1, 0, 0, 0, -0.173654675, -0.984806418, 0, 0.984806418, -0.173654675) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0146820648, 0.527837276, -0.999364972, 0.620889425, -0.782998204, 0.0375692472, -0.126405105, -0.147303313, -0.980980694, 0.773639917, 0.604332089, -0.190433577) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.480601132, -2.0316577, 0.0130645633, 0.984812498, 0.0733898804, -0.157378554, 0.0301534589, 0.82026571, 0.571190476, 0.171011925, -0.567260444, 0.805588961) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -2.01244569, -0.234624743, 1, 0, 0, 0, 0.965935051, -0.258827269, 0, 0.25882268, 0.965920329) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.850006104, 0.43025443, -1.39280033, 1, 0, 0, 0, 0.0871498287, -0.996195376, 0, 0.996195376, 0.0871498287) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.197716177, 0.450007558, -1.09271812, 0.642781258, -0.766045928, 2.8975794e-11, -5.29663475e-06, -4.44431407e-06, -1, 0.766045928, 0.642781258, -6.91400919e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.500000358, -1.99998295, -1.43051147e-06, 0.98480773, 0.0151356151, -0.172988772, -5.9923542e-07, 0.996190131, 0.0871590152, 0.173648581, -0.085835427, 0.981067836) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.96526527, -0.196961135, 1, 0, 0, 0, 0.984806538, -0.173648536, 0, 0.173648492, 0.984807611) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, 6.70552254e-08, 0.449998468, 1, 0, 0, 0, 0.984807611, -0.173648611, 0, 0.173648611, 0.984807611) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.39814234, 0.0725734532, 1, 0, 0, 0, 0.965926528, -0.258818567, 0, 0.258818567, 0.965926528) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.850006104, 0.571620584, -1.03803515, 1, 0, 0, 0, -0.173654675, -0.984806418, 0, 0.984806418, -0.173654675) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0146820648, 0.527837276, -0.999364972, 0.620889425, -0.782998204, 0.0375692472, -0.126405105, -0.147303313, -0.980980694, 0.773639917, 0.604332089, -0.190433577) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.480601132, -2.0316577, 0.0130645633, 0.984812498, 0.0733898804, -0.157378554, 0.0301534589, 0.82026571, 0.571190476, 0.171011925, -0.567260444, 0.805588961) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -2.01244569, -0.234624743, 1, 0, 0, 0, 0.965935051, -0.258827269, 0, 0.25882268, 0.965920329) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.850006104, 0.43025443, -1.39280033, 1, 0, 0, 0, 0.0871498287, -0.996195376, 0, 0.996195376, 0.0871498287) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.197716177, 0.450007558, -1.09271812, 0.642781258, -0.766045928, 2.8975794e-11, -5.29663475e-06, -4.44431407e-06, -1, 0.766045928, 0.642781258, -6.91400919e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.500000358, -1.99998295, -1.43051147e-06, 0.98480773, 0.0151356151, -0.172988772, -5.9923542e-07, 0.996190131, 0.0871590152, 0.173648581, -0.085835427, 0.981067836) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.96526527, -0.196961135, 1, 0, 0, 0, 0.984806538, -0.173648536, 0, 0.173648492, 0.984807611) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+shoot2(mouse, FistPart2, 2.5, 1.5)
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, 6.70552254e-08, 0.449998468, 1, 0, 0, 0, 0.984807611, -0.173648611, 0, 0.173648611, 0.984807611) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.39814234, 0.0725734532, 1, 0, 0, 0, 0.965926528, -0.258818567, 0, 0.258818567, 0.965926528) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.850006104, 0.571620584, -1.03803515, 1, 0, 0, 0, -0.173654675, -0.984806418, 0, 0.984806418, -0.173654675) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0146820648, 0.527837276, -0.999364972, 0.620889425, -0.782998204, 0.0375692472, -0.126405105, -0.147303313, -0.980980694, 0.773639917, 0.604332089, -0.190433577) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.480601132, -2.0316577, 0.0130645633, 0.984812498, 0.0733898804, -0.157378554, 0.0301534589, 0.82026571, 0.571190476, 0.171011925, -0.567260444, 0.805588961) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -2.01244569, -0.234624743, 1, 0, 0, 0, 0.965935051, -0.258827269, 0, 0.25882268, 0.965920329) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function yellowult()
+attack = true
+Humanoid.WalkSpeed = 0
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, -0.0409150645, -0.0388702489, 1, 0, 0, 0, 0.996190429, -0.0871607587, 0, 0.0871607587, 0.996190429) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.52468932, 0.0028619729, -0.104003847, 0.996194363, 0.0858353972, -0.0151338344, -0.0871600509, 0.981062829, -0.172967643, 6.6255808e-08, 0.173625678, 0.984813869) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.500000417, -1.99999964, 1.83823011e-06, 0.996194661, -0.0871560052, -1.02819536e-06, 0.0871560052, 0.996194661, 6.6206627e-07, 9.66579705e-07, -7.49160108e-07, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.599628687, -1.99128366, 8.37078687e-07, 0.996204317, 0.0871562511, -2.95643531e-07, -0.0871565267, 0.996194661, 5.4546625e-08, -1.57590398e-06, -8.31184082e-08, 1.0000093) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.150000036, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.50000024, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, -0.189773932, -0.0650169924, 1, 0, 0, 0, 0.965924501, -0.258824736, 0, 0.258824676, 0.965924501) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.55473328, -0.190514222, -0.164770558, 0.996194601, 0.0819077194, -0.0298073273, -0.0871626958, 0.936127782, -0.340689749, -1.64018797e-06, 0.341991544, 0.939703345) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.508686185, -1.94923961, 0.00871171057, 0.996194661, -0.0868242607, -0.00759719033, 0.0871560052, 0.992403746, 0.0868249759, 9.66579705e-07, -0.087156713, 0.996194601) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.607922792, -1.93618393, 0.0585222915, 0.99619478, 0.0868233219, 0.00759965135, -0.0871552825, 0.992403924, 0.0868249536, -3.49326069e-06, -0.0871569142, 0.996194601) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.40000534, 0.356975287, -1.22806883, 1, 0, 0, 0, 0.0871374011, -0.996197343, 0, 0.996196568, 0.0871378481) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.38150716, 0.492209107, -1.20401716, 0.996198952, 4.92017716e-06, -0.0871624053, -0.087162368, 2.94744968e-05, -0.996193826, -2.35281232e-06, 0.999999642, 2.97054648e-05) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.500000417, -1.99999964, 1.83823011e-06, 0.996194661, -0.0871560052, -1.02819536e-06, 0.0871560052, 0.996194661, 6.6206627e-07, 9.66579705e-07, -7.49160108e-07, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.599628687, -1.99128366, 8.37078687e-07, 0.996204317, 0.0871562511, -2.95643531e-07, -0.0871565267, 0.996194661, 5.4546625e-08, -1.57590398e-06, -8.31184082e-08, 1.0000093) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+shoot2(mouse, FistPart2, 0, 3)
+shoot2(mouse, LeftArm, 0, 3)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.499181807, 0.223743036, -1.05596054, 0.707105339, 0.69636631, 0.122787133, -0.0616130196, 0.233663112, -0.970363498, -0.704419374, 0.67858392, 0.208129525) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.428634465, 0.738994241, -0.987285554, 0.763130784, -0.631533623, 0.137104362, -0.0667508617, -0.288050383, -0.955285907, 0.642788351, 0.719855666, -0.261975348) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.500000417, -1.99999964, 1.83823011e-06, 0.996194661, -0.0871560052, -1.02819536e-06, 0.0871560052, 0.996194661, 6.6206627e-07, 9.66579705e-07, -7.49160108e-07, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.599628687, -1.99128366, 8.37078687e-07, 0.996204317, 0.0871562511, -2.95643531e-07, -0.0871565267, 0.996194661, 5.4546625e-08, -1.57590398e-06, -8.31184082e-08, 1.0000093) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+shoot2(mouse, FistPart2, 0, 3)
+shoot2(mouse, LeftArm, 0, 3)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.15588462, 0.486735612, -1.24988592, 0.995351017, 0.0955836847, 0.0118329162, 0.0142942173, -0.0251067113, -0.99958241, -0.0952466577, 0.99510473, -0.0263562761) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.27702451, 0.475183576, -1.14593351, 0.995363891, -0.0910408199, -0.0310207941, -0.0369043797, -0.0636704341, -0.997288406, 0.0888188481, 0.9938097, -0.066735059) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.500000417, -1.99999964, 1.83823011e-06, 0.996194661, -0.0871560052, -1.02819536e-06, 0.0871560052, 0.996194661, 6.6206627e-07, 9.66579705e-07, -7.49160108e-07, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.599628687, -1.99128366, 8.37078687e-07, 0.996204317, 0.0871562511, -2.95643531e-07, -0.0871565267, 0.996194661, 5.4546625e-08, -1.57590398e-06, -8.31184082e-08, 1.0000093) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+shoot2(mouse, FistPart2, 0, 3)
+shoot2(mouse, LeftArm, 0, 3)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 0.999996662, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.49998999, 0, 1, 0, 0, 0, 0.999996662, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.450001091, -1.19999921, 1, 0, 0, 0, -1.46776188e-06, -0.99999845, 0, 1.00000012, -1.49011612e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, 0.449998021, -1.2500006, 1, 0, 0, 0, 9.90925514e-07, -0.999998331, 0, 1.00000012, 9.90927219e-07) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.549808383, -1.99561357, 0, 0.996194661, -0.087155655, 0, 0.0871556625, 0.996187627, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.599618316, -1.99125576, -0, 0.996194661, 0.087155655, 0, -0.0871556625, 0.996187627, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+shoot2(mouse, FistPart2, 0, 3)
+shoot2(mouse, LeftArm, 0, 3)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 0.999996662, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.49998999, 0, 1, 0, 0, 0, 0.999996662, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0337522179, 0.778599977, -0.747496545, 0.499997407, 0.836518705, -0.22414352, -7.8816548e-08, -0.258817941, -0.965924144, -0.866026223, 0.482961178, -0.129408449) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.132704705, 0.353405923, -0.682635188, 0.499991387, -0.836522281, -0.224140406, 3.79470634e-06, 0.258815289, -0.965925097, 0.866030276, 0.482954174, 0.129408836) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.549808383, -1.99561357, 0, 0.996194661, -0.087155655, 0, 0.0871556625, 0.996187627, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.599618316, -1.99125576, -0, 0.996194661, 0.087155655, 0, -0.0871556625, 0.996187627, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+shoot2(mouse, FistPart2, 0, 1.5)
+shoot2(mouse, LeftArm, 0, 1.5)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.15588462, 0.486735612, -1.24988592, 0.995351017, 0.0955836847, 0.0118329162, 0.0142942173, -0.0251067113, -0.99958241, -0.0952466577, 0.99510473, -0.0263562761) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.27702451, 0.475183576, -1.14593351, 0.995363891, -0.0910408199, -0.0310207941, -0.0369043797, -0.0636704341, -0.997288406, 0.0888188481, 0.9938097, -0.066735059) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.500000417, -1.99999964, 1.83823011e-06, 0.996194661, -0.0871560052, -1.02819536e-06, 0.0871560052, 0.996194661, 6.6206627e-07, 9.66579705e-07, -7.49160108e-07, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.599628687, -1.99128366, 8.37078687e-07, 0.996204317, 0.0871562511, -2.95643531e-07, -0.0871565267, 0.996194661, 5.4546625e-08, -1.57590398e-06, -8.31184082e-08, 1.0000093) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+shoot2(mouse, FistPart2, 0, 1.5)
+shoot2(mouse, LeftArm, 0, 1.5)
+	end
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function zmove()
+attack = true
+Humanoid.WalkSpeed = 0
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 0.999996662, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.49998999, 0, 1, 0, 0, 0, 0.999996662, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.450001091, -1.19999921, 1, 0, 0, 0, -1.46776188e-06, -0.99999845, 0, 1.00000012, -1.49011612e-06) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, 0.449998021, -1.2500006, 1, 0, 0, 0, 9.90925514e-07, -0.999998331, 0, 1.00000012, 9.90927219e-07) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.549808383, -1.99561357, 0, 0.996194661, -0.087155655, 0, 0.0871556625, 0.996187627, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.599618316, -1.99125576, -0, 0.996194661, 0.087155655, 0, -0.0871556625, 0.996187627, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+shoot2(mouse, FistPart2, 0, 1000)
+shoot2(mouse, LeftArm, 0, 1000)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 0.999996662, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.49998999, 0, 1, 0, 0, 0, 0.999996662, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.0337522179, 0.778599977, -0.747496545, 0.499997407, 0.836518705, -0.22414352, -7.8816548e-08, -0.258817941, -0.965924144, -0.866026223, 0.482961178, -0.129408449) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.132704705, 0.353405923, -0.682635188, 0.499991387, -0.836522281, -0.224140406, 3.79470634e-06, 0.258815289, -0.965925097, 0.866030276, 0.482954174, 0.129408836) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.549808383, -1.99561357, 0, 0.996194661, -0.087155655, 0, 0.0871556625, 0.996187627, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.599618316, -1.99125576, -0, 0.996194661, 0.087155655, 0, -0.0871556625, 0.996187627, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+shoot2(mouse, FistPart2, 0, 1000)
+shoot2(mouse, LeftArm, 0, 1000)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.5, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.15588462, 0.486735612, -1.24988592, 0.995351017, 0.0955836847, 0.0118329162, 0.0142942173, -0.0251067113, -0.99958241, -0.0952466577, 0.99510473, -0.0263562761) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.27702451, 0.475183576, -1.14593351, 0.995363891, -0.0910408199, -0.0310207941, -0.0369043797, -0.0636704341, -0.997288406, 0.0888188481, 0.9938097, -0.066735059) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.500000417, -1.99999964, 1.83823011e-06, 0.996194661, -0.0871560052, -1.02819536e-06, 0.0871560052, 0.996194661, 6.6206627e-07, 9.66579705e-07, -7.49160108e-07, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.599628687, -1.99128366, 8.37078687e-07, 0.996204317, 0.0871562511, -2.95643531e-07, -0.0871565267, 0.996194661, 5.4546625e-08, -1.57590398e-06, -8.31184082e-08, 1.0000093) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+shoot2(mouse, FistPart2, 0, 1000)
+shoot2(mouse, LeftArm, 0, 1000)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 0.999996662, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.49998999, 0, 1, 0, 0, 0, 0.999996662, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.175690114, 0.730916142, -0.738472283, 0.0724162534, 0.946226418, -0.315293223, 0.0268808138, -0.317853749, -0.947752357, -0.997012198, 0.0601576231, -0.0484541096) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.450083524, 0.197255462, -0.724608362, -0.130865484, -0.90598619, -0.402573109, -0.000499379938, 0.406125098, -0.9138152, 0.99140054, -0.119386159, -0.0536001883) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.549808383, -1.99561357, 0, 0.996194661, -0.087155655, 0, 0.0871556625, 0.996187627, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.599618316, -1.99125576, -0, 0.996194661, 0.087155655, 0, -0.0871556625, 0.996187627, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+Effects.Sphere.Create(BrickColor.new("New Yeller"), RightArm.CFrame, 10, 10, 10, 3, 3, 3, .1, 2)
+Effects.Sphere.Create(BrickColor.new("New Yeller"), RightArm.CFrame, 11, 11, 11, 4, 4, 4, .2, 3)
+Effects.Sphere.Create(BrickColor.new("New Yeller"), RightArm.CFrame, 12, 12, 12, 5, 5, 5, .3, 4)
+shoot2(mouse, FistPart2, 0, 1000)
+shoot2(mouse, LeftArm, 0, 1000)
+	end
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+Mouse.Button1Down:connect(function()
+	if attack == false and attacktype == 1 then
+		attacktype = 2
+		attackone()
+	elseif attack == false and attacktype == 2 then
+		attacktype = 3
+		attacktwo()
+	elseif attack == false and attacktype == 3 then
+		attacktype = 4
+		attackthree()
+	elseif attack == false and attacktype == 4 then
+		attacktype = 1
+		attackfour()
+	end
+end)
+
+function teleportus()
+attack = true
+Humanoid.WalkSpeed = 0
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.0347282365, 0.196958572, 1, 0, 0, 0, 0.984807074, -0.173648521, 0, 0.173648521, 0.984807074) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.53798652, -0.115794092, 1, 0, 0, 0, 0.965925038, 0.25881955, 0, -0.25881955, 0.965925038) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.769026518, -0.558581173, 1, 0, 0, 0, -0.342031658, -0.939686239, 0, 0.939686239, -0.342031658) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, -0.0818282515, 0.467690349, 1, 0, 0, 0, 0.819149971, 0.573578477, 0, -0.573578358, 0.819150031) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.69491482, -0.441803932, 1, 0, 0, 0, 0.939693332, -0.342015922, 0, 0.342015922, 0.939693332) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.91783726, 0.340480328, 1, 0, 0, 0, 0.96592176, 0.258819342, 0, -0.258818775, 0.965924859) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+Effects.Sphere.Create(BrickColor.new("Royal purple"), RightArm.CFrame, 10, 10, 10, 3, 3, 3, .1, 2)
+Effects.Ring.Create(BrickColor.new("Royal purple"), RightArm.CFrame, 10, 10, 10, 3, 3, 3, .1, 2)
+shoot4(FistPart2, FistPart2, 100, 10)
+shoot4(FistPart2, FistPart2, 100, 10)
+shoot4(FistPart2, FistPart2, 100, 10)
+shoot4(FistPart2, FistPart2, 100, 10)
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.0955061913, -0.147723392, 1, 0, 0, 0, 0.984807968, 0.173648685, 0, -0.173648685, 0.984807968) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.47425139, -0.0752061605, 1, 0, 0, 0, 0.99619478, 0.087155953, 0, -0.087155953, 0.99619478) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, 0.0393770635, -0.637199104, 1, 0, 0, 0, 0.573566318, -0.819159508, 0, 0.819159508, 0.573566318) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, -0.0221440718, 0.233388454, 1, 0, 0, 0, 0.866024971, 0.500002861, 0, -0.500001669, 0.866026223) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.82796562, -0.748389661, 1, 0, 0, 0, 0.965927005, -0.258816153, 0, 0.258816153, 0.965927005) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.91864347, 0.0140011441, 1, 0, 0, 0, 1.00000024, 6.2584877e-07, 0, -6.2584877e-07, 1.00000036) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	local rotation = my
+	if mouse.Target ~= nil then
+		local tp = mouse.Hit
+		lerp(-5,rotation)
+		Character:SetPrimaryPartCFrame(CFrame.new(tp.p)*CFrame.new(0,5,0))
+		lerp(5,rotation)
+	end
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function oh()
+attack = true
+hello.SoundId = "rbxassetid://175849204"
+hello:Play()
+	text.TextColor3 = Color3.new(5, 2, 3)
+text.Text = "wat going on"
+lust = true
+WristPart2.BrickColor = BrickColor.new("Hot pink")
+FistPart2.BrickColor = BrickColor.new("Hot pink")
+local maincolor = BrickColor.new("Hot pink")
+handleg.BrickColor = maincolor
+handleo.BrickColor = maincolor
+wngr.BrickColor = maincolor
+wngr2.BrickColor = maincolor
+wngr3.BrickColor = maincolor
+rig.BrickColor = maincolor
+glowbo.BrickColor = maincolor
+glownb.BrickColor = maincolor
+glownb2.BrickColor = maincolor
+glownb3.BrickColor = maincolor
+blak.BrickColor = maincolor
+line.BrickColor = maincolor
+line2.BrickColor = maincolor
+line3.BrickColor = maincolor
+WristPart2.Material = "Ice"
+FistPart2.Material = "Ice"
+Humanoid.WalkSpeed = 0
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.040953666, -0.748878539, 1, 0, 0, 0, 0.766045272, 0.642787814, 0, -0.642787814, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.46567416, -0.30447942, 1, 0, 0, 0, 0.819151759, 0.573578298, 0, -0.573578477, 0.81915164) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, -0.202564657, -0.628316641, 1, 0, 0, 0, 0.766045153, -0.642787814, 0, 0.642787755, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, -0.138277054, -0.704931736, 1, 0, 0, 0, 0.766045153, -0.642787814, 0, 0.642787755, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.599616647, -1.975402, -0.679965973, 0.996194422, -0.0871557891, 0, 0.0667653009, 0.763127625, -0.642787814, 0.0560226999, 0.640339613, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.549812436, -1.97874928, -0.682774663, 0.996194661, 0.0871559456, 0, -0.0667654127, 0.76312995, -0.642787814, -0.0560227893, 0.64034158, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.040953666, -0.748878539, 1, 0, 0, 0, 0.766045272, 0.642787814, 0, -0.642787814, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.49032831, -0.0227138996, 1, 0, 0, 0, 0.766048789, -0.642783642, 0, 0.642783642, 0.766048789) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, -0.202564657, -0.628316641, 1, 0, 0, 0, 0.766045153, -0.642787814, 0, 0.642787755, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, -0.138277054, -0.704931736, 1, 0, 0, 0, 0.766045153, -0.642787814, 0, 0.642787755, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.599616647, -1.975402, -0.679965973, 0.996194422, -0.0871557891, 0, 0.0667653009, 0.763127625, -0.642787814, 0.0560226999, 0.640339613, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.549812436, -1.97874928, -0.682774663, 0.996194661, 0.0871559456, 0, -0.0667654127, 0.76312995, -0.642787814, -0.0560227893, 0.64034158, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function backtomysenses()
+attack = true
+hello.SoundId = "rbxassetid://515593602"
+hello:Play()
+	text.TextColor3 = Color3.new(0, 0, 0)
+text.Text = "Doomfist"
+lust = false
+WristPart2.BrickColor = BrickColor.new("Really black")
+FistPart2.BrickColor = BrickColor.new("Really black")
+local maincolor = BrickColor.new("Really black")
+handleg.BrickColor = maincolor
+handleo.BrickColor = maincolor
+wngr.BrickColor = maincolor
+wngr2.BrickColor = maincolor
+wngr3.BrickColor = maincolor
+rig.BrickColor = maincolor
+glowbo.BrickColor = maincolor
+glownb.BrickColor = maincolor
+glownb2.BrickColor = maincolor
+glownb3.BrickColor = maincolor
+blak.BrickColor = maincolor
+line.BrickColor = maincolor
+line2.BrickColor = maincolor
+line3.BrickColor = maincolor
+WristPart2.Material = "Fabric"
+FistPart2.Material = "Fabric"
+Humanoid.WalkSpeed = 0
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.040953666, -0.748878539, 1, 0, 0, 0, 0.766045272, 0.642787814, 0, -0.642787814, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.46567416, -0.30447942, 1, 0, 0, 0, 0.819151759, 0.573578298, 0, -0.573578477, 0.81915164) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.5, -0.202564657, -0.628316641, 1, 0, 0, 0, 0.766045153, -0.642787814, 0, 0.642787755, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, -0.138277054, -0.704931736, 1, 0, 0, 0, 0.766045153, -0.642787814, 0, 0.642787755, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.599616647, -1.975402, -0.679965973, 0.996194422, -0.0871557891, 0, 0.0667653009, 0.763127625, -0.642787814, 0.0560226999, 0.640339613, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.549812436, -1.97874928, -0.682774663, 0.996194661, 0.0871559456, 0, -0.0667654127, 0.76312995, -0.642787814, -0.0560227893, 0.64034158, 0.766045272) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function um()
+attack = true
+Humanoid.WalkSpeed = 0
+	for i = 0, 5, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0.0405544378, 0.0106489267, -0.159054995, 0.984808266, -3.53964302e-09, 0.173645422, -0.0151337553, 0.996195078, 0.0858292878, -0.172984585, -0.0871533006, 0.981061101) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.0596392043, 1.47117364, 0.104691237, 0.984808266, -0.0151328119, -0.172984675, -3.53964302e-09, 0.996195555, -0.0871478692, 0.173645422, 0.0858239383, 0.981061578) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.42579198, 0.50909996, -1.12114668, 0.984808266, -0.172984421, 0.0151363788, -3.53964302e-09, -0.087168403, -0.996194124, 0.173645422, 0.981060147, -0.0858441666) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.38559711, 0.0780117512, -1.01359916, 0.984808266, -0.150381714, -0.0868218318, -3.53964302e-09, 0.499995112, -0.86602819, 0.173645422, 0.852871716, 0.492399514) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.553354442, -2.00816464, 0.0812952742, 0.979741514, -0.100907855, -0.172984585, 0.086824201, 0.992400825, -0.0871533006, 0.180465117, 0.0703681856, 0.981061101) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.582878232, -2.01723909, -0.0690809563, 0.993680298, 0.0628890023, 0.0930044204, -0.0613086894, 0.997923493, -0.0197557509, -0.0940533727, 0.0139286891, 0.99547255) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0.0405513234, 0.0106492359, -0.159051433, 1, -5.8359273e-08, -6.93068068e-06, 6.62168873e-07, 0.996194959, 0.0871532932, 6.89922217e-06, -0.0871533006, 0.996194959) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.0405531749, 1.47117352, 0.113457158, 1, 6.62131242e-07, 6.89922581e-06, -5.8359273e-08, 0.996195436, -0.0871478692, -6.93068068e-06, 0.0871478617, 0.996195436) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.20944047, 0.509099841, -1.35170496, 1, 6.89921444e-06, -6.62273521e-07, -5.8359273e-08, -0.087168403, -0.996194005, -6.93068068e-06, 0.996194005, -0.0871683955) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.54056215, 0.416097701, -1.17972803, 1, 6.89921035e-06, -6.6228273e-07, -5.8359273e-08, -0.0871696919, -0.996193886, -6.93068068e-06, 0.996193409, -0.0871697366) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.559063971, -2.00380659, -0.0658419654, 0.996194482, -0.087155126, 6.89922217e-06, 0.0868241265, 0.992400706, -0.0871533006, 0.00758901238, 0.086821951, 0.996194959) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.625687778, -2.01427555, -0.111444429, 0.962250769, 0.0643523261, 0.264457345, -0.0613087416, 0.997923374, -0.0197557732, -0.265179217, 0.0027962476, 0.964197874) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 3, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0.0405527093, -0.00678148866, -0.358291179, 1, -5.8359273e-08, -6.93068068e-06, 6.62168873e-07, 0.996194959, 0.0871532932, 6.89922217e-06, -0.0871533006, 0.996194959) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.0405538604, 1.49731743, 0.014601849, 1, 6.62131242e-07, 6.89922581e-06, -5.8359273e-08, 0.996195436, -0.0871478692, -6.93068068e-06, 0.0871478617, 0.996195436) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.22522199, 0.546953201, -1.58431208, 0.999999464, 7.71132181e-06, -6.62281991e-07, 1.24421042e-08, -0.0871683285, -0.996193647, -7.73969805e-06, 0.996193111, -0.0871683657) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.39055824, 0.450965285, -1.37820315, 1, 6.89921035e-06, -6.6228273e-07, -5.8359273e-08, -0.0871696919, -0.996193886, -6.93068068e-06, 0.996193409, -0.0871697366) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.559064686, -2.00382042, 0.134158239, 0.99619478, -0.0868238881, -0.00758924801, 0.0868239105, 0.996223688, -0.000327423215, 0.00758901471, -0.000332765281, 0.999971271) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.625690758, -2.01427627, 0.0885611624, 0.962248564, 0.0410574302, 0.269058168, -0.0613077059, 0.995848119, 0.0672949702, -0.265177995, -0.0812499076, 0.960770309) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+text.Text = "WOAH THE HELL AM I DOING"
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0.0405495875, 0.0324377865, 0.0899986178, 1, -6.6218729e-07, -6.89922172e-06, 6.62168929e-07, 1.00000012, -2.69711018e-06, 6.89922217e-06, 2.67475843e-06, 1.00000012) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.0405497141, 1.4536761, -0.0642510802, 1, 6.62131299e-07, 6.89922581e-06, -6.6218729e-07, 1.00000012, 8.12847793e-06, -6.89922172e-06, -8.15082967e-06, 1.00000012) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.47522771, 1.45734, -0.517842293, 0.939694047, -0.342016518, -6.76835043e-06, -0.280170202, -0.769758463, -0.573563576, 0.196163312, 0.538975656, -0.819159091) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.59077775, 0.716461897, -0.240368336, 0.573568821, 0.742407918, -0.346190572, 1.10775227e-05, -0.422624648, -0.906304896, -0.819157481, 0.51982379, -0.242412716) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.554125488, -1.967242, 0.0582045913, 0.99619478, -0.0754817799, -0.0435716063, 0.0871550143, 0.862728894, 0.498100877, -7.11820257e-06, -0.500002563, 0.866026223) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.66819334, -1.96576154, -0.366054237, 0.962252975, 0.170086801, 0.212484285, -0.0841869116, 0.928409994, -0.361916572, -0.258826405, 0.330363721, 0.907679558) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+text.Text = "wat going on"
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function ohmy()
+attack = true
+Humanoid.WalkSpeed = 0
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.0999999568, -1.49011612e-08, 1, 0, 0, 0, 0.965925455, 0.25881964, 0, -0.25881964, 0.965925455) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.00468692416, 1.44474649, -0.0602621213, 0.999884725, 0.015132539, 0.0013217926, -0.0151901534, 0.996136785, 0.0864897966, -7.87526369e-06, -0.0864999294, 0.996251762) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.48580658, 0.12642017, -0.551766396, 1, 1.76592275e-05, -1.79057133e-05, -2.43364047e-05, 0.499998987, -0.866025686, -6.34050593e-06, 0.866025686, 0.499998987) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.48903608, 0.174676359, -0.598664522, 1, -2.03299314e-05, 2.42280166e-05, 3.05495014e-05, 0.42262131, -0.906316757, 8.18567059e-06, 0.906316757, 0.42262131) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.597899616, -1.81428409, -0.486132681, 0.99619174, -0.0841812566, 0.0225540027, 0.0841839388, 0.862467468, -0.499051094, 0.0225601103, 0.49904874, 0.866278529) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.83525896, -0.491757274, 1, 2.84968883e-06, 7.77508649e-06, 1.4196421e-06, 0.866025388, -0.49999994, -8.15827116e-06, 0.49999994, 0.866025388) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0.0229585171, -0.504048228, 1, 0, 0, 0, 0.90630728, -0.422619313, 0, 0.422619313, 0.90630728) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.00488842651, 1.51020205, -0.108354002, 0.999883831, 0.013766177, -0.00642169826, -0.0116414307, 0.966014206, 0.258223474, 0.00975817535, -0.258117974, 0.966066599) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.48580337, 0.0532353222, 0.53025651, 1, 2.18663172e-05, 1.24231665e-05, -2.27185319e-05, 0.573578537, 0.819150209, 1.07861279e-05, -0.81915307, 0.573576033) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.48903167, 0.0181051791, 0.546317816, 1, -2.8663655e-05, -1.33658868e-05, 2.8663535e-05, 0.642784178, 0.766043663, -1.33662816e-05, -0.766043663, 0.642784178) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.541283488, -1.69923985, 0.808552682, 0.999288201, 0.00813300908, -0.0368376337, 0.0229434893, 0.644108653, 0.764589965, 0.0299458448, -0.764891088, 0.643463433) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.450005025, -1.72329378, 0.737967491, 1, -2.12535815e-06, 8.00349881e-06, -4.15648083e-06, 0.707105458, 0.707110286, -7.16219165e-06, -0.707110286, 0.707105458) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function toggle()
+	text.TextTransparency = 0
+	text.BackgroundTransparency = 1
+	text.TextTransparency = 0
+	text.TextStrokeTransparency = 0
+end
+
+function untoggle()
+	text.TextTransparency = 1
+	text.BackgroundTransparency = 1 
+	text.TextTransparency = 1
+	text.TextStrokeTransparency = 1
+end
+
+function stayfrosty()
+attack = true
+icecrusher = true
+text.Text = "Icecrusher"
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0.00870819669, 0, -0.099622421, 0.99619478, 0, 0.0871559754, 0, 0.999996662, 0, -0.0871559754, 0, 0.99619478) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-2.85427086e-06, 1.49999523, 0.100000173, 0.99619478, -0.00759619009, -0.0868243203, 0, 0.99619472, -0.0871562734, 0.0871559754, 0.0868246257, 0.992403984) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.56991816, 1.03416383, -0.633722305, 0.984039187, -0.00708736107, -0.177812129, -0.0669867843, -0.940463305, -0.333229244, -0.164864093, 0.339821726, -0.925927281) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.54410851, 0.00435714424, -0.0307331495, 0.996194839, 0.0871553048, -2.23517418e-08, -0.0871552899, 0.996194839, 2.41677744e-09, 2.23517418e-08, -4.65661287e-10, 1.00000024) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.548095942, -1.99999321, -0.0064213397, 1.00000048, 0, -1.28895044e-06, 0, 1, 0, 1.28895044e-06, 0, 1.00000048) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.547920883, -1.99999321, 0.052063413, 0.984807909, 0, 0.173647895, 0, 1, 0, -0.173647895, 0, 0.984807909) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Effects.Ring.Create(BrickColor.new("Pastel blue"), FistPart2.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Ring.Create(BrickColor.new("Steel blue"), FistPart2.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Sphere.Create(BrickColor.new("Steel blue"), glowbo.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Sphere.Create(BrickColor.new("Pastel blue"), glownb.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Sphere.Create(BrickColor.new("Steel blue"), glownb2.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Sphere.Create(BrickColor.new("Steel blue"), handleg.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Sphere.Create(BrickColor.new("Pastel blue"), handleo.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Sphere.Create(BrickColor.new("Steel blue"), line.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Sphere.Create(BrickColor.new("Steel blue"), line2.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Sphere.Create(BrickColor.new("Pastel blue"), line3.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+Effects.Sphere.Create(BrickColor.new("Steel blue"), glownb3.CFrame, 10, 10, 10, 3, 3, 3, .1, .1)
+WristPart2.BrickColor = BrickColor.new("Navy blue")
+FistPart2.BrickColor = BrickColor.new("Navy blue")
+local maincolor = BrickColor.new("Navy blue")
+handleg.BrickColor = maincolor
+handleo.BrickColor = maincolor
+wngr.BrickColor = maincolor
+wngr2.BrickColor = maincolor
+wngr3.BrickColor = maincolor
+rig.BrickColor = maincolor
+glowbo.BrickColor = maincolor
+glownb.BrickColor = maincolor
+glownb2.BrickColor = maincolor
+glownb3.BrickColor = maincolor
+blak.BrickColor = maincolor
+line.BrickColor = maincolor
+line2.BrickColor = maincolor
+line3.BrickColor = maincolor
+WristPart2.Material = "Ice"
+FistPart2.Material = "Ice"
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0.00870819669, 0, -0.099622421, 0.99619478, 0, 0.0871559754, 0, 0.999996662, 0, -0.0871559754, 0, 0.99619478) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.00871273875, 1.49999523, 0.000380758196, 0.99619478, -2.66238676e-08, -0.0871559829, 0, 1.00000012, -3.05473804e-07, 0.0871559754, 3.04311413e-07, 0.996194899) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.54630494, 0.684962809, -0.632799745, 0.984039068, -0.0674747601, -0.164664507, -0.0669864938, -0.9977175, 0.00852285232, -0.164863735, 0.00264347671, -0.986312926) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.54410851, 0.00435714424, -0.0307331495, 0.996194839, 0.0871553048, -2.23517418e-08, -0.0871552899, 0.996194839, 2.41677744e-09, 2.23517418e-08, -4.65661287e-10, 1.00000024) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.548095942, -1.99999321, -0.0064213397, 1.00000048, 0, -1.28895044e-06, 0, 1, 0, 1.28895044e-06, 0, 1.00000048) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.547920883, -1.99999321, 0.052063413, 0.984807909, 0, 0.173647895, 0, 1, 0, -0.173647895, 0, 0.984807909) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+function thatscold()
+attack = true
+icecrusher = false
+text.Text = "Doomfist"
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0.00870819669, 0, -0.099622421, 0.99619478, 0, 0.0871559754, 0, 0.999996662, 0, -0.0871559754, 0, 0.99619478) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-2.85427086e-06, 1.49999523, 0.100000173, 0.99619478, -0.00759619009, -0.0868243203, 0, 0.99619472, -0.0871562734, 0.0871559754, 0.0868246257, 0.992403984) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.56991816, 1.03416383, -0.633722305, 0.984039187, -0.00708736107, -0.177812129, -0.0669867843, -0.940463305, -0.333229244, -0.164864093, 0.339821726, -0.925927281) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.54410851, 0.00435714424, -0.0307331495, 0.996194839, 0.0871553048, -2.23517418e-08, -0.0871552899, 0.996194839, 2.41677744e-09, 2.23517418e-08, -4.65661287e-10, 1.00000024) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.548095942, -1.99999321, -0.0064213397, 1.00000048, 0, -1.28895044e-06, 0, 1, 0, 1.28895044e-06, 0, 1.00000048) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.547920883, -1.99999321, 0.052063413, 0.984807909, 0, 0.173647895, 0, 1, 0, -0.173647895, 0, 0.984807909) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+WristPart2.BrickColor = BrickColor.new("Really black")
+FistPart2.BrickColor = BrickColor.new("Really black")
+local maincolor = BrickColor.new("Really black")
+handleg.BrickColor = maincolor
+handleo.BrickColor = maincolor
+wngr.BrickColor = maincolor
+wngr2.BrickColor = maincolor
+wngr3.BrickColor = maincolor
+rig.BrickColor = maincolor
+glowbo.BrickColor = maincolor
+glownb.BrickColor = maincolor
+glownb2.BrickColor = maincolor
+glownb3.BrickColor = maincolor
+blak.BrickColor = maincolor
+line.BrickColor = maincolor
+line2.BrickColor = maincolor
+line3.BrickColor = maincolor
+WristPart2.Material = "Fabric"
+FistPart2.Material = "Fabric"
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+
+Mouse.KeyDown:connect(function(k)
+	k = k:lower()
+	if attack == false and k == 'z' and yl == false and triger == false and lust == false and icecrusher == false then
+	skill1()
+	elseif attack == false and k == 'x' and yl == false and triger == false and lust == false and icecrusher == false then
+	skill2()
+	elseif attack == false and k == 'c' then
+	skill3()
+	elseif attack == false and k == 'v' and yl == false and triger == false and lust == false and icecrusher == false then
+	skill4()
+	elseif attack == false and k == 'e' and yl == false and triger == false and lust == false and icecrusher == false then
+	trig()
+	elseif attack == false and k == 'e' and yl == false and triger == true and lust == false and icecrusher == false then
+	notrig()
+	elseif attack == false and k == 'z' and yl == false and triger == true and lust == false and icecrusher == false then
+	tskill1()
+	elseif attack == false and k == 'x' and yl == false and triger == true and lust == false and icecrusher == false then
+	tskill2()
+	elseif attack == false and k == 'v' and yl == false and triger == true and lust == false and icecrusher == false then
+	Ruined()
+	elseif attack == false and k == 'q' and triger == false and yl == false and lust == false and icecrusher == false then
+	yellowify()
+	elseif attack == false and k == 'q' and triger == false and yl == true and lust == false and icecrusher == false then
+	unyl()
+	elseif attack == false and k == 'z' and triger == false and yl == true and lust == false and icecrusher == false then
+	yskill1()
+	elseif attack == false and k == 'x' and triger == false and yl == true and lust == false and icecrusher == false then
+	yskill2()
+	elseif attack == false and k == 'v' and triger == false and yl == true and lust == false and icecrusher == false then
+	yellowult()
+	elseif attack == false and k == 'g' and triger == false and yl == true and lust == false and icecrusher == false then
+	zmove()
+	elseif attack == false and k == 'b' then
+	teleportus()
+	elseif attack == false and k == 'f' and yl == false and triger == false and lust == false and icecrusher == false then
+	oh()
+	elseif attack == false and k == 'f' and yl == false and triger == false and lust == true and icecrusher == false then
+	backtomysenses()
+	elseif attack == false and k == 'z' and yl == false and triger == false and lust == true and icecrusher == false then
+	um()
+	elseif attack == false and k == 'x' and yl == false and triger == false and lust == true and icecrusher == false then
+	ohmy()
+        elseif k == 't' and text.TextTransparency == 1 then
+        toggle()
+        elseif k == 't' and text.TextTransparency == 0 then
+        untoggle()
+	elseif attack == false and k == 'r' and yl == false and triger == false and lust == false and icecrusher == false then
+	stayfrosty()
+	elseif attack == false and k == 'r' and yl == false and triger == false and lust == false and icecrusher == true then
+	thatscold()
+	elseif attack == false and k == 'z' and yl == false and triger == false and lust == false and icecrusher == true then
+	boomgoestheicicles()
+	elseif attack == false and k == 'x' and yl == false and triger == false and lust == false and icecrusher == true then
+	piercedbby()
+	elseif attack == false and k == 'v' and yl == false and triger == false and lust == false and icecrusher == true then
+	woahtherebecarefulwiththat()
+	end
+end)
+
+while true do
+	swait()
+	for i, v in pairs(Character:GetChildren()) do
+		if v:IsA("Part") then
+			v.Material = "SmoothPlastic"
+		elseif v:IsA("Accessory") then
+			v:WaitForChild("Handle").Material = "SmoothPlastic"
+		end
+	end
+	Torsovelocity = (RootPart.Velocity * Vector3.new(1, 0, 1)).magnitude 
+	velocity = RootPart.Velocity.y
+	sine = sine + change
+	local hit, pos = rayCast(RootPart.Position, (CFrame.new(RootPart.Position, RootPart.Position - Vector3.new(0, 1, 0))).lookVector, 4, Character)
+		if RootPart.Velocity.y > 1 and hit == nil then 
+			Anim = "Jump"
+			if attack == false then
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, -0, 1, 0, 0, 0, 0.999996185, 0, 0, 0, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.49129772, -0.0492396951, 1, 0, 0, 0, 0.766038835, -0.64278394, 0, 0.642785192, 0.766040325) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.46843624, 0.180933714, 0.0372858047, 0.951248944, -0.254887462, -0.173648328, 0.258818775, 0.965923786, -1.14036114e-09, 0.16773127, -0.044943653, 0.984805882) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.63477135, 0.28501603, 0.158970028, 0.961526453, 0.242340595, 0.129411325, -0.266435593, 0.93742609, 0.224140555, -0.0669952482, -0.249995694, 0.96592623) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.54962939, -1.9957037, 0.00430911779, 0.99257493, -0.0290100258, -0.118124813, 0.0858313814, 0.855161488, 0.511204004, 0.0861857831, -0.517548025, 0.851303339) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.599646151, -1.99157369, -9.50545073e-05, 0.996449828, 0.0841852501, 0.000950440764, -0.0841850936, 0.996192873, 0.0225575492, 0.000952169299, -0.0225575212, 0.99974525) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+			end
+		elseif RootPart.Velocity.y < -1 and hit == nil then 
+			Anim = "Fall"
+			if attack == false then
+			PlayAnimationFromTable({
+				CFrame.new(-0, -0.0520263538, -0.0354017057, 1, 0, 0, 0, 0.965925872, 0.258818984, 0, -0.258818984, 0.965925872) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+				CFrame.new(0, 1.51533091, -0.10684365, 1, 0, 0, 0, 0.965925872, 0.258819342, 0, -0.258819342, 0.965925872) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+				CFrame.new(1.67554009, 0.885679007, 0.385592818, 0.374123871, -0.696466088, -0.61234498, 0.914592147, 0.386364758, 0.119345918, 0.153468132, -0.604696095, 0.781530797) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+				CFrame.new(-1.67474985, 0.999329269, 0.296636045, 0.250219911, 0.753912985, 0.607457995, -0.927206695, 0.367205799, -0.0738086402, -0.278707415, -0.544770718, 0.79091537) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+				CFrame.new(0.504494727, -1.81757987, -0.0935191363, 0.984807849, -0.0449431092, -0.167730823, 0.059390761, 0.99484998, 0.0821366012, 0.163175508, -0.0908504426, 0.982405365) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+				CFrame.new(-0.623603821, -1.49203336, -0.421764404, 0.992403865, 0.122534379, 0.0109562073, -0.118891656, 0.978150725, -0.17054674, -0.0316146575, 0.167948633, 0.985288799) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+			}, .3, false)
+		end
+		elseif Torsovelocity < 1 and hit ~= nil then
+			Anim = "Idle"
+			if attack == false and triger == false and lust == false then
+				change = 1
+	for i = 0, .2, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(-0, -0, 0, 1, 0, 0, 0, 0.996187985, 0.0871556774, 0, -0.0871556699, 0.996194661)  * CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.49999499, 1.11760201e-08, 1, 0, 0, 0, 0.999998331, -7.45067918e-09, 0, 7.45069251e-09, 1)  * CFrame.Angles(math.rad(0 - 3 * math.cos(sine/25)), 0, 0), 
+         CFrame.new(0.284558058, 0.352360129, -0.585287333, 0.258820832, 0.965924978, -2.79002438e-06, 0.084192656, -0.0225623567, -0.996192336, -0.962249458, 0.257835418, -0.0871634856)  * CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.273653597, 0.406440526, -0.577382147, 0.258828282, -0.965923369, -1.5671344e-07, -0.167737693, -0.0449467227, -0.984804809, 0.951247692, 0.254895747, -0.17365551)  * CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.474217355, -1.99127746, 0.0962256789, 0.96592617, 0.0225576833, -0.257834911, 0, 0.996192992, 0.0871558487, 0.258819818, -0.0841861963, 0.962250471) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.538676202, -1.98692012, -0.144339234, 0.96592617, 0.0225576833, 0.257834911, 0, 0.996192992, -0.0871558487, -0.258819818, 0.0841861963, 0.962250471) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+end
+
+			Anim = "ChaosIdle"
+			if attack == false and triger == true and lust == false and icecrusher == false then
+				change = 1
+	for i = 0, .5, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0, -0.0647047833, 0.241481826, 1, 0, 0, 0, 0.965925455, -0.258820057, 0, 0.258821845, 0.965927064) * CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.38428938, 0.206644475, 1, 0, 0, 0, 0.866020501, -0.500013709, 0, 0.500014067, 0.866019189)* CFrame.Angles(math.rad(0 - 3 * math.cos(sine/25)), 0, 0), 
+         CFrame.new(1.5, -0.0531108305, 0.240849346, 1, 0, 0, 0, 0.906307876, 0.422623992, 0, -0.42262274, 0.906307399)  * CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.5, -0.0487760343, 0.17103304, 1, 0, 0, 0, 0.939689577, 0.342035413, 0, -0.342034101, 0.939688861) * CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5, -1.9015696, 0.0580465198, 1, 0, 0, 0, 0.965927184, 0.258823961, 0, -0.258822799, 0.965926468) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5, -1.79043007, 0.338350534, 1, 0, 0, 0, 0.707104981, 0.707112432, 0, -0.70711112, 0.707104921) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+  end
+end
+
+			Anim = "LustIdle"
+			if attack == false and triger == false and lust == true and icecrusher == false then
+				change = 1
+	for i = 0, 1, 0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0.0405513234, 0.0106492359, -0.159051433, 1, -5.8359273e-08, -6.93068068e-06, 6.62168873e-07, 0.996194959, 0.0871532932, 6.89922217e-06, -0.0871533006, 0.996194959)* CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.0405531749, 1.47117352, 0.113457158, 1, 6.62131242e-07, 6.89922581e-06, -5.8359273e-08, 0.996195436, -0.0871478692, -6.93068068e-06, 0.0871478617, 0.996195436)* CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.45944524, -0.162631646, -0.0976803005, 1, 1.26106011e-06, 6.81523534e-06, -5.8359273e-08, 0.984809577, -0.173659891, -6.93068068e-06, 0.17366077, 0.984805286)* CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.54055476, -0.180899188, -0.106088847, 1, 1.26098985e-06, 6.81524307e-06, -5.8359273e-08, 0.984806299, -0.173650682, -6.93068068e-06, 0.173650667, 0.984806299) * CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.559064269, -2.00381994, -0.0658437982, 0.99619478, -0.0868238732, -0.00758914975, 0.0868239328, 0.996223629, -0.000328019261, 0.00758897513, -0.000332191586, 0.999971509)* CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.625686049, -2.0142746, -0.111444466, 0.962248862, 0.0643517226, 0.264456004, -0.0613066703, 0.997923195, -0.019761242, -0.265178651, 0.00280226022, 0.964195728)* CFrame.new(0, 0 + 0.1 * math.cos(sine/25), 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+	end
+end
+
+		elseif Torsovelocity > 2 and hit ~= nil then
+			Anim = "Walk"
+			if attack == false then
+							PlayAnimationFromTable({
+         CFrame.new(-0, -0, 0, 1, 0, 0, 0, 0.996187985, 0.0871556774, 0, -0.0871556699, 0.996194661) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0, 1.49999499, 1.11760201e-08, 1, 0, 0, 0, 0.999998331, -7.45067918e-09, 0, 7.45069251e-09, 1) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.51048923, 0.0486144125, 0.213053972, 0.150388524, 0.08681795, 0.984807611, -0.423753828, 0.905649245, -0.015128728, -0.893205106, -0.415041506, 0.172988981) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.46577644, 0.0133882836, 0.266453117, 0.978753924, 0.0149079002, 0.204495385, -0.0694269463, 0.96253264, 0.26212123, -0.192926094, -0.270750105, 0.943119466) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+CFrame.new(0.5, -2.00000334, 2.67028881e-005, 1, 0, 0, 0, 1.00000024, 0, 0, 0, 1.00000024) * CFrame.new(0, 0+ .3 * math.cos((sine) / 2), 0 + 1 * math.cos((sine) / 4)) * CFrame.Angles(math.rad(0 - 50 * math.cos((sine) / 4)), math.rad(0), math.rad(0)),
+CFrame.new(-0.5, -2.00000334, 2.67028881e-005, 1, 0, 0, 0, 1.00000024, 0, 0, 0, 1.00000024) * CFrame.new(0, 0+ .3 * math.cos((sine) / 2), 0 - 1 * math.cos((sine) / 4)) * CFrame.Angles(math.rad(0 + 50 * math.cos((sine) / 4)), math.rad(0), math.rad(0)), 
+}, .3, false)
+end
+		end
+	if 0 < #Effects then
+		for e = 1, #Effects do
+			if Effects[e] ~= nil then
+				local Thing = Effects[e]
+				if Thing ~= nil then
+					local Part = Thing[1]
+					local Mode = Thing[2]
+					local Delay = Thing[3]
+					local IncX = Thing[4]
+					local IncY = Thing[5]
+					local IncZ = Thing[6]
+					if Thing[2] == "Shoot" then
+						local Look = Thing[1]
+						local move = 30
+						if Thing[8] == 3 then
+							move = 10
+						end
+						local hit, pos = rayCast(Thing[4], Thing[1], move, m)
+						if Thing[10] ~= nil then
+							da = pos
+							cf2 = CFrame.new(Thing[4], Thing[10].Position)
+							cfa = CFrame.new(Thing[4], pos)
+							tehCF = cfa:lerp(cf2, 0.2)
+							Thing[1] = tehCF.lookVector
+						end
+						local mag = (Thing[4] - pos).magnitude
+						Effects["Head"].Create(Torso.BrickColor, CFrame.new((Thing[4] + pos) / 2, pos) * CFrame.Angles(1.57, 0, 0), 1, mag * 5, 1, 0.5, 0, 0.5, 0.2)
+						if Thing[8] == 2 then
+							Effects["Ring"].Create(Torso.BrickColor, CFrame.new((Thing[4] + pos) / 2, pos) * CFrame.Angles(1.57, 0, 0) * CFrame.fromEulerAnglesXYZ(1.57, 0, 0), 1, 1, 0.1, 0.5, 0.5, 0.1, 0.1, 1)
+						end
+						Thing[4] = Thing[4] + Look * move
+						Thing[3] = Thing[3] - 1
+						if 2 < Thing[5] then
+							Thing[5] = Thing[5] - 0.3
+							Thing[6] = Thing[6] - 0.3
+						end
+						if hit ~= nil then
+							Thing[3] = 0
+							if Thing[8] == 1 or Thing[8] == 3 then
+								Damage(hit, hit, Thing[5], Thing[6], Thing[7], "Normal", RootPart, 0, "", 1)
+							else
+								if Thing[8] == 2 then
+									Damage(hit, hit, Thing[5], Thing[6], Thing[7], "Normal", RootPart, 0, "", 1)
+									if (hit.Parent:findFirstChild("Humanoid")) ~= nil or (hit.Parent.Parent:findFirstChild("Humanoid")) ~= nil then
+										ref = CFuncs.Part.Create(workspace, "Neon", 0, 1, BrickColor.new("Really red"), "Reference", Vector3.new())
+										ref.Anchored = true
+										ref.CFrame = CFrame.new(pos)
+										CFuncs["Sound"].Create("161006093", ref, 1, 1.2)
+										game:GetService("Debris"):AddItem(ref, 0.2)
+										Effects["Block"].Create(Torso.BrickColor, CFrame.new(ref.Position) * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50)), 1, 1, 1, 10, 10, 10, 0.1, 2)
+										Effects["Ring"].Create(BrickColor.new("Bright yellow"), CFrame.new(ref.Position) * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50)), 1, 1, 0.1, 4, 4, 0.1, 0.1)
+										MagnitudeDamage(ref, 15, Thing[5] / 1.5, Thing[6] / 1.5, 0, "Normal", "", 1)
+									end
+								end
+							end
+							ref = CFuncs.Part.Create(workspace, "Neon", 0, 1, BrickColor.new("Really red"), "Reference", Vector3.new())
+							ref.Anchored = true
+							ref.CFrame = CFrame.new(pos)
+							Effects["Sphere"].Create(Torso.BrickColor, CFrame.new(pos), 5, 5, 5, 1, 1, 1, 0.07)
+							game:GetService("Debris"):AddItem(ref, 1)
+						end
+						if Thing[3] <= 0 then
+							table.remove(Effects, e)
+						end
+					end
+					do
+						do
+							if Thing[2] == "FireWave" then
+								if Thing[3] <= Thing[4] then
+									Thing[1].CFrame = Thing[1].CFrame * CFrame.fromEulerAnglesXYZ(0, 1, 0)
+									Thing[3] = Thing[3] + 1
+									Thing[6].Scale = Thing[6].Scale + Vector3.new(Thing[5], 0, Thing[5])
+								else
+									Part.Parent = nil
+									table.remove(Effects, e)
+								end
+							end
+
+							if Thing[2] ~= "Shoot" and Thing[2] ~= "Wave" and Thing[2] ~= "FireWave" then
+								if Thing[1].Transparency <= 1 then
+									if Thing[2] == "Block1" then
+										Thing[1].CFrame = Thing[1].CFrame * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50))
+										Mesh = Thing[7]
+										Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+										Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+									else
+										if Thing[2] == "Block2" then
+											Thing[1].CFrame = Thing[1].CFrame
+											Mesh = Thing[7]
+											Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+											Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+										else
+											if Thing[2] == "Fire" then
+												Thing[1].CFrame = CFrame.new(Thing[1].Position) + Vector3.new(0, 0.2, 0)
+												Thing[1].CFrame = Thing[1].CFrame * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50))
+												Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+											else
+												if Thing[2] == "Cylinder" then
+													Mesh = Thing[7]
+													Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+													Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+												else
+													if Thing[2] == "Blood" then
+														Mesh = Thing[7]
+														Thing[1].CFrame = Thing[1].CFrame * CFrame.new(0, 0.5, 0)
+														Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+														Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+													else
+														if Thing[2] == "Elec" then
+															Mesh = Thing[10]
+															Mesh.Scale = Mesh.Scale + Vector3.new(Thing[7], Thing[8], Thing[9])
+															Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+														else
+															if Thing[2] == "Disappear" then
+																Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+															else
+																if Thing[2] == "Shatter" then
+														Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+														Thing[4] = Thing[4] * CFrame.new(0, Thing[7], 0)
+														Thing[1].CFrame = Thing[4] * CFrame.fromEulerAnglesXYZ(Thing[6], 0, 0)
+														Thing[6] = Thing[6] + Thing[5]
+																end
+															end
+														end
+													end
+												end
+											end
+										end
+									end
+								else
+									Part.Parent = nil
+									table.remove(Effects, e)
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end
