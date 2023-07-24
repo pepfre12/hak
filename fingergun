@@ -1,0 +1,288 @@
+function Reanimate()
+ game:GetService("Players").LocalPlayer.Character.Head.Anchored = true
+ for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+  if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then
+  game:GetService("RunService").Heartbeat:connect(function()
+  v.Velocity = Vector3.new(0,35,0)
+     wait(0.5)
+    end)
+   end
+ end
+ game.TestService.IsSleepAllowed = false
+ for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+	 if v:IsA("BasePart") then 
+		 game:GetService("RunService").Heartbeat:connect(function()
+			 v.Velocity = Vector3.new(-40,0,-10)
+			 pcall(function()
+				 v.CanCollide = false
+			 end)
+			 pcall(function()
+				 v.CanQuery = false
+			 end)
+		 end)
+	 end
+ end
+ --loadstring(game:HttpGet(("https://raw.githubusercontent.com/BloxinStud10/RNTE/main/Tool%20Fling%20Reanimate"),true))()
+ loadstring(game:HttpGet(("https://raw.githubusercontent.com/BloxinStud10/RNTE/main/idk%20lol"),true))()
+ local cplayer = game.Players.LocalPlayer.Character
+ local function gp(parent, name, className)
+     if typeof(parent) == "Instance" then
+         for i, v in pairs(parent:GetChildren()) do
+             if (v.Name == name) and v:IsA(className) then
+                 return v
+             end
+         end
+     end
+     return nil
+ end
+
+ local hat2 = gp(cplayer, "MeshPartAccessory", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Torso"] --any part of humanoid
+ att2.Position = Vector3.new(-0, 0.025, 0)
+ att2.Rotation = Vector3.new(180, 0, -15)--you can delete this 
+
+ local hat2 = gp(cplayer, "Extra Left hand (Blocky)_white", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Left Arm"]
+ att2.Position = Vector3.new(-0, -0, -0)
+ att2.Rotation = Vector3.new(-120, 0, 0)
+
+ local hat2 = gp(cplayer, "Extra Right hand (Blocky)_white", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Right Arm"]
+ att2.Position = Vector3.new(0, -0, 0)
+ att2.Rotation = Vector3.new(-120, 0, 0) --LavanderHair
+
+ local hat2 = gp(cplayer, "Lipstick_Bag_3.0", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Right Leg"]
+ att2.Position = Vector3.new(0, -0, 0.5) --Robloxclassicred
+ att2.Rotation = Vector3.new(0, -5, -45)
+
+ local hat2 = gp(cplayer, "Lipstick_Bag_1.0", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Left Leg"]
+ att2.Position = Vector3.new(-0, -0, 0.5) 
+ att2.Rotation = Vector3.new(0, 0, -45)
+ 
+ game:GetService("Players").LocalPlayer.Character.Head.Anchored = false
+ setfpscap(120)
+end
+Reanimate() --Reanimate your character (idk why i did this lmao)
+
+--Best Netless Ever
+coroutine.resume(coroutine.create(function()
+	while true do
+	    if game.TestService.IsSleepAllowed == true then
+		    game.TestService.IsSleepAllowed = false
+		end
+		game:GetService("RunService").Heartbeat:Wait()
+	end
+end))
+
+local plr = game:service'Players'.LocalPlayer
+local chr = plr.Character
+local hum = chr.Humanoid
+local rarm = chr["Right Arm"]
+local larm= chr["Left Arm"]
+local rleg= chr["Right Leg"]
+local lleg = chr["Left Leg"]
+local root = chr.HumanoidRootPart
+local tors = chr.Torso
+local head = chr.Head
+local RunS = game:GetService("RunService")
+local mouse = plr:GetMouse()
+local RenderS = RunS.RenderStepped
+local t = tick()
+local defAnim = true
+local action = ''
+local CF = {N=CFrame.new,A=CFrame.Angles,fEA=CFrame.fromEulerAnglesXYZ}
+local V3 = {N=Vector3.new}
+local M = {C=math.cos,R=math.rad,S=math.sin,P=math.pi,RNG=math.random,MRS=math.randomseed,H=math.huge}
+local Effects,Sounds = {},{};
+
+
+Sounds['Wet'] = {Id=256738023,Loop=false,Pitch=1}
+Sounds['Swoosh1'] = {Id=320557353,Loop=false,Pitch=1}
+Sounds['Swoosh2'] = {Id=320557382,Loop=false,Pitch=1}
+Sounds['Swoosh3'] = {Id=320557413,Loop=false,Pitch=1}
+Sounds['Swoosh4'] = {Id=320557453,Loop=false,Pitch=1}
+Sounds['Swoosh5'] = {Id=320557487,Loop=false,Pitch=1}
+Sounds['Swoosh6'] = {Id=320557537,Loop=false,Pitch=1}
+Sounds['Swoosh7'] = {Id=320557563,Loop=false,Pitch=1}
+Sounds['Swoosh8'] = {Id=320557518,Loop=false,Pitch=1}
+Sounds['ShrekRemix'] = {Id=163306929,Loop=true,Pitch=1,Volume = 4}
+Sounds['CreoDimension'] = {Id=927529620,Loop=true,Pitch=1,Volume=4}
+Sounds['BlackBlizzard'] = {Id=657626121,Loop=true,Pitch=1,Volume=4}
+Sounds['ColbreakzFantasy'] = {Id=876981900,Loop=true,Pitch=1,Volume=4}
+Sounds['NeflCrystals'] = {Id=340106355,Loop=true,Pitch=1,Volume=4}
+Sounds['EvilMortyRemix'] = {Id=1057401232,Loop=true,Pitch=1,Volume=10}
+
+local NewInstance = function(instance,parent,properties)
+	local inst = Instance.new(instance,parent)
+	if properties then
+		for i,v in next, properties do
+			pcall(function() inst[i] = v end)
+		end
+	end
+	return inst;
+end
+local sndFromData = function(data,parent)
+	if typeof(data) == 'table' then
+		local snd = NewInstance("Sound",parent or chr,{SoundId = "rbxassetid://"..data.Id,Looped=data.Loop or false,Pitch = data.Pitch or 1,Volume = data.Volume or 1})
+		return snd;
+	else
+		return error('Argument passed into sndFromData must be a table!',1)
+	end
+end
+
+New = function(Object, Parent, Name, Data)
+	local Object = Instance.new(Object)
+	for Index, Value in pairs(Data or {}) do
+		Object[Index] = Value
+	end
+	Object.Parent = Parent
+	Object.Name = Name
+	return Object
+end
+
+-- Build
+fongr = New("Part",larm,"fongr",{BrickColor = (chr:FindFirstChildOfClass"Body Colors" and chr:FindFirstChildOfClass"Body Colors".LeftArmColor or larm.BrickColor),Material = Enum.Material.SmoothPlastic,FormFactor = Enum.FormFactor.Symmetric,Size = Vector3.new(0.193568379, 1.20012438, 0.193568379),CFrame = CFrame.new(12.9260693, 1.73919964, -21.1709423, -1, 0, 0, 0, 1, 0, 0, 0, -1),CanCollide = false,BottomSurface = Enum.SurfaceType.Smooth,TopSurface = Enum.SurfaceType.Smooth,Color = Color3.new(1, 0.8, 0.6),})
+mot = New("Motor",fongr,"mot",{Part0 = fongr,Part1 = larm,C0 = CFrame.new(0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0, -1),C1 = CFrame.new(-0.301872253, -1.24136782, 0, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
+fongr = New("Part",larm,"fongr",{BrickColor = (chr:FindFirstChildOfClass"Body Colors" and chr:FindFirstChildOfClass"Body Colors".LeftArmColor or larm.BrickColor),Material = Enum.Material.SmoothPlastic,FormFactor = Enum.FormFactor.Symmetric,Size = Vector3.new(0.193568379, 0.688505769, 0.193568379),CFrame = CFrame.new(13.2772827, 2.0387857, -21.1709423, 0.0177989937, -0.99984163, 0, -0.99984163, -0.0177989937, 0, -0, 0, -1),CanCollide = false,BottomSurface = Enum.SurfaceType.Smooth,TopSurface = Enum.SurfaceType.Smooth,Color = Color3.new(1, 0.8, 0.6),})
+mot = New("Motor",fongr,"mot",{Part0 = fongr,Part1 = larm,C0 = CFrame.new(0, 0, 0, 0.0177989937, -0.99984163, 0, -0.99984163, -0.0177989937, 0, 0, 0, -1),C1 = CFrame.new(-0.653085709, -0.941781759, 0, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
+fongr = New("Part",larm,"fongr",{BrickColor = (chr:FindFirstChildOfClass"Body Colors" and chr:FindFirstChildOfClass"Body Colors".LeftArmColor or larm.BrickColor),Material = Enum.Material.SmoothPlastic,FormFactor = Enum.FormFactor.Symmetric,Size = Vector3.new(0.193568379, 1.20012438, 0.193568379),CFrame = CFrame.new(12.7063389, 1.73919964, -21.1709423, -1, 0, 0, 0, 1, 0, 0, 0, -1),CanCollide = false,BottomSurface = Enum.SurfaceType.Smooth,TopSurface = Enum.SurfaceType.Smooth,Color = Color3.new(1, 0.8, 0.6),})
+mot = New("Motor",fongr,"mot",{Part0 = fongr,Part1 = larm,C0 = CFrame.new(0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0, -1),C1 = CFrame.new(-0.0821418762, -1.24136782, 0, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
+
+-- Joints
+local LS = NewInstance('Weld',tors,{Part0=tors,Part1=larm,C0 = CF.N(-1.5,0.5,0),C1 = CF.N(0,.5,0)})
+local RS = NewInstance('Weld',tors,{Part0=tors,Part1=rarm,C0 = CF.N(1.5,0.5,0),C1 = CF.N(0,.5,0)})
+local NK = NewInstance('Weld',tors,{Part0=tors,Part1=head,C0 = CF.N(0,1.5,0)})
+local LH = NewInstance('Weld',tors,{Part0=tors,Part1=lleg,C0 = CF.N(-.5,-1,0),C1 = CF.N(0,1,0)})
+local RH = NewInstance('Weld',tors,{Part0=tors,Part1=rleg,C0 = CF.N(.5,-1,0),C1 = CF.N(0,1,0)})
+local RJ = NewInstance('Weld',tors,{Part0=tors,Part1=root})
+
+
+-- Default C0s
+local LSD=LS.C0
+local RSD=RS.C0
+local HD=NK.C0
+local TD=RJ.C0
+local LHD=LH.C0
+local RHD=RH.C0
+local holding = false
+function shot()
+	if(holding)then
+		local bullet = Instance.new('Part',chr)
+		bullet.CFrame = CF.N(larm.CFrame.p,mouse.Hit.p)
+		bullet.FormFactor = "Custom"
+		bullet.Size = Vector3.new(1,1,1)
+		bullet.CanCollide = false
+		bullet.Transparency = 0.25
+		bullet.Shape = 'Ball'
+		bullet.Color = Color3.fromRGB(200, 76, 200)
+		local bodyVelocity = Instance.new('BodyVelocity',bullet)
+		bodyVelocity.velocity = (mouse.Hit.p - larm.CFrame.p).unit * 75
+		delay(.2, function()
+			bodyVelocity:destroy()
+		end)
+		bullet.Touched:connect(function(o)
+			if o.Parent ~= chr and o.Parent.Parent ~= chr then
+				local h = o.Parent:FindFirstChildOfClass'Humanoid'
+				if h then
+					h.Health = h.Health - h.MaxHealth/4
+				end
+				bullet:destroy()
+			end
+		end)
+	end
+end
+
+mouse.Button1Down:connect(function()
+	defAnim = false;
+	holding = true;
+	repeat wait(.3) action = 'Attackie1' shot()  wait(.15) action = 'Attackie2' until holding == false
+	defAnim = true;
+end)
+mouse.Button1Up:connect(function()
+	holding = false;
+end)
+local c = 0.5;
+
+--hum.AutoRotate = false;
+local stance = 'Idle'
+RenderS:connect(function()
+	t = t + c
+	--mouse.TargetFilter = workspace;
+	--tors.CFrame = CFrame.new(tors.Position, Vector3.new(mouse.Hit.p.X, 0, mouse.Hit.p.Z))
+	if math.abs(root.Velocity.x) > 2 or math.abs(root.Velocity.z) > 2 and hum:GetState() ~= Enum.HumanoidStateType.Freefall then
+		stance = "Walk"
+	elseif math.abs(root.Velocity.x) < 2 or math.abs(root.Velocity.z) < 2 then
+		stance = "Idle"
+	end
+	if defAnim then
+		if(stance == "Walk")then
+			RJ.C0 = RJ.C0:lerp(CF.N(0,0,0)*CF.A(M.R(-4+2*M.C(t/7)),0,0),.3)
+			--RJ.C0 = RJ.C0:lerp(CF.N(0,0,0),.3)
+			NK.C0 = NK.C0:lerp(CF.N(0,1.5,0),.3)
+			RH.C0 = RH.C0:lerp(CF.N(.5,-1+.45*M.C(t/12)/4,.05+-M.S(t/12)/4)*CF.A(M.R(-12)+M.S(t/12)/2.3,0,0),.3)
+			LH.C0 = LH.C0:lerp(CF.N(-.5,-1-.45*M.C(t/12)/4,.05+M.S(t/12)/4)*CF.A(M.R(-12)+-M.S(t/12)/2.3,0,0),.3)
+			RS.C0 = RS.C0:lerp(CF.N(1.5,.5,-M.S(t/14)/4)*CF.A(M.S(t/14)/4,0,0),.3)
+			LS.C0 = LS.C0:lerp(CFrame.new(-1.51529181, 0.407044411, 0.0411384404, -1.25390983e-07, 1.78837407e-08, -1.00000036, -0.989982247, 0.141195044, 1.2665987e-07, 0.141195014, 0.989981771, 0),0.1)
+			c = 1				
+		else
+			LS.C0 = LS.C0:lerp(CFrame.new(-1.51529181, 0.407044411, 0.0411384404, -1.25390983e-07, 1.78837407e-08, -1.00000036, -0.989982247, 0.141195044, 1.2665987e-07, 0.141195014, 0.989981771, 0),0.1)
+			RJ.C0 = RJ.C0:lerp(CFrame.new(0, 0, 0, 1.00000072, 0, 0, 0, 1.00000072, 0, 0, 0, 1),0.1)
+			LH.C0 = LH.C0:lerp(CFrame.new(-0.440940678, -0.992188036, 0.0145819485, 0.998181283, 0.0590542518, 0.012143841, -0.0602898225, 0.97772485, 0.201056987, -5.22762598e-08, -0.201423571, 0.979505241),0.1)
+			NK.C0 = NK.C0:lerp(CFrame.new(7.62939999e-06, 1.49997056, 0, 1.00000072, 0, 0, 0, 1.00000072, 0, 0, 0, 1),0.1)
+			RH.C0 = RH.C0:lerp(CFrame.new(0.4349491, -0.970435679, -0.0502791964, 0.99788934, -0.0649418086, 0.000381366728, 0.0649427921, 0.997872889, -0.00586463744, 3.0428501e-07, 0.00587702403, 0.999982953),0.1)
+			RS.C0 = RS.C0:lerp(CFrame.new(1.44655097, 0.506112933, 0.0941094309, 0.994473815, -0.104665354, -0.00821636897, 0.104987323, 0.991423786, 0.0778287426, -6.72606149e-08, -0.0782612264, 0.996932983),0.1)
+			c = 0.5
+		end
+	else
+		if(action == "Attackie1")then
+			if(stance == 'Walk') then
+				c = 1;
+				RJ.C0 = RJ.C0:lerp(CF.N(0,0,0)*CF.A(M.R(-4+2*M.C(t/7)),0,0),.3)
+				--RJ.C0 = RJ.C0:lerp(CF.N(0,0,0),.3)
+				NK.C0 = NK.C0:lerp(CF.N(0,1.5,0),.3)
+				RH.C0 = RH.C0:lerp(CF.N(.5,-1+.45*M.C(t/12)/4,.05+-M.S(t/12)/4)*CF.A(M.R(-12)+M.S(t/12)/2.3,0,0),.3)
+				LH.C0 = LH.C0:lerp(CF.N(-.5,-1-.45*M.C(t/12)/4,.05+M.S(t/12)/4)*CF.A(M.R(-12)+-M.S(t/12)/2.3,0,0),.3)
+				RS.C0 = RS.C0:lerp(CF.N(1.5,.5,-M.S(t/14)/4)*CF.A(M.S(t/14)/4,0,0),.3)
+			else
+				c = 0.5;
+				RJ.C0 = RJ.C0:lerp(CFrame.new(0, 0, 0, 1.00000072, 0, 0, 0, 1.00000072, 0, 0, 0, 1),0.1)
+				LH.C0 = LH.C0:lerp(CFrame.new(-0.440940678, -0.992188036, 0.0145819485, 0.998181283, 0.0590542518, 0.012143841, -0.0602898225, 0.97772485, 0.201056987, -5.22762598e-08, -0.201423571, 0.979505241),0.1)
+				NK.C0 = NK.C0:lerp(CFrame.new(7.62939999e-06, 1.49997056, 0, 1.00000072, 0, 0, 0, 1.00000072, 0, 0, 0, 1),0.1)
+				RH.C0 = RH.C0:lerp(CFrame.new(0.4349491, -0.970435679, -0.0502791964, 0.99788934, -0.0649418086, 0.000381366728, 0.0649427921, 0.997872889, -0.00586463744, 3.0428501e-07, 0.00587702403, 0.999982953),0.1)
+				RS.C0 = RS.C0:lerp(CFrame.new(1.44655097, 0.506112933, 0.0941094309, 0.994473815, -0.104665354, -0.00821636897, 0.104987323, 0.991423786, 0.0778287426, -6.72606149e-08, -0.0782612264, 0.996932983),0.1)
+			end
+			LS.C0 = LS.C0:lerp(CFrame.new(-1.51529181, 0.407044411, 0.0411384404, -1.25390983e-07, 1.78837407e-08, -1.00000036, -0.989982247, 0.141195044, 1.2665987e-07, 0.141195014, 0.989981771, 0)*CF.A(0,0,M.R(-25)),0.1)
+		elseif(action == "Attackie2")then
+			if(stance == 'Walk') then
+				c = 1;
+				RJ.C0 = RJ.C0:lerp(CF.N(0,0,0)*CF.A(M.R(-4+2*M.C(t/7)),0,0),.3)
+				--RJ.C0 = RJ.C0:lerp(CF.N(0,0,0),.3)
+				NK.C0 = NK.C0:lerp(CF.N(0,1.5,0),.3)
+				RH.C0 = RH.C0:lerp(CF.N(.5,-1+.45*M.C(t/12)/4,.05+-M.S(t/12)/4)*CF.A(M.R(-12)+M.S(t/12)/2.3,0,0),.3)
+				LH.C0 = LH.C0:lerp(CF.N(-.5,-1-.45*M.C(t/12)/4,.05+M.S(t/12)/4)*CF.A(M.R(-12)+-M.S(t/12)/2.3,0,0),.3)
+				RS.C0 = RS.C0:lerp(CF.N(1.5,.5,-M.S(t/14)/4)*CF.A(M.S(t/14)/4,0,0),.3)
+			else
+				c = 0.5;
+				RJ.C0 = RJ.C0:lerp(CFrame.new(0, 0, 0, 1.00000072, 0, 0, 0, 1.00000072, 0, 0, 0, 1),0.1)
+				LH.C0 = LH.C0:lerp(CFrame.new(-0.440940678, -0.992188036, 0.0145819485, 0.998181283, 0.0590542518, 0.012143841, -0.0602898225, 0.97772485, 0.201056987, -5.22762598e-08, -0.201423571, 0.979505241),0.1)
+				NK.C0 = NK.C0:lerp(CFrame.new(7.62939999e-06, 1.49997056, 0, 1.00000072, 0, 0, 0, 1.00000072, 0, 0, 0, 1),0.1)
+				RH.C0 = RH.C0:lerp(CFrame.new(0.4349491, -0.970435679, -0.0502791964, 0.99788934, -0.0649418086, 0.000381366728, 0.0649427921, 0.997872889, -0.00586463744, 3.0428501e-07, 0.00587702403, 0.999982953),0.1)
+				RS.C0 = RS.C0:lerp(CFrame.new(1.44655097, 0.506112933, 0.0941094309, 0.994473815, -0.104665354, -0.00821636897, 0.104987323, 0.991423786, 0.0778287426, -6.72606149e-08, -0.0782612264, 0.996932983),0.1)
+			end
+			LS.C0 = LS.C0:lerp(CFrame.new(-1.51529181, 0.407044411, 0.0411384404, -1.25390983e-07, 1.78837407e-08, -1.00000036, -0.989982247, 0.141195044, 1.2665987e-07, 0.141195014, 0.989981771, 0)*CF.A(0,M.R(0),0),0.1)
+		
+		end
+	end
+end)
