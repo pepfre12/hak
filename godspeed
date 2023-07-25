@@ -726,49 +726,6 @@ function randomangle()
 	return CFrame.Angles(math.rad(math.random(-360,360)),math.rad(math.random(-360,360)),math.rad(math.random(-360,360)))
 end
 function hurt(hit, dmg, effect, args)
-	--pcall(function()
-		local hum = hit.Parent:FindFirstChildOfClass("Humanoid")
-		if hum and not hum:FindFirstChild("nostop") then
-			if hum.Parent ~= char then
-				if typeof(dmg) == "table" then
-					dmg = math.random(dmg[1], dmg[2])
-				end
-				hum.Health = hum.Health - dmg
-				if settings.ShowDamageEnabled then
-					local dmgdata = {
-						Color = settings.Damage.Color,
-						StrokeColor = settings.Damage.StrokeColor,
-						Font = settings.Damage.Font,
-						Text = dmg,
-					}
-					showdamage(hit.CFrame *CFrame.new(math.random(-30,30)/10,math.random(-5,5)/10,math.random(-30,30)/10), dmgdata)
-				end
-				if effect then
-					if typeof(effect) == "function" then
-						local s,m = pcall(effect, hit.CFrame)
-						if not s then
-							warn("Error in function: "..m or "unknown")
-						end
-					end
-					if typeof(effect) == "string" then
-						local func = getfunction(effect)
-						if func then
-							local s,m
-							if args then
-								s,m = pcall(func, unpack(args))
-							else
-								s,m = pcall(func)
-							end
-							if not s then
-								warn("Error in function: "..m or "unknown")
-							end
-						end
-					end
-				end
-				return true
-			end
-		end
-	--end)
 end
 	--[[ uhhhhhhhhhhhhhhhh ]]--
 pcall(function()
