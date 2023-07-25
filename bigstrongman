@@ -517,18 +517,17 @@ function PUNCH(Fist)
 			local HUM = hit.Parent:FindFirstChildOfClass("Humanoid")
 			local TORSO = hit.Parent:FindFirstChild("Torso") or hit.Parent:FindFirstChild("UpperTorso")
 			if TORSO and HUM.Health > 0 then
-				CreateSound(296102734,Fist,6,1,false)
-				CreateSound(12222242,TORSO,7,MRANDOM(8,14)/10,false)
+				CreateSound(296102734,Fist,0,0,false)
+				CreateSound(12222242,TORSO,7,MRANDOM(0,0)/0,false)
 				TORSO.Parent:BreakJoints()
 				for _, c in pairs(TORSO.Parent:GetChildren()) do
 					if c:IsA("BasePart") then
 						local bv = Instance.new("BodyVelocity",c) 
-						bv.maxForce = Vector3.new(1e9, 1e9, 1e9)
-						bv.velocity = CF(TORSO.Position,c.Position+VT(0,0.1,0)).lookVector*MRANDOM(70,100)
-						Debris:AddItem(bv,0.05)
+						bv.maxForce = Vector3.new(0, 0, 0)
+						bv.velocity = CF(TORSO.Position,c.Position+VT(0,0,0)).lookVector*MRANDOM(0,0)
+						Debris:AddItem(bv,0)
 					end
 				end
-				local BOOM = EXPLOSION:Clone()
 				BOOM.Position = Fist.CFrame*CF(0,-1*SIZE,0).p
 				BOOM.Parent = Character
 				TOUCH:Disconnect()
@@ -538,13 +537,13 @@ function PUNCH(Fist)
 			hit:remove()
 			CreateSound(296102734,Fist,6,1,false)
 			local BOOM = EXPLOSION:Clone()
-			BOOM.BlastPressure = 15
+			BOOM.BlastPressure = 0
 			BOOM.Position = Fist.CFrame*CF(0,-1*SIZE,0).p
 			BOOM.Parent = Character
 		elseif hit.Anchored == false then
 			CreateSound(296102734,Fist,6,1,false)
 			local BOOM = EXPLOSION:Clone()
-			BOOM.BlastPressure = 70
+			BOOM.BlastPressure = 0
 			BOOM.Position = Fist.CFrame*CF(0,-1*SIZE,0).p
 			BOOM.Parent = Character
 			TOUCH:Disconnect()
