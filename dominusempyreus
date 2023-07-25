@@ -418,8 +418,8 @@ end
 --// Customization \\--
 
 local Frame_Speed = 60 -- The frame speed for swait. 1 is automatically divided by this
-local Remove_Hats = true
-local Remove_Clothing = true
+local Remove_Hats = false
+local Remove_Clothing = false
 local PlayerSize = 1
 local DamageColor = BrickColor.new'Institutional white'
 local MusicID = 1352579034
