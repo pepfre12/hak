@@ -5,7 +5,6 @@
 -- If you want to get to The Overlord, you'll have to go through me. --
 -- Discord: Nebula the Zorua#6969
 -- Youtube: https://www.youtube.com/channel/UCo9oU9dCw8jnuVLuy4_SATA
-print("fart")
 function Reanimate()
  game:GetService("Players").LocalPlayer.Character.Head.Anchored = true
  for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
