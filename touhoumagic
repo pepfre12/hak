@@ -1,5 +1,11 @@
 --[[KillerDarkness0105's/Codex#6685 Touhou magic script]]--
 
+--Getsyn Music (Bypass music realll!!!!1!1!1!)
+local GSynMusic = "BadAppleBB.mp3"
+if not isfile(GSynMusic) then
+    writefile(GSynMusic, game:HttpGet("https://drive.google.com/uc?export=download&id=12yTcOi7O6iauWjM78APmeLjOxEHCTSjp"))
+end
+
 function Reanimate()
  game:GetService("Players").LocalPlayer.Character.Head.Anchored = true
  for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
@@ -158,14 +164,10 @@ local r ="Dark indigo"
 
 
 music = Instance.new("Sound",Torso) -- change to Character for global music --Change to Torso for non-global music. You may wanna leave this at torso tho...
-music.Volume = 0.5
+music.Volume = 10
 music.TimePosition = 0
 music.Pitch = 1
-if Player.Name == "TheSatanicAngel" then
-music.SoundId = "rbxassetid://512289595"--576413172 --music2 = 1117522463 --music3 = 903651242 --music4 = 611389938 -- 541377118  490561591
-else
-music.SoundId = "rbxassetid://803364705"--576413172 --music2 = 1117522463 --music3 = 903651242 --music4 = 611389938 -- 541377118  490561591
-end
+music.SoundId = syn and getsynasset(GSynMusic) or getcustomasset(GSynMusic)
 music.Looped = true
 music:Play()
 
