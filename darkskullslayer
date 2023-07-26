@@ -1,0 +1,589 @@
+function Reanimate()
+ game:GetService("Players").LocalPlayer.Character.Head.Anchored = true
+ for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+  if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then
+  game:GetService("RunService").Heartbeat:connect(function()
+  v.Velocity = Vector3.new(0,35,0)
+     wait(0.5)
+    end)
+   end
+ end
+ game.TestService.IsSleepAllowed = false
+ for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+	 if v:IsA("BasePart") then 
+		 game:GetService("RunService").Heartbeat:connect(function()
+			 v.Velocity = Vector3.new(-40,0,-10)
+			 pcall(function()
+				 v.CanCollide = false
+			 end)
+			 pcall(function()
+				 v.CanQuery = false
+			 end)
+		 end)
+	 end
+ end
+ --loadstring(game:HttpGet(("https://raw.githubusercontent.com/BloxinStud10/RNTE/main/Tool%20Fling%20Reanimate"),true))()
+ loadstring(game:HttpGet(("https://raw.githubusercontent.com/BloxinStud10/RNTE/main/idk%20lol"),true))()
+ local cplayer = game.Players.LocalPlayer.Character
+ local function gp(parent, name, className)
+     if typeof(parent) == "Instance" then
+         for i, v in pairs(parent:GetChildren()) do
+             if (v.Name == name) and v:IsA(className) then
+                 return v
+             end
+         end
+     end
+     return nil
+ end
+
+ local hat2 = gp(cplayer, "MeshPartAccessory", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Torso"] --any part of humanoid
+ att2.Position = Vector3.new(-0, 0.025, 0)
+ att2.Rotation = Vector3.new(180, 0, -15)--you can delete this 
+
+ local hat2 = gp(cplayer, "Extra Left hand (Blocky)_white", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Left Arm"]
+ att2.Position = Vector3.new(-0, -0, -0)
+ att2.Rotation = Vector3.new(-120, 0, 0)
+
+ local hat2 = gp(cplayer, "Extra Right hand (Blocky)_white", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Right Arm"]
+ att2.Position = Vector3.new(0, -0, 0)
+ att2.Rotation = Vector3.new(-120, 0, 0) --LavanderHair
+
+ local hat2 = gp(cplayer, "Lipstick_Bag_3.0", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Right Leg"]
+ att2.Position = Vector3.new(0, -0, 0.5) --Robloxclassicred
+ att2.Rotation = Vector3.new(0, -5, -45)
+
+ local hat2 = gp(cplayer, "Lipstick_Bag_1.0", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Left Leg"]
+ att2.Position = Vector3.new(-0, -0, 0.5) 
+ att2.Rotation = Vector3.new(0, 0, -45)
+ 
+ game:GetService("Players").LocalPlayer.Character.Head.Anchored = false
+ setfpscap(120)
+end
+Reanimate() --Reanimate your character (idk why i did this lmao)
+
+--Best Netless Ever
+coroutine.resume(coroutine.create(function()
+	while true do
+	    if game.TestService.IsSleepAllowed == true then
+		    game.TestService.IsSleepAllowed = false
+		end
+		game:GetService("RunService").Heartbeat:Wait()
+	end
+end))
+
+wait(0.6)
+--[[
+by Yourfirstnightmare-Dre#2941
+Created with my animation rig,
+Abanonded project got bored not much to do
+]]--
+script.Parent=nil
+local p = game.Players.LocalPlayer
+local char = p.Character
+local mouse = p:GetMouse()
+local larm = char["Left Arm"]
+local rarm = char["Right Arm"]
+local lleg = char["Left Leg"]
+local rleg = char["Right Leg"]
+local euler=CFrame.fromEulerAnglesXYZ
+local hed = char.Head
+local torso = char.Torso
+local hum = char.Humanoid
+local root = char.HumanoidRootPart
+local walking = true
+local idle = true
+local rs = game:GetService("RunService").RenderStepped
+local new = Instance.new
+local v3 = Vector3.new
+local ns = NumberSequence.new
+local taunting = false
+local nr = NumberRange.new
+local bc = BrickColor.new
+local cf = CFrame.new
+local cfa = CFrame.Angles
+local rad = math.rad
+hum.Name = "1314____"
+hum.MaxHealth = math.huge
+hum.Health=math.huge
+local touchdb=false
+sine = 0
+for i,v in pairs(char:GetChildren()) do
+	if v:IsA("BodyColors") then
+		v.HeadColor = bc("Really black")
+		v.RightArmColor = bc("Really black")
+		v.LeftArmColor=bc("Really black")
+		v.TorsoColor=bc("Really black")
+		v.RightLegColor = bc("Really black")
+		v.LeftLegColor=bc("Really black")
+	end
+end
+function NoOutline(Part)
+	Part.TopSurface,Part.BottomSurface,Part.LeftSurface,Part.RightSurface,Part.FrontSurface,Part.BackSurface = 10,10,10,10,10,10
+end
+db=game:GetService('Debris')
+function Debris(item,timer)
+	db:AddItem(item,timer)
+end
+for i,v in pairs(char:GetChildren()) do
+	if v.ClassName == "Accessory" or v:IsA("ShirtGraphic") then
+		v:Destroy()
+	end
+end
+hed.Transparency = 1
+function Lerp(a,b,c)
+	return a:lerp(b,c)
+end
+if char:findFirstChild("Shirt") and char:findFirstChild("Pants") then
+	char.Shirt.ShirtTemplate = "rbxassetid://135561529"
+	char.Pants.PantsTemplate = "rbxassetid://135562232"
+end
+----------------------------------------------------Sounds?
+local swosh = Instance.new("Sound",torso)
+swosh.SoundId= "rbxassetid://877471479"
+local slash=Instance.new("Sound",torso)
+slash.SoundId= "rbxassetid://153092274"
+local exp=Instance.new("Sound",torso)
+exp.SoundId= "rbxassetid://142070127"
+local squish=Instance.new("Sound",torso)
+squish.SoundId= "rbxassetid://935843979"
+local summon=Instance.new("Sound",torso)
+summon.SoundId= "rbxassetid://429459101"
+local theworld=Instance.new("Sound",torso)
+theworld.SoundId= "rbxassetid://616576400"
+----------------------------------------------------
+New = function(Object, Parent, Name, Data)
+	local Object = Instance.new(Object)
+	for Index, Value in pairs(Data or {}) do
+		Object[Index] = Value
+	end
+	Object.Parent = Parent
+	Object.Name = Name
+	return Object
+end
+local Skull = New("Part",hed,"Skull",{BrickColor = BrickColor.new("Brick yellow"),Size = Vector3.new(2, 1.20000005, 2),CFrame = CFrame.new(19.0000038, 4.29999971, -15.0499935, -0.087155804, 0, -0.99619472, 0, 1, 0, 0.99619472, 0, -0.087155804),Color = Color3.new(0.843137, 0.772549, 0.603922),})
+local Mesh = New("SpecialMesh",Skull,"Mesh",{Scale = Vector3.new(3.20000005, 3.20000005, 3.20000005),MeshId = "http://www.roblox.com/asset/?id=6552202",TextureId = "http://www.roblox.com/asset/?id=6477494",MeshType = Enum.MeshType.FileMesh,})
+local Part = New("Part",Skull,"Part",{Transparency = 1,Transparency = 1,Size = Vector3.new(0.299999565, 0.299999923, 0.0999998972),CFrame = CFrame.new(19.7027473, 4.34184599, -15.2829018, 0.0871568993, 0, -0.996194661, 0, 1, 0, 0.996194661, 0, 0.0871568993),})
+local Decal = New("Decal",Part,"Decal",{Texture = "http://www.roblox.com/asset/?id=1007442229",})
+local Joint = New("Weld",Part,"Joint",{Part0 = Part,Part1 = Skull,C0 = CFrame.new(0.170772552, -0.0418462753, 0.720369339, 0.984807551, 0, -0.173649371, 0, 1, 0, 0.173649371, 0, 0.984807551),})
+local Part = New("Part",Skull,"Part",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.Neon,Size = Vector3.new(1, 1.19999981, 1),CFrame = CFrame.new(19.0784626, 4.20953131, -15.0668001, 0.0565838143, 0.0801356286, 0.995176673, -0.0452655554, 0.995954573, -0.0776245594, -0.997371256, -0.0406549312, 0.0599822886),Anchored = true,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
+local Mesh = New("SpecialMesh",Part,"Mesh",{Scale = Vector3.new(2, 2, 2),MeshId = "http://www.roblox.com/asset/?id=1185246",MeshType = Enum.MeshType.FileMesh,})
+local Joint = New("Weld",Part,"Joint",{Part0 = Part,Part1 = Skull,C0 = CFrame.new(-0.0252962112, 0.0831313133, -0.0840930939, -0.998507619, -0.0452655554, 0.030558195, -0.0474845134, 0.995954573, -0.0762873814, -0.0269813798, -0.0776245594, -0.996617556),})
+local Part = New("Part",Skull,"Part",{Transparency = 1,Transparency = 1,Size = Vector3.new(0.299999565, 0.299999923, 0.0999998972),CFrame = CFrame.new(19.6312962, 4.3499999, -14.7103682, -0.342020988, 0, -0.939692318, 0, 1, 0, 0.939692318, 0, -0.342020988),})
+local Decal = New("Decal",Part,"Decal",{Texture = "http://www.roblox.com/asset/?id=1007442229",})
+local Joint = New("Weld",Part,"Joint",{Part0 = Part,Part1 = Skull,C0 = CFrame.new(-0.103227615, -0.0500001907, 0.70938015, 0.965925634, 0, 0.258819848, 0, 1, 0, -0.258819848, 0, 0.965925634),})
+local particleemitter = Instance.new("ParticleEmitter",torso)
+particleemitter.Texture = "rbxassetid://930754411"
+particleemitter.Rate = 1
+particleemitter.VelocitySpread = 35
+particleemitter.Enabled=false
+local headw=Instance.new("Weld",Skull)
+local grabpart=Instance.new("Part",char)
+grabpart.Size = Vector3.new(1,1,4)
+grabpart.Transparency=1
+grabpart.CanCollide=false
+local wel=Instance.new("Weld",grabpart)
+wel.Part0=grabpart
+wel.Part1=rarm
+local dh=Instance.new("SpecialMesh",grabpart)
+dh.MeshId="http://www.roblox.com/asset/?id=12221720"
+dh.TextureId="http://www.roblox.com/asset/?id=12224218"
+dh.VertexColor=Vector3.new(0,0,0)
+wel.C0=CFrame.new(1,0,-1.5)*CFrame.Angles(rad(90),rad(180),rad(90))
+for i,v in pairs(Skull:GetChildren()) do
+	if v:IsA("BasePart") then v.Anchored = false	
+	end
+end
+headw.Part0=Skull
+headw.Part1=hed
+local fxFolder={}
+local fxtab={
+	blockeffect={
+		blockfx = function(cf,tim,s1,s2,s3)
+			local block=Instance.new("Part",char)
+			table.insert(fxFolder,block)
+			NoOutline(block)
+			block.BrickColor = BrickColor.new("Really black")
+			block.Transparency = .6
+			block.Size = Vector3.new(s1,s2,s3)
+			block.Anchored = true
+			block.CanCollide = false
+			block.CFrame = cf
+			Debris(block,tim)		
+		end}	
+	}
+newWeld = function(wp0, wp1, wc0x, wc0y, wc0z)
+	local wld = Instance.new("Weld", wp1)
+	wld.Part0 = wp0
+	wld.Part1 = wp1
+	wld.C0 = CFrame.new(wc0x, wc0y, wc0z)
+	return wld
+end
+local larmweld=newWeld(torso,larm, -1.5, 0.5, 0)
+larmweld.C1 = CFrame.new(0, 0.5, 0)
+local rarmweld=newWeld(torso, rarm, 1.5, 0.5, 0)
+rarmweld.C1 = CFrame.new(0, 0.5, 0)
+local hedweld=newWeld(torso, hed, 0, 1.5, 0)
+local llegweld=newWeld(root, lleg, -0.5, -1, 0)
+llegweld.C1 = CFrame.new(0, 1, 0)
+local rlegweld=newWeld(root, rleg, 0.5, -1, 0)
+rlegweld.C1 = CFrame.new(0, 1 ,0)
+local torweld=newWeld(root, torso, 0, -1, 0)
+torweld.C1 = CFrame.new(0, -1, 0)
+function _IterateLerp(matrices,LerpIncrement)
+	hedweld.C0 = Lerp(hedweld.C0,matrices[1],LerpIncrement);
+	torweld.C0 = Lerp(torweld.C0,matrices[2],LerpIncrement);
+	rarmweld.C0 = Lerp(rarmweld.C0,matrices[3],LerpIncrement);
+	larmweld.C0 = Lerp(larmweld.C0,matrices[4],LerpIncrement);
+	rlegweld.C0 = Lerp(rlegweld.C0,matrices[5],LerpIncrement);
+	llegweld.C0 = Lerp(llegweld.C0,matrices[6],LerpIncrement);
+end;
+local function root0switch()
+	rlegweld.Part0 = root
+	llegweld.Part0 = root
+end
+local function torso0switch()
+	rlegweld.Part0 = torso
+	llegweld.Part0 = torso
+end
+local falling = false
+local jmp = false
+hum.StateChanged:connect(function(z,state)
+	if state == Enum.HumanoidStateType.Freefall then
+		falling = true
+		taunting=false
+	else
+		falling = false
+	end
+end)
+function spikefx(pos)
+	local fxtab={}
+	local wrap=coroutine.wrap(function()
+		for i=1,10 do
+			wait()
+			local p=Instance.new("Part",workspace)
+			local m=Instance.new("SpecialMesh",p)
+			m.MeshType="Sphere"
+			p.CFrame=pos
+			m.Scale=v3(1.7,0.3,0.2)
+			p.Material="Neon"
+			Debris(p,.5)
+			table.insert(fxtab,m)
+			table.insert(fxtab,p)
+			p.BrickColor=BrickColor.new("Black")
+			p.CanCollide=false
+			p.Anchored=true
+			p.CFrame=p.CFrame*CFrame.new(math.random(-5,5),0,math.random(-5,5))*CFrame.Angles(rad(math.random(-180,180)),rad(math.random(-180,180)),rad(math.random(-180,180)))
+			for _,v in pairs(fxtab) do
+				if v:IsA("SpecialMesh") then
+					v.Scale = v.Scale+Vector3.new(.4,0,0)
+					else
+					v.Transparency = v.Transparency+.1
+				end
+			end
+		end
+	end);wrap()
+end
+rs:connect(function()
+	sine=sine+1
+	local movevelocity=(root.Velocity*v3(1,0,1)).Magnitude
+	if movevelocity <1 and idle and not taunting then
+		if idle then
+			_IterateLerp({
+				CFrame.new( 0.0816268921, 1.59128666, -0.102115631, 0.990605652, 0.133867279, 0.0279282276, -0.136749536, 0.969726801, 0.202310443, 0, -0.204229042, 0.978923142 ),
+				CFrame.new( 0, -1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 )*CFrame.new(0,.05*math.sin(sine/12),0)*CFrame.Angles(.03*math.sin(sine/12),0,0),
+				CFrame.new( 1.48942029, 0.564742684+.1*math.sin(sine/12), 0.0792327747, 0.978836656, -0.135966524, -0.152944341, 0.12948513, 0.990236998, -0.0516153388, 0.158469126, 0.0307189636, 0.986885965 ),
+				CFrame.new( -1.50521326, 0.566599131+.1*math.sin(sine/12), 0.0541087911, 0.99075222, 0.132517859, 0.0291410107, -0.123971015, 0.971393645, -0.202547595, -0.0551485643, 0.197061881, 0.978838801),
+				CFrame.new( 0.502287865, -1.00783682, -0.047161147, 0.995418072, -0.0143518364, -0.0945355073, 0.0156736188, 0.999789238, 0.0132541945, 0.0943253636, -0.0146751851, 0.995433271 ),
+				CFrame.new( -0.50474906, -1.02262139, -0.0649240464, 0.990501583, 0.0527384132, 0.126985222, -0.0452422909, 0.997098863, -0.0612106584, -0.129844978, 0.0548841506, 0.990014195 ),
+			},.1)
+		end
+	end
+	if falling and idle then
+		_IterateLerp({
+			 CFrame.new( 0, 1.46811366, 0.175658226, 1, 0, 0, 0, 0.936247647, -0.351312846, 0, 0.351316303, 0.936256826 ),
+			 CFrame.new( 0, -0.999990225, 0, 1, 0, 0, 0, 0.999990225, 0, 0, 0, 1 ),
+			 CFrame.new( 1.43505383, 0.746422827, 0, 0.870108187, -0.492860764, 0, 0.492855906, 0.870099664, 0, 0, 0, 1 ),
+			 CFrame.new( -1.46059692, 0.69454664, 0, 0.921192586, 0.389106899, 0, -0.389103055, 0.921183467, 0, 0, 0, 1 ),
+			 CFrame.new( 0.506626964, -1.08112538, 0, 0.986746132, -0.162271619, 0, 0.162270024, 0.986736417, 0, 0, 0, 1 ),
+			 CFrame.new( -0.504866421, -1.06957817, 0, 0.990267456, 0.139177516, 0, -0.13917613, 0.99025774, 0, 0, 0, 1 ),
+		},.2)
+	end
+	if movevelocity >1 and walking and not jmp and not falling then
+		taunting=false
+		if walking then
+			_IterateLerp({
+				CFrame.new( 0.0209884644, 1.4973774, 0.168071747, 0.999927104, 0.0119819818, -0.00150420656, -0.0120720444, 0.988607109, -0.150034994, -0.000310648698, 0.150042206, 0.988679588 ),
+				CFrame.new( 0, -1+.1*math.sin(sine/8), 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 )*CFrame.Angles(6,rad(12*math.sin(sine/8)),0),
+				CFrame.new( 1.48941588, 0.564742506, 0.07923612, 0.978836656, -0.160068884, -0.127502233, 0.12948513, 0.966909289, -0.219817966, 0.158469126, 0.198656261, 0.967172801 )*CFrame.Angles(rad(-45*math.sin(sine/8)),0,0),
+				CFrame.new( -1.50521326, 0.566599131, 0.0541087911, 0.99075222, 0.132517859, 0.0291410107, -0.123971015, 0.971393645, -0.202547595, -0.0551485643, 0.197061881, 0.978838801)*CFrame.Angles(rad(45*math.sin(sine/8)),0,0),
+				CFrame.new( 0.499892235, -1.00746632, -0.0195503682, 0.999869168, -0.0143518364, 0.00746365637, 0.0142403366, 0.999789238, 0.0147833973, -0.00767425448, -0.0146751851, 0.99986285 )*CFrame.Angles(rad(45*math.sin(sine/8)),0,0),
+				CFrame.new( -0.500758886, -1.02675653, 0.00636120141, 0.998486161, 0.0527384132, -0.0156217664, -0.0535120256, 0.997098863, -0.0541301444, 0.0127217174, 0.0548841506, 0.998411775 )*CFrame.Angles(rad(-45*math.sin(sine/8)),0,0)
+			},.1)
+		end
+	end
+	for _,fx in pairs(fxFolder) do
+		fx.CFrame = fx.CFrame*CFrame.Angles(math.random(-180,180),math.random(-180,180),math.random(-180,180)) 
+	end	
+end)
+function deathtouch()
+	torso0switch()
+	local deathdb=false
+	local hb=rarm.Touched:connect(function(hit)
+		if not hit:IsDescendantOf(char) then
+			if deathdb then return end
+			deathdb=true
+			if hit.Parent then
+				for i,v in pairs(hit.Parent:GetChildren()) do
+					if v:IsA("BasePart") and v.Name ~= "Handle" and v.Size.x<200 then
+						v:BreakJoints()
+						exp:Play()
+						local bv=Instance.new("BodyVelocity",v)
+						bv.Velocity = Vector3.new(math.random(-5,5),math.random(-5,5),math.random(-5,5))
+						bv.MaxForce = Vector3.new(100000,100000,100000)
+						v.BrickColor = BrickColor.new("Really black")
+						v.Anchored = false
+						Debris(v,10)
+					end
+				end
+			end
+		end
+	end)
+	for i=1, 10  do
+		rs:wait(1)
+		fxtab.blockeffect.blockfx(rarm.CFrame*CFrame.new(0,-2,0),1,1.5,1.5,1.5)
+		_IterateLerp({
+			CFrame.new( -0.009729385738, 1.50443935, -0.0961799622, 0.258767962, 0.0345346108, -0.965322137, -0.0124208545, 0.999397218, 0.0324239396, 0.965859592, 0.00360014848, 0.259040236 ),
+			CFrame.new( 0.320317775, -1.01938915, 0.0870335773, 0.17364949, -0.00954774767, 0.984761178, 3.65421684e-08, 0.999953091, 0.00969513413, -0.984807611, -0.00168353785, 0.173641086 ),
+			CFrame.new( 1.3838644, 0.571409225, -0.176830292, -0.0357611366, -0.936706185, 0.348289967, 0.983349204, 0.0291584283, 0.17938672, -0.178188115, 0.348904669, 0.920063972 ),
+			CFrame.new( -1.50522053, 0.56659919, 0.0541077442, 0.99075222, 0.121532187, 0.0603333004, -0.123971015, 0.991540074, 0.038461592, -0.0551485643, -0.0455854759, 0.99743706 ),
+			CFrame.new( 0.600003242, -0.984540462, 0.0129966736, 0.984808087, 1.15483999e-07, -0.173646927, 0.013456177, 0.996993124, 0.076315023, 0.173124731, -0.0774922594, 0.98184669 ),
+			CFrame.new( -0.600003242, -0.984540701, 0.0129947662, 0.98480773, -5.15952706e-07, 0.173649341, -0.0134561537, 0.996993005, 0.076316081, -0.173127204, -0.0774933025, 0.981846154 )
+		},0.25 )
+	end
+	wait(.2)
+	for i=1,7 do
+		rs:wait(1)
+		_IterateLerp({
+			CFrame.new( 0.0816268921, 1.59128666, -0.102115631, 0.990605652, 0.133867279, 0.0279282276, -0.136749536, 0.969726801, 0.202310443, 0, -0.204229042, 0.978923142 ),
+			CFrame.new( 0, -1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 )*CFrame.Angles(rad(0),0,0),
+			CFrame.new( 1.48942029, 0.564742684, 0.0792327747, 0.978836656, -0.135966524, -0.152944341, 0.12948513, 0.990236998, -0.0516153388, 0.158469126, 0.0307189636, 0.986885965 ),
+			CFrame.new( -1.50522053, 0.56659919, 0.0541077442, 0.99075222, 0.121532187, 0.0603333004, -0.123971015, 0.991540074, 0.038461592, -0.0551485643, -0.0455854759, 0.99743706 ),
+			CFrame.new( 0.502287865, -1.00783682, -0.047161147, 0.995418072, -0.0143518364, -0.0945355073, 0.0156736188, 0.999789238, 0.0132541945, 0.0943253636, -0.0146751851, 0.995433271 ),
+			CFrame.new( -0.50474906, -1.02262139, -0.0649240464, 0.990501583, 0.0527384132, 0.126985222, -0.0452422909, 0.997098863, -0.0612106584, -0.129844978, 0.0548841506, 0.990014195 ),
+		},.25)
+	end
+	hb:Disconnect()
+	root0switch()
+end
+function chargeslash()
+	torso0switch()
+	for i=1,7 do
+		wait()
+		_IterateLerp({
+			 CFrame.new( -0.0545110703, 1.56173253, 0, 0.995324731, -0.0965852737, 0, 0.096584335, 0.995314956, 0, 0, 0, 1 ),
+			 CFrame.new( 0, -0.999990225, 0, 1, 0, 0, 0, 0.999990225, 0, 0, 0, 1 ),
+			 CFrame.new( 1.50836289, 0.612062991, 0.137458801, 0.845401824, -0.503801167, 0.177426338, -0.027605487, -0.372942358, -0.927433074, 0.533416927, 0.779163361, -0.329197079 ),
+			 CFrame.new( -1.49072063, 0.595651746, -0.00649094954, 0.98144269, 0.191755578, 0, -0.191313684, 0.979181051, 0.0677044615, 0.0129828351, -0.066448696, 0.9977054 ),
+			 CFrame.new( 0.501660109, -1.04070473, 0, 0.996679068, -0.0814296976, 0, 0.0814289004, 0.996669233, 0, 0, 0, 1 ),
+			 CFrame.new( -0.500845671, -1.0290556, 0, 0.998308957, 0.0581314489, 0, -0.058130879, 0.998299122, 0, 0, 0, 1 ),
+		},.4)
+	end
+	for i=1,10 do
+		wait()
+		grabpart.Transparency=grabpart.Transparency-0.1
+	end
+	for i=1,7 do
+		wait()
+		_IterateLerp({
+			 CFrame.new( -0.0545101166, 1.56173253, 4.76837158e-07, 0.995324731, -0.0965852737, 0, 0.096584335, 0.995314956, 0, 2.98023224e-08, 3.7252903e-09, 1 ),
+			 CFrame.new( 0, -0.999990225, 0, 0.613908231, 0, -0.789377391, 0, 0.999990225, 0, 0.789377391, 0, 0.613908231 ),
+			 CFrame.new( 1.16525662, 0.474341065, 0.340542078, 0.159188718, -0.971173942, 0.177426353, -0.303049803, -0.219109237, -0.927433074, 0.939583898, 0.0938687325, -0.329197049 ),
+			 CFrame.new( -1.49072158, 0.595651746, -0.00649142265, 0.98144269, 0.191755563, 0, -0.191313684, 0.979181051, 0.0677044615, 0.0129828155, -0.0664486885, 0.99770534 ),
+			 CFrame.new( 0.501660109, -1.04070473, 9.57399607e-07, 0.996679008, -0.0814296901, 0, 0.0814289004, 0.996669233, 0, 0, 3.7252903e-09, 1 ),
+			 CFrame.new( -0.500845671, -1.0290556, 4.76837158e-07, 0.998309016, 0.0581314489, 0, -0.058130879, 0.998299122, 0, 0, 0, 1 ),
+		},.4)
+	end
+	swosh:Play()
+	local bvol=Instance.new("BodyVelocity",torso)
+	bvol.P = 100000
+	bvol.MaxForce=Vector3.new(bvol.P,0,bvol.P)
+	bvol.Velocity = root.CFrame.lookVector*100
+	Debris(bvol,.2)
+	local chopdb=false
+	local hb=grabpart.Touched:connect(function(hit)
+		if chopdb==true then return end
+		if hit.Parent:findFirstChild("Head") and hit.Parent:FindFirstChildOfClass("Humanoid") and not hit:IsDescendantOf(char) then
+			local tors = hit.Parent:findFirstChild("Torso") or hit.Parent:findFirstChild("UpperTorso") if tors then	
+				chopdb=true
+				local hmu=hit.Parent:FindFirstChildOfClass("Humanoid")
+				spikefx(tors.CFrame)
+				slash:Play()
+				for i,v in pairs(hit.Parent:GetChildren()) do
+					if v:IsA("BasePart") and v.Name ~= "Handle" and v.Size.x<200 then
+						v:BreakJoints()
+						local bv=Instance.new("BodyVelocity",v)
+						bv.Velocity = Vector3.new(math.random(-5,5),math.random(-5,5),math.random(-5,5))
+						bv.MaxForce = Vector3.new(100000,100000,100000)
+						v.BrickColor = BrickColor.new("Really black")
+						v.Anchored = false
+						Debris(v,10)
+					end
+				end
+			end
+		end
+	end)
+	for i=1,7 do
+		wait()
+		_IterateLerp({
+			 CFrame.new( -0.0102410316, 1.56405377, 0, 0.999967575, -0.00804331806, 0, 0.00804324076, 0.99995786, 0, 0, 0, 0.99999994 ),
+			 CFrame.new( 0, -0.999990225, 0, 0.309218496, 0, 0.950990975, 0, 0.999990225, 0, -0.950990975, 0, 0.309218496 ),
+			 CFrame.new( 1.52410364, 0.600606143, 0.127127171, 0.843653738, -0.536326528, -0.0245404467, -0.0442715883, -0.0239421558, -0.998722672, 0.535059035, 0.843670845, -0.0439433567 ),
+			 CFrame.new( -1.48721159, 0.590926051, -0.0660021305, 0.974422932, 0.191755563, -0.117173016, -0.18186219, 0.979181051, 0.0900608823, 0.132004589, -0.0664486811, 0.989019334 ),
+			 CFrame.new( 0.501660109, -1.04070473, 0, 0.996679008, -0.0814296901, 0, 0.0814289004, 0.996669233, 0, -2.98023224e-08, 0, 0.99999994 ),
+			 CFrame.new( -0.500846148, -1.0290556, 0, 0.998308837, 0.0581314452, 0, -0.058130879, 0.998299122, 0, 0, 0, 0.99999994 ),
+		},.4)
+	end
+	hb:Disconnect()
+	for i=1,10 do
+		wait()
+		grabpart.Transparency=grabpart.Transparency+0.1
+	end
+end
+function darkheart()
+	torso0switch()
+	summon:Play()
+	for i=1,25 do
+		wait()
+		_IterateLerp({
+			 CFrame.new( 0, 1.48561454, 0.119072914, 1, 0, 0, 0, 0.971229255, -0.238146394, 0, 0.238146394, 0.971229255 ),
+			 CFrame.new( 0, -2.62504315, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 ),
+			 CFrame.new( 1.48118687, 0.432643533, 0.117988974, 0.962375402, -0.270894974, -0.0212016907, -0.134712949, -0.407902002, -0.903032839, 0.235978872, 0.871912777, -0.429047942 ),
+			 CFrame.new( -1.48679996, 0.458605587, 0.106357396, 0.973600924, 0.227957353, 0.0116878562, 0.082788907, -0.304944426, -0.948764861, -0.212713808, 0.924686074, -0.315766543 ),
+			 CFrame.new( 0.5, -0.950745523, -0.529396296, 1, 0, 8.8817842e-16, 0, 0.204137847, 0.978942096, 0, -0.978942156, 0.204137862 ),
+			 CFrame.new( -0.5, -0.341685951, -0.633748055, 1, 0, 0, 0, 0.99999994, 0, 0, 0, 1 ),
+		},.1)
+	end
+	wait(.2)
+	local inc=-3
+	local swordtab={}
+	for i=1,45 do
+		wait()
+		local dark=Instance.new("Part",char)
+		dark.Size = Vector3.new(2,2,9)
+		dark.Transparency=1
+		dark.CanCollide=false
+		dark.Anchored = true
+		table.insert(swordtab,dark)
+		local dh=Instance.new("SpecialMesh",dark)
+		dh.MeshId="http://www.roblox.com/asset/?id=12221720"
+		dh.TextureId="http://www.roblox.com/asset/?id=12224218"
+		dh.VertexColor=Vector3.new(0,0,0)
+		dh.Scale=v3(2,2,2)
+		dark.CFrame=root.CFrame*CFrame.new(0,-4,inc)*CFrame.Angles(rad(-90),rad(math.random(-45,45)),0)
+		local wrap=coroutine.wrap(function()
+			for i=1,10 do
+				wait()
+				dark.Transparency=dark.Transparency-.1
+				dark.CFrame=dark.CFrame*CFrame.new(0,0,.45)
+			end
+		end);wrap()
+		local sq=false
+		dark.Touched:connect(function(hit)
+			if hit and hit.Parent and hit.Parent:findFirstChildOfClass("Humanoid") and not hit:isDescendantOf(char) then
+				if sq then return end
+				local tors = hit.Parent:findFirstChild("Torso") or hit.Parent:findFirstChild("UpperTorso")
+				if tors then
+					sq=true
+					squish:Play()
+					spikefx(tors.CFrame)
+					for i,v in pairs(hit.Parent:GetChildren()) do
+						if v:IsA("BasePart") and v.Name ~= "Handle" and v.Size.x<100 then
+							v:BreakJoints()
+							local bv=Instance.new("BodyVelocity",v)
+							bv.Velocity = Vector3.new(math.random(-5,5),math.random(-5,5),math.random(-5,5))
+							bv.MaxForce = Vector3.new(100000,100000,100000)
+							v.BrickColor = BrickColor.new("Really black")
+							v.Anchored = false
+							Debris(v,10)
+						end
+					end
+				end
+			end
+		end)
+		inc=inc-1
+	end
+	for _,v in pairs(swordtab) do
+		Debris(v,.4)
+		local wrap=coroutine.wrap(function()
+			for i=1,10 do
+				wait()
+				v.Transparency = v.Transparency+.1
+				v.CFrame = v.CFrame*CFrame.new(0,0,-.45)
+			end
+		end);wrap()
+	end
+end
+function zaworld()
+	torso0switch()
+	particleemitter.Enabled=true
+	taunting = true
+	theworld:Play()
+	for i=1,7 do
+		wait()
+		_IterateLerp({
+			 CFrame.new( 0, 1.50000024, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 ),
+			 CFrame.new( 0, -0.948942542, -0.315449059, 1, 0, 0, 0, 0.948942542, -0.315449059, 0, 0.315449059, 0.948942542 ),
+			 CFrame.new( 1.03333831, 0.803000212, 0.328895986, 0.666042447, 0.745147169, 0.0338109061, 0.505401671, -0.484157503, 0.714255333, 0.54859519, -0.458636403, -0.699068129 ),
+			 CFrame.new( -1.0756973, 0.83096379, 0.25872466, 0.65691328, -0.751839459, 0.0565877482, -0.589003384, -0.464883924, 0.661027908, -0.470680177, -0.467568457, -0.748224497 ),
+			 CFrame.new( 0.504901886, -1.06555462, 0.02408427, 0.990197122, -0.139677078, 0, 0.131108776, 0.929454803, 0.344853967, -0.0481681935, -0.341473401, 0.93865639 ),
+			 CFrame.new( -0.513496816, -1.10789347, 0.0409053266, 0.973007023, 0.230775401, 0, -0.215787053, 0.909812391, 0.354510069, 0.0818122104, -0.344940811, 0.935052276 ),
+		},.35)
+	end
+end
+mouse.KeyDown:connect(function(k)
+	if k=="z" then
+		if touchdb then return end
+		touchdb=true
+		zaworld()
+		repeat wait(.7)	
+		until not taunting
+		root0switch()
+		particleemitter.Enabled=false
+		touchdb=false
+	elseif k=="e" then
+		if touchdb then return end
+		touchdb=true
+		walking=false
+		idle = false
+		deathtouch()
+		walking=true
+		idle=true
+		touchdb=false
+	elseif k=="r" then
+		if touchdb then return end
+		touchdb=true
+		walking=false
+		idle = false
+		darkheart()
+		walking=true
+		idle=true
+		wait(.4)
+		root0switch()
+		touchdb=false
+	end
+end)
