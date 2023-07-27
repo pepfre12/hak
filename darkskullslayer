@@ -565,15 +565,6 @@ mouse.KeyDown:connect(function(k)
 		root0switch()
 		particleemitter.Enabled=false
 		touchdb=false
-	elseif k=="e" then
-		if touchdb then return end
-		touchdb=true
-		walking=false
-		idle = false
-		deathtouch()
-		walking=true
-		idle=true
-		touchdb=false
 	elseif k=="r" then
 		if touchdb then return end
 		touchdb=true
