@@ -1,3 +1,19 @@
+--Getsyn Music (Bypass music realll!!!!1!1!1!)
+local GSynMusic = "MEGALOSTRIKEBACK.mp3"
+if not isfile(GSynMusic) then
+    writefile(GSynMusic, game:HttpGet("https://drive.google.com/u/0/uc?id=1-r7TEnjJwB5bJjubqlSUl2IpH6yTZky9&export=download"))
+end
+
+local Sound = Instance.new("Sound", game.Players.LocalPlayer.Character)
+Sound.SoundId = syn and getsynasset('MEGALOSTRIKEBACK.mp3') or getcustomasset('MEGALOSTRIKEBACK.mp3')
+Sound.MaxDistance = inf
+Sound.Volume = 5
+Sound.Pitch = 1
+Sound.PlaybackSpeed = 1
+Sound.TimePosition = 0
+Sound.Looped = true
+Sound:Play()
+
 player = game.Players.LocalPlayer
 cplayer = player.Character
 
