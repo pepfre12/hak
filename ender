@@ -1651,10 +1651,7 @@ end
 --End Attacks N Stuff--
 -------------------------------------------------------
 mouse.KeyDown:connect(function(key)
-	if attack == false then
-		if key == 'f' then
-		Destruction()
-		elseif key == 't' then
+		if key == 't' then
 			chatfunc("HM, HM, HAHAHAHAHAHA", BrickColor.random().Color)
 			CreateSound("300208779", hed, 10, 1)
 		end
