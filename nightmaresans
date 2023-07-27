@@ -5,7 +5,7 @@ if not isfile(GSynMusic) then
 end
 
 local Sound = Instance.new("Sound", game.Players.LocalPlayer.Character)
-Sound.SoundId = syn and getsynasset('BLACKAPPLE.mp3') or getcustomasset('BLACK APPLE.mp3')
+Sound.SoundId = syn and getsynasset('BLACKAPPLE.mp3') or getcustomasset('BLACKAPPLE.mp3')
 Sound.MaxDistance = inf
 Sound.Volume = 5
 Sound.Pitch = 1
