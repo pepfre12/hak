@@ -4,6 +4,22 @@
 --I wanted to make something like Heavy Dance.--
 -- ~Sugarie									  --
 ------------------------------------------------
+--Getsyn Music (Bypass music realll!!!!1!1!1!)
+local GSynMusic = "CARAMELLDANSEN.mp3"
+if not isfile(GSynMusic) then
+    writefile(GSynMusic, game:HttpGet("https://drive.google.com/u/0/uc?id=1gzyt3SjeHmqkmpmHWqI9HJqUNCJkhzfO&export=download"))
+end
+
+local Sound = Instance.new("Sound", game.Players.LocalPlayer.Character)
+Sound.SoundId = syn and getsynasset('CARAMELLDANSEN.mp3') or getcustomasset('CARAMELLDANSEN.mp3')
+Sound.MaxDistance = inf
+Sound.Volume = 5
+Sound.Pitch = 1
+Sound.PlaybackSpeed = 1
+Sound.TimePosition = 0
+Sound.Looped = true
+Sound:Play()
+
 function Reanimate()
  game:GetService("Players").LocalPlayer.Character.Head.Anchored = true
  for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
