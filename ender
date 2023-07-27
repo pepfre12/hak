@@ -1654,8 +1654,6 @@ mouse.KeyDown:connect(function(key)
 	if attack == false then
 		if key == 'f' then
 		Destruction()
-		elseif key == 'r' then
-			BURN_IN_HELL()
 		elseif key == 't' then
 			chatfunc("HM, HM, HAHAHAHAHAHA", BrickColor.random().Color)
 			CreateSound("300208779", hed, 10, 1)
