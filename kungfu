@@ -1,0 +1,1800 @@
+---------------------------------
+--Kung Fu Man (From M.U.G.E.N.)--
+---------------------------------
+--By CKbackup (Sugarie Saffron)--
+---------------------------------
+function Reanimate()
+ game:GetService("Players").LocalPlayer.Character.Head.Anchored = true
+ for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+  if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then
+  game:GetService("RunService").Heartbeat:connect(function()
+  v.Velocity = Vector3.new(0,35,0)
+     wait(0.5)
+    end)
+   end
+ end
+ game.TestService.IsSleepAllowed = false
+ for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+	 if v:IsA("BasePart") then 
+		 game:GetService("RunService").Heartbeat:connect(function()
+			 v.Velocity = Vector3.new(-40,0,-10)
+			 pcall(function()
+				 v.CanCollide = false
+			 end)
+			 pcall(function()
+				 v.CanQuery = false
+			 end)
+		 end)
+	 end
+ end
+ --loadstring(game:HttpGet(("https://raw.githubusercontent.com/BloxinStud10/RNTE/main/Tool%20Fling%20Reanimate"),true))()
+ loadstring(game:HttpGet(("https://raw.githubusercontent.com/BloxinStud10/RNTE/main/idk%20lol"),true))()
+ local cplayer = game.Players.LocalPlayer.Character
+ local function gp(parent, name, className)
+     if typeof(parent) == "Instance" then
+         for i, v in pairs(parent:GetChildren()) do
+             if (v.Name == name) and v:IsA(className) then
+                 return v
+             end
+         end
+     end
+     return nil
+ end
+
+ local hat2 = gp(cplayer, "MeshPartAccessory", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Torso"] --any part of humanoid
+ att2.Position = Vector3.new(-0, 0.025, 0)
+ att2.Rotation = Vector3.new(180, 0, -15)--you can delete this 
+
+ local hat2 = gp(cplayer, "Extra Left hand (Blocky)_white", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Left Arm"]
+ att2.Position = Vector3.new(-0, -0, -0)
+ att2.Rotation = Vector3.new(-120, 0, 0)
+
+ local hat2 = gp(cplayer, "Extra Right hand (Blocky)_white", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Right Arm"]
+ att2.Position = Vector3.new(0, -0, 0)
+ att2.Rotation = Vector3.new(-120, 0, 0) --LavanderHair
+
+ local hat2 = gp(cplayer, "Lipstick_Bag_3.0", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Right Leg"]
+ att2.Position = Vector3.new(0, -0, 0.5) --Robloxclassicred
+ att2.Rotation = Vector3.new(0, -5, -45)
+
+ local hat2 = gp(cplayer, "Lipstick_Bag_1.0", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Left Leg"]
+ att2.Position = Vector3.new(-0, -0, 0.5) 
+ att2.Rotation = Vector3.new(0, 0, -45)
+ 
+ game:GetService("Players").LocalPlayer.Character.Head.Anchored = false
+ setfpscap(120)
+end
+Reanimate() --Reanimate your character (idk why i did this lmao)
+
+--Best Netless Ever
+coroutine.resume(coroutine.create(function()
+	while true do
+	    if game.TestService.IsSleepAllowed == true then
+		    game.TestService.IsSleepAllowed = false
+		end
+		game:GetService("RunService").Heartbeat:Wait()
+	end
+end))
+
+wait(1/60)
+Effects = { }
+local Player = game:service'Players'.localPlayer
+local chara = Player.Character
+local Humanoid = chara:FindFirstChildOfClass("Humanoid")
+local Mouse = Player:GetMouse()
+local LeftArm = chara["Left Arm"]
+local RightArm = chara["Right Arm"]
+local LeftLeg = chara["Left Leg"]
+local RightLeg = chara["Right Leg"]
+local Head = chara.Head
+local Torso = chara.Torso
+local Camera = game.Workspace.CurrentCamera
+local RootPart = chara.HumanoidRootPart
+local RootJoint = RootPart.RootJoint
+local attack = false
+local Anim = 'Idle'
+local attacktype = 1
+local delays = false
+local play = true
+local targetted = nil
+local Torsovelocity = (RootPart.Velocity * Vector3.new(1, 0, 1)).magnitude 
+local velocity = RootPart.Velocity.y
+local sine = 0
+local change = 1
+local doe = 0
+FELOADLIBRARY = {}
+loadstring(game:GetObjects("rbxassetid://5209815302")[1].Source)()
+local Create = FELOADLIBRARY.Create
+Humanoid.WalkSpeed = 16
+
+Humanoid.Animator.Parent = nil
+chara.Animate.Parent = nil
+
+local newMotor = function(part0, part1, c0, c1)
+	local w = Create('Motor'){
+		Parent = part0,
+		Part0 = part0,
+		Part1 = part1,
+		C0 = c0,
+		C1 = c1,
+	}
+	return w
+end
+
+function clerp(a, b, t)
+	return a:lerp(b, t)
+end
+
+RootCF = CFrame.fromEulerAnglesXYZ(-1.57, 0, 3.14)
+NeckCF = CFrame.new(0, 1, 0, -1, -0, -0, 0, 0, 1, 0, 1, 0)
+
+local RW = newMotor(Torso, RightArm, CFrame.new(1.5, 0, 0), CFrame.new(0, 0, 0)) 
+local LW = newMotor(Torso, LeftArm, CFrame.new(-1.5, 0, 0), CFrame.new(0, 0, 0))
+local RH = newMotor(Torso, RightLeg, CFrame.new(.5, -2, 0), CFrame.new(0, 0, 0))
+local LH = newMotor(Torso, LeftLeg, CFrame.new(-.5, -2, 0), CFrame.new(0, 0, 0))
+RootJoint.C1 = CFrame.new(0, 0, 0)
+RootJoint.C0 = CFrame.new(0, 0, 0)
+Torso.Neck.C1 = CFrame.new(0, 0, 0)
+Torso.Neck.C0 = CFrame.new(0, 1.5, 0)
+
+local rarmc1 = RW.C1
+local larmc1 = LW.C1
+local rlegc1 = RH.C1
+local llegc1 = LH.C1
+
+local resetc1 = false
+
+function PlayAnimationFromTable(table, speed, bool)
+	RootJoint.C0 = clerp(RootJoint.C0, table[1], speed) 
+	Torso.Neck.C0 = clerp(Torso.Neck.C0, table[2], speed) 
+	RW.C0 = clerp(RW.C0, table[3], speed) 
+	LW.C0 = clerp(LW.C0, table[4], speed) 
+	RH.C0 = clerp(RH.C0, table[5], speed) 
+	LH.C0 = clerp(LH.C0, table[6], speed) 
+	if bool == true then
+		if resetc1 == false then
+			resetc1 = true
+			RootJoint.C1 = RootJoint.C1
+			Torso.Neck.C1 = Torso.Neck.C1
+			RW.C1 = rarmc1
+			LW.C1 = larmc1
+			RH.C1 = rlegc1
+			LH.C1 = llegc1
+		end
+	end
+end
+
+ArtificialHB = Instance.new("BindableEvent", script)
+ArtificialHB.Name = "Heartbeat"
+script:WaitForChild("Heartbeat")
+frame = 0.03333333333333
+tf = 0
+allowframeloss = false
+tossremainder = false
+lastframe = tick()
+script.Heartbeat:Fire()
+game:GetService("RunService").Heartbeat:connect(function(s, p)
+  tf = tf + s
+  if tf >= frame then
+    if allowframeloss then
+      script.Heartbeat:Fire()
+      lastframe = tick()
+    else
+      for i = 1, math.floor(tf / frame) do
+        script.Heartbeat:Fire()
+      end
+      lastframe = tick()
+    end
+    if tossremainder then
+      tf = 0
+    else
+      tf = tf - frame * math.floor(tf / frame)
+    end
+  end
+end)
+function swait(num)
+  if num == 0 or num == nil then
+    ArtificialHB.Event:wait()
+  else
+    for i = 0, num do
+      ArtificialHB.Event:wait()
+    end
+  end
+end
+
+function RemoveOutlines(part)
+	part.TopSurface, part.BottomSurface, part.LeftSurface, part.RightSurface, part.FrontSurface, part.BackSurface = 10, 10, 10, 10, 10, 10
+end
+	
+CFuncs = {	
+	["Part"] = {
+		Create = function(Parent, Material, Reflectance, Transparency, BColor, Name, Size)
+			local Part = Create("Part"){
+				Parent = Parent,
+				Reflectance = Reflectance,
+				Transparency = Transparency,
+				CanCollide = false,
+				Locked = true,
+				BrickColor = BrickColor.new(tostring(BColor)),
+				Name = Name,
+				Size = Size,
+				Material = Material,
+			}
+			RemoveOutlines(Part)
+			return Part
+		end;
+	};
+	
+	["Mesh"] = {
+		Create = function(Mesh, Part, MeshType, MeshId, OffSet, Scale)
+			local Msh = Create(Mesh){
+				Parent = Part,
+				Offset = OffSet,
+				Scale = Scale,
+			}
+			if Mesh == "SpecialMesh" then
+				Msh.MeshType = MeshType
+				Msh.MeshId = MeshId
+			end
+			return Msh
+		end;
+	};
+	
+	["Mesh"] = {
+		Create = function(Mesh, Part, MeshType, MeshId, OffSet, Scale)
+			local Msh = Create(Mesh){
+				Parent = Part,
+				Offset = OffSet,
+				Scale = Scale,
+			}
+			if Mesh == "SpecialMesh" then
+				Msh.MeshType = MeshType
+				Msh.MeshId = MeshId
+			end
+			return Msh
+		end;
+	};
+	
+	["Weld"] = {
+		Create = function(Parent, Part0, Part1, C0, C1)
+			local Weld = Create("Weld"){
+				Parent = Parent,
+				Part0 = Part0,
+				Part1 = Part1,
+				C0 = C0,
+				C1 = C1,
+			}
+			return Weld
+		end;
+	};
+	
+	["ParticleEmitter"] = {
+		Create = function(Parent, Color1, Color2, LightEmission, Size, Texture, Transparency, ZOffset, Accel, Drag, LockedToPart, VelocityInheritance, EmissionDirection, Enabled, LifeTime, Rate, Rotation, RotSpeed, Speed, VelocitySpread)
+			local fp = Create("ParticleEmitter"){
+				Parent = Parent,
+				Color = ColorSequence.new(Color1, Color2),
+				LightEmission = LightEmission,
+				Size = Size,
+				Texture = Texture,
+				Transparency = Transparency,
+				ZOffset = ZOffset,
+				Acceleration = Accel,
+				Drag = Drag,
+				LockedToPart = LockedToPart,
+				VelocityInheritance = VelocityInheritance,
+				EmissionDirection = EmissionDirection,
+				Enabled = Enabled,
+				Lifetime = LifeTime,
+				Rate = Rate,
+				Rotation = Rotation,
+				RotSpeed = RotSpeed,
+				Speed = Speed,
+				VelocitySpread = VelocitySpread,
+			}
+			return fp
+		end;
+	};
+
+	CreateTemplate = {
+	
+	};
+}
+
+function so(id,par,pit,vol)
+  local sou = Instance.new("Sound", par or workspace)
+  if par == chara then
+    sou.Parent = chara.Torso
+  end
+  sou.Volume = vol
+  sou.Pitch = pit or 1
+  sou.SoundId = "rbxassetid://" .. id
+  sou.PlayOnRemove = true
+  sou:Destroy()
+end
+
+New = function(Object, Parent, Name, Data)
+	local Object = Instance.new(Object)
+	for Index, Value in pairs(Data or {}) do
+		Object[Index] = Value
+	end
+	Object.Parent = Parent
+	Object.Name = Name
+	return Object
+end
+
+
+hatstuff = New("Model",chara,"hatstuff",{})
+Hat2 = New("Part",hatstuff,"Hat2",{FormFactor = Enum.FormFactor.Custom,Size = Vector3.new(0.100000001, 0.100000001, 0.100000001),CFrame = CFrame.new(38.400013, 5.04999828, -8.39998817, -1, -3.54432541e-18, -2.56937803e-22, -3.54432541e-18, 1, 5.04619589e-18, 2.56937803e-22, 5.04619589e-18, -1),CanCollide = false,BottomSurface = Enum.SurfaceType.Smooth,TopSurface = Enum.SurfaceType.Smooth,})
+Mesh = New("SpecialMesh",Hat2,"Mesh",{Scale = Vector3.new(1, 2.0999999, 1.04999995),VertexColor = Vector3.new(0.300000012, 0.300000012, 0.300000012),MeshId = "rbxassetid://74882381",TextureId = "rbxassetid://74882348",MeshType = Enum.MeshType.FileMesh,})
+Weld = New("ManualWeld",Hat2,"Weld",{Part0 = Hat2,Part1 = Head,C0 = CFrame.new(0, 0, 0, -1, -3.54432541e-18, 2.56937803e-22, -3.54432541e-18, 1, 5.04619589e-18, -2.56937803e-22, 5.04619589e-18, -1),C1 = CFrame.new(0, 0.550000191, 0.100000381, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
+Hat1 = New("Part",hatstuff,"Hat1",{BrickColor = BrickColor.new("Baby blue"),FormFactor = Enum.FormFactor.Plate,Size = Vector3.new(0.200000003, 0.100000001, 0.200000003),CFrame = CFrame.new(38.400013, 4.94999886, -8.29998875, -0.999999881, -2.7972106e-21, -2.98023224e-08, -2.79721121e-21, 1, 8.07793567e-28, 2.98023224e-08, 8.33633661e-29, -0.999999881),CanCollide = false,BottomSurface = Enum.SurfaceType.Smooth,TopSurface = Enum.SurfaceType.Smooth,Color = Color3.new(0.596078, 0.760784, 0.858824),})
+Mesh = New("SpecialMesh",Hat1,"Mesh",{Scale = Vector3.new(1.20000005, 0.800000012, 1.10000002),MeshId = "rbxassetid://11124978",MeshType = Enum.MeshType.FileMesh,})
+Weld = New("ManualWeld",Hat1,"Weld",{Part0 = Hat1,Part1 = Head,C0 = CFrame.new(0, 0, 0, -0.999999881, -2.79721121e-21, 2.98023224e-08, -2.7972106e-21, 1, 8.33633661e-29, -2.98023224e-08, 8.07793567e-28, -0.999999881),C1 = CFrame.new(0, 0.450000763, 9.53674316e-07, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
+if chara:FindFirstChild("FaysG") then
+Hat2:Destroy()
+Hat1.BrickColor = BrickColor.new("Really black")
+end
+for i, v in pairs(chara:children()) do
+if v:IsA("Shirt") or v:IsA("Pants") or v:IsA("BodyColors") then
+v:Destroy()
+elseif v.Name == "Chest" then
+for a, b in pairs(v:children()) do
+if b.Name ~= "Tail" then
+b.Transparency = 1
+end
+end
+end
+end
+local sh = Instance.new("Shirt",chara)
+sh.ShirtTemplate = "rbxassetid://460500101"
+local pn = Instance.new("Pants",chara)
+pn.PantsTemplate = "rbxassetid://460500209"
+if Head:FindFirstChild("face") then
+Head.face.Texture = "rbxassetid://277939506"
+end
+--local bcols = Instance.new("BodyColors",chara)
+--bcols.HeadColor=BrickColor.new("Light orange")
+--bcols.LeftArmColor=BrickColor.new("Light orange")
+--bcols.RightArmColor=BrickColor.new("Light orange")
+--bcols.TorsoColor=BrickColor.new("Really black")
+--bcols.LeftLegColor=BrickColor.new("Baby blue")
+--bcols.RightLegColor=BrickColor.new("Baby blue")
+
+local pemitt = Instance.new("ParticleEmitter",Torso)
+pemitt.Enabled = false
+pemitt.Transparency = NumberSequence.new(0,1)
+pemitt.Lifetime = NumberRange.new(1)
+pemitt.Size = NumberSequence.new(3,10)
+pemitt.LockedToPart = false
+pemitt.LightInfluence = 1
+pemitt.Speed = NumberRange.new(7)
+pemitt.EmissionDirection = "Top"
+pemitt.Texture = "https://www.roblox.com/headshot-thumbnail/image?userId="..Player.UserId.."&width=420&height=420&format=png"
+if chara:FindFirstChild("FaysG") then
+pemitt.Texture = "rbxassetid://1290985799"
+end
+
+function rayCast(Position, Direction, Range, Ignore)
+	return game:service("Workspace"):FindPartOnRay(Ray.new(Position, Direction.unit * (Range or 999.999)), Ignore) 
+end 
+
+--[[FindNearestTorso = function(pos)
+	local list = (game.workspace:GetDescendants())
+	local torso = nil
+	local dist = 1000
+	local temp, human, temp2 = nil, nil, nil
+	for x = 1, #list do
+		temp2 = list[x]
+		if temp2.className == "Model" and temp2.Name ~= chara.Name then
+			temp = temp2:findFirstChild("Torso")
+			human = temp2:FindFirstChildOfClass("Humanoid")
+			if temp ~= nil and human ~= nil and human.Health > 0 and (temp.Position - pos).magnitude < dist then
+				local dohit = true
+				if dohit == true then
+					torso = temp
+					dist = (temp.Position - pos).magnitude
+				end
+			end
+		end
+	end
+	return torso, dist
+end]]
+function FindNearestTorso(Position, Distance, SinglePlayer)
+	if SinglePlayer then
+		return (SinglePlayer.Head.CFrame.p - Position).magnitude < Distance
+	end
+	local List = {}
+	for i, v in pairs(workspace:GetDescendants()) do
+		if v:IsA("Model") then
+			if v:findFirstChild("Head") then
+				if v ~= chara then
+					if (v.Head.Position - Position).magnitude <= Distance then
+						table.insert(List, v)
+					end 
+				end 
+			end 
+		end 
+	end
+	return List
+end
+
+function CreateTrailObj(parent,color1,color2,ofsx,ofsz)
+local Att1 =  New("Attachment",parent,"Att1",{Position = Vector3.new(ofsx,parent.Size.Y/2,ofsz)})
+local Att2 =  New("Attachment",parent,"Att2",{Position = Vector3.new(ofsx,-(parent.Size.Y/2),ofsz)})
+local TEff = New("Trail",parent,"TrailEff",{Color = ColorSequence.new({ColorSequenceKeypoint.new(0,BrickColor.new(color1).Color),ColorSequenceKeypoint.new(1,BrickColor.new(color2).Color)}),Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0,.5),NumberSequenceKeypoint.new(1,1)}),Attachment0 = Att1,Attachment1 = Att2,Enabled = false,Lifetime = .5,MinLength = .001,LightEmission = 1})
+return TEff
+end
+
+LLTr = CreateTrailObj(LeftLeg,"White","White",0,0)
+RLTr = CreateTrailObj(RightLeg,"White","White",0,0)
+LATr = CreateTrailObj(LeftArm,"White","White",0,0)
+RATr = CreateTrailObj(RightArm,"White","White",0,0)
+
+EffectModel = Create("Model"){
+	Parent = chara,
+	Name = "Effects",
+}
+
+Effects = {
+	Block = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay, Type)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("BlockMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			if Type == 1 or Type == nil then
+				table.insert(Effects, {
+					prt,
+					"Block1",
+					delay,
+					x3,
+					y3,
+					z3,
+					msh
+				})
+			elseif Type == 2 then
+				table.insert(Effects, {
+					prt,
+					"Block2",
+					delay,
+					x3,
+					y3,
+					z3,
+					msh
+				})
+			end
+		end;
+	};
+
+		Cylinder = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, brickcolor, "Effect", Vector3.new())		
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("CylinderMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Cylinder",
+				delay,
+				x3,
+				y3,
+				z3,
+				msh
+			})
+		end;
+	};
+	Head = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("SpecialMesh", prt, "Head", "nil", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Cylinder",
+				delay,
+				x3,
+				y3,
+				z3,
+				msh
+			})
+		end;
+	};
+	
+	Sphere = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("SpecialMesh", prt, "Sphere", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Cylinder",
+				delay,
+				x3,
+				y3,
+				z3,
+				msh
+			})
+		end;
+	};
+	
+	Elect = {
+		Create = function(cff, x, y, z)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, BrickColor.new("Lime green"), "Part", Vector3.new(1, 1, 1))
+			prt.Anchored = true
+			prt.CFrame = cff * CFrame.new(math.random(-x, x), math.random(-y, y), math.random(-z, z))
+			prt.CFrame = CFrame.new(prt.Position)
+			game:GetService("Debris"):AddItem(prt, 2)
+			local xval = math.random() / 2
+			local yval = math.random() / 2
+			local zval = math.random() / 2
+			local msh = CFuncs.Mesh.Create("BlockMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(xval, yval, zval))
+			table.insert(Effects, {
+				prt,
+				"Elec",
+				0.1,
+				x,
+				y,
+				z,
+				xval,
+				yval,
+				zval
+			})
+		end;
+
+	};
+	
+	Ring = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("SpecialMesh", prt, "FileMesh", "rbxassetid://3270017", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Cylinder",
+				delay,
+				x3,
+				y3,
+				z3,
+				msh
+			})
+		end;
+	};
+
+
+	Wave = {
+		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			local msh = CFuncs.Mesh.Create("SpecialMesh", prt, "FileMesh", "rbxassetid://20329976", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Cylinder",
+				delay,
+				x3,
+				y3,
+				z3,
+				msh
+			})
+		end;
+	};
+
+	Break = {
+		Create = function(brickcolor, cframe, x1, y1, z1)
+			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new(0.5, 0.5, 0.5))
+			prt.Anchored = true
+			prt.CFrame = cframe * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50))
+			local msh = CFuncs.Mesh.Create("SpecialMesh", prt, "Sphere", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			local num = math.random(10, 50) / 1000
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Shatter",
+				num,
+				prt.CFrame,
+				math.random() - math.random(),
+				0,
+				math.random(50, 100) / 100
+			})
+		end;
+	};
+	
+	Fire = {
+		Create = function(brickcolor, cframe, x1, y1, z1, delay)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			msh = CFuncs.Mesh.Create("BlockMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"Fire",
+				delay,
+				1,
+				1,
+				1,
+				msh
+			})
+		end;
+	};
+	
+	FireWave = {
+		Create = function(brickcolor, cframe, x1, y1, z1)
+			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 1, brickcolor, "Effect", Vector3.new())
+			prt.Anchored = true
+			prt.CFrame = cframe
+			msh = CFuncs.Mesh.Create("BlockMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+			local d = Create("Decal"){
+				Parent = prt,
+				Texture = "rbxassetid://26356434",
+				Face = "Top",
+			}
+			local d = Create("Decal"){
+				Parent = prt,
+				Texture = "rbxassetid://26356434",
+				Face = "Bottom",
+			}
+			game:GetService("Debris"):AddItem(prt, 10)
+			table.insert(Effects, {
+				prt,
+				"FireWave",
+				1,
+				30,
+				math.random(400, 600) / 100,
+				msh
+			})
+		end;
+	};
+	
+	Lightning = {
+		Create = function(p0, p1, tym, ofs, col, th, tra, last)
+			local magz = (p0 - p1).magnitude
+			local curpos = p0
+			local trz = {
+				-ofs,
+				ofs
+			}
+			for i = 1, tym do
+				local li = CFuncs.Part.Create(EffectModel, "Neon", 0, tra or 0.4, col, "Ref", Vector3.new(th, th, magz / tym))
+				local ofz = Vector3.new(trz[math.random(1, 2)], trz[math.random(1, 2)], trz[math.random(1, 2)])
+				local trolpos = CFrame.new(curpos, p1) * CFrame.new(0, 0, magz / tym).p + ofz
+				li.Material = "Neon"
+				if tym == i then
+					local magz2 = (curpos - p1).magnitude
+					li.Size = Vector3.new(th, th, magz2)
+					li.CFrame = CFrame.new(curpos, p1) * CFrame.new(0, 0, -magz2 / 2)
+					table.insert(Effects, {
+						li,
+						"Disappear",
+						last
+					})
+				else
+					do
+						do
+							li.CFrame = CFrame.new(curpos, trolpos) * CFrame.new(0, 0, magz / tym / 2)
+							curpos = li.CFrame * CFrame.new(0, 0, magz / tym / 2).p
+							game.Debris:AddItem(li, 10)
+							table.insert(Effects, {
+								li,
+								"Disappear",
+								last
+							})
+						end
+					end
+				end
+			end
+		end
+	};
+
+	EffectTemplate = {
+
+	};
+}
+
+function ShowDamage(Dude, Text, Time, Color)
+coroutine.resume(coroutine.create(function()
+local naeeym2 = Instance.new("BillboardGui",Dude)
+naeeym2.Size = UDim2.new(0,100,0,40)
+naeeym2.StudsOffset = Vector3.new(0,3,0)
+naeeym2.Adornee = Dude.Head
+naeeym2.Name = "TalkingBillBoard"
+local tecks2 = Instance.new("TextLabel",naeeym2)
+tecks2.BackgroundTransparency = 1
+tecks2.BorderSizePixel = 0
+tecks2.Text = Text
+tecks2.Font = "Fantasy"
+tecks2.TextSize = 24
+tecks2.TextStrokeTransparency = 0
+tecks2.TextColor3 = BrickColor.new(Color).Color
+tecks2.TextStrokeColor3 = Color3.new(0,0,0)
+tecks2.Size = UDim2.new(1,0,0.5,0)
+swait(10)
+for i = 0,1,.05 do
+swait()
+tecks2.Position = tecks2.Position - UDim2.new(0,0,.005,0)
+tecks2.TextStrokeTransparency = i
+tecks2.TextTransparency = i
+end
+naeeym2:Destroy()
+end))
+end
+
+Damagefunc=function(Part,hit,minim,maxim,knockback,Type,Property,Delay,KnockbackType,decreaseblock)
+        if hit.Parent==nil then
+                return
+        end
+        local torsy = (hit.Parent:findFirstChild("Torso") or hit.Parent:findFirstChild("UpperTorso"))
+        local h=hit.Parent:FindFirstChildOfClass("Humanoid")
+        for _,v in pairs(hit.Parent:GetDescendants()) do
+        if v:IsA("Humanoid") then
+        h=v
+        end
+        end
+        if torsy~=nil then
+        h=hit.Parent:FindFirstChildOfClass("Humanoid")
+        end
+        if hit.Parent:IsA("Accoutrement") then
+        hit=hit.Parent.Parent:findFirstChild("Head")
+        end
+        if h~=nil and hit.Parent.Name~=chara.Name and torsy~=nil then
+        if hit.Parent:findFirstChild("DebounceHit")~=nil then if hit.Parent.DebounceHit.Value==true then return end end
+        --[[                if game.Players:GetPlayerFromCharacter(hit.Parent)~=nil then
+                        return
+                end]]
+--                        hs(hit,1.2) 
+                        local c=Instance.new("ObjectValue")
+                        c.Name="creator"
+                        c.Value=game:service("Players").LocalPlayer
+                        c.Parent=h
+                        game:GetService("Debris"):AddItem(c,.5)
+                local Damage=math.random(minim,maxim)
+--                h:TakeDamage(Damage)
+                local  blocked=false
+                local  block=hit.Parent:findFirstChild("Block")
+                if block~=nil then
+                print(block.className)
+                if block.className=="NumberValue" then
+                if block.Value>0 then
+                blocked=true
+                if decreaseblock==nil then
+                block.Value=block.Value-1
+                end
+                end
+                end
+                if block.className=="IntValue" then
+                if block.Value>0 then
+                blocked=true
+                if decreaseblock~=nil then
+                block.Value=block.Value-1
+                end
+                end
+                end
+                end
+                h.Health=h.Health-Damage
+                ShowDamage(h.Parent, -Damage, 1.5, "White")
+                if Type=="Knockdown" then
+                local hum=hit.Parent:FindFirstChildOfClass("Humanoid")
+hum.PlatformStand=true
+coroutine.resume(coroutine.create(function(HHumanoid)
+swait(30)
+HHumanoid.PlatformStand=false
+end),hum)
+--local angle=(hit.Position-(Property.Position+Vector3.new(0,0,0))).unit
+--hit.CFrame=CFrame.new(hit.Position,Vector3.new(angle.x,hit.Position.y,angle.z))*CFrame.fromEulerAnglesXYZ(math.pi/4,0,0)
+local bodvol=Instance.new("BodyVelocity")
+bodvol.velocity=RootPart.CFrame.lookVector*knockback
+bodvol.P=50000
+bodvol.maxForce=Vector3.new(5000, 0, 5000) * 5000000000
+bodvol.Parent=torsy
+torsy.CFrame = CFrame.new(torsy.Position)*CFrame.Angles(math.rad(90),0,0)
+--local rl=Instance.new("BodyAngularVelocity")
+--rl.P=3000
+--rl.maxTorque=Vector3.new(500000,500000,500000)*50000000000000
+--rl.angularvelocity=Vector3.new(math.random(-10,10),math.random(-10,10),math.random(-10,10))
+--rl.Parent=torsy
+game:GetService("Debris"):AddItem(bodvol,.5)
+--game:GetService("Debris"):AddItem(rl,.5)
+                elseif Type=="Normal" then
+                local vp=Instance.new("BodyVelocity")
+                vp.P=500
+                vp.maxForce=Vector3.new(math.huge,0,math.huge)
+                vp.velocity=RootPart.CFrame.lookVector*knockback
+--                if KnockbackType==1 then
+--                vp.velocity=Property.CFrame.lookVector*knockback+Property.Velocity/1.05
+--                elseif KnockbackType==2 then
+--                vp.velocity=Property.CFrame.lookVector*knockback
+--                end
+                if knockback>0 then
+                        vp.Parent=torsy
+                end
+                game:GetService("Debris"):AddItem(vp,.5)
+                elseif Type=="Up" then
+                local bodyVelocity=Instance.new("BodyVelocity")
+                bodyVelocity.velocity=Vector3.new(0,knockback,0)
+                bodyVelocity.P=5000
+                bodyVelocity.maxForce=Vector3.new(8e+003, 8e+003, 8e+003)
+                bodyVelocity.Parent=torsy
+                game:GetService("Debris"):AddItem(bodyVelocity,1)
+                local rl=Instance.new("BodyAngularVelocity")
+                rl.P=3000
+                rl.maxTorque=Vector3.new(500000,500000,500000)
+                rl.angularvelocity=Vector3.new(math.random(-30,30),math.random(-30,30),math.random(-30,30))
+                rl.Parent=torsy
+                game:GetService("Debris"):AddItem(rl,.5)
+                elseif Type=="Snare" then
+                local bp=Instance.new("BodyPosition")
+                bp.P=2000
+                bp.D=100
+                bp.maxForce=Vector3.new(math.huge,math.huge,math.huge)
+                bp.position=torsy.Position
+                bp.Parent=torsy
+                game:GetService("Debris"):AddItem(bp,1)
+                end
+                        local debounce=Instance.new("BoolValue")
+                        debounce.Name="DebounceHit"
+                        debounce.Parent=torsy.Parent
+                        debounce.Value=true
+                        game:GetService("Debris"):AddItem(debounce,Delay)
+                        c=Instance.new("ObjectValue")
+                        c.Name="creator"
+                        c.Value=Player
+                        c.Parent=h
+                        game:GetService("Debris"):AddItem(c,.5)
+        end
+end
+
+function MagnitudeDamage(par,magni,efftyp,minim,maxim,knockback,Type,Property,Delay,KnockbackType,decreaseblock)
+  for _, c in pairs(workspace:GetDescendants()) do
+    local hum = c:FindFirstChildOfClass("Humanoid")
+    if hum ~= nil and c:FindFirstChild("IsTeamMateOfCK")==nil then
+      local head = (c:findFirstChild("Torso") or c:findFirstChild("UpperTorso"))
+      if head ~= nil then
+        local targ = head.Position - par.Position
+        local mag = targ.magnitude
+        if magni >= mag and c.Name ~= Player.Name then
+		  if efftyp == "Blunt" then
+		  puncheff(head)
+		  elseif efftyp == "HardBlunt" then
+		  hpuncheff(head)
+		  end
+          Damagefunc(RootPart,head,minim,maxim,knockback,Type,Property,Delay,KnockbackType,decreaseblock)
+        end
+      end
+    end
+  end
+end
+
+combo = 1
+
+function puncheff(par)
+if par.Parent:FindFirstChild("DebounceHit")==nil then
+so(386946017,par,math.random(80,120)/100,1)
+Effects.Sphere.Create(BrickColor.new("White"), par.CFrame, 2, 2, 2, 5, 5, 5, 0.1)
+end
+end
+
+function hpuncheff(par)
+if par.Parent:FindFirstChild("DebounceHit")==nil then
+so(137579113,par,math.random(70,75)/100,1)
+Effects.Sphere.Create(BrickColor.new("White"), par.CFrame, 2, 2, 2, 5, 5, 5, 0.05)
+end
+end
+
+function supereff()
+pemitt:Emit(1)
+so(153092315,RootPart,.8,5)
+for i = 1, 7 do
+Effects.Break.Create(BrickColor.new("Baby blue"),RootPart.CFrame,0,math.random(5,20),0)
+end
+Effects.Wave.Create(BrickColor.new("Baby blue"), RootPart.CFrame*CFrame.new(0,-1.5,0), 2, 0, 2, 5, .5, 5, 0.1)
+end
+
+function attackone()
+attack = true
+LATr.Enabled = true
+Humanoid.WalkSpeed = 2
+so(200632136, LeftArm, .9, 1)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0.00827017333, -4.76837158e-07, -0.372066826, 4.32133675e-07, 0, -1.00000858, 0, 1, 0, 1.00000858, 0, 4.32133675e-07),
+CFrame.new(0.0720631108, 1.49999857, 0.00827036519, 4.32133675e-07, 0, 1.00000858, 0, 1, 0, -1.00000858, 0, 4.32133675e-07),
+CFrame.new(0.783987999, 0.5, -0.759807885, 0.500000238, 0.866025388, 0, 0, 0, -1, -0.866025388, 0.500000238, 0),
+CFrame.new(-1.58918715, 0.915114164, -0.0720625669, 0.0400159881, 0.992945373, -0.111617096, -0.999126732, 0.0411066711, 0.00748660602, 0.012021997, 0.111220047, 0.993723094),
+CFrame.new(0.800002694, -1.99999833, 0, 0.939692736, -0.342019886, 0, 0.342019916, 0.939692736, 0, 0, 0, 1),
+CFrame.new(-0.495444268, -2.01339579, 0.00209511817, 0.984807968, 0, 0.173647001, 0, 1, 0, -0.173647001, 0, 0.984807968),
+MagnitudeDamage(LeftArm,3,"Blunt",6,8,3,"Normal",RootPart,.4,1)
+}, .5, false)
+end
+swait(1)
+Humanoid.WalkSpeed = 16
+LATr.Enabled = false
+attack = false
+end
+
+function attacktwo()
+attack = true
+RLTr.Enabled = true
+Humanoid.WalkSpeed = 2
+so(200632136, RightLeg, .7, 1)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0.0551774763, -4.76837158e-07, -0.20956336, 0.984816253, 0, 0.173649907, 0, 1, 0, -0.173649907, 0, 0.984816253),
+CFrame.new(-0.0386328921, 1.49999857, -0.0986492559, 0.984816253, 0, -0.173649907, 0, 1, 0, 0.173649907, 0, 0.984816253),
+CFrame.new(1.42158043, 0.497783571, 0.499346852, 0.756716371, -0.361068547, -0.544986248, 0.530888021, 0.825873375, 0.189976722, 0.381495029, -0.433085173, 0.816638827),
+CFrame.new(-0.790363729, -0.207643896, -0.153322488, -0.919378817, 0.377208799, -0.111607477, 0.380347937, 0.924813211, -0.00749232853, 0.100389853, -0.0493379459, -0.993724108),
+CFrame.new(0.383741319, -1.47819519, -1.36227417, 0.971020937, 0.0849868506, 0.223373249, 0.201054975, 0.214821026, -0.95573467, -0.129210159, 0.97294873, 0.19150871),
+CFrame.new(-0.495439887, -2.01339579, 0.0020987913, 0.984807849, 0, 0.173648134, 0, 1, 0, -0.173648164, 0, 0.984807849),
+MagnitudeDamage(RightLeg,3,"Blunt",9,11,4,"Normal",RootPart,.4,1)
+}, .5, false)
+end
+swait(1.5)
+Humanoid.WalkSpeed = 16
+RLTr.Enabled = false
+attack = false
+end
+
+function attackthree()
+attack = true
+LATr.Enabled = true
+Humanoid.WalkSpeed = 2
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0.0436707325, 6.56809902e-07, -0.268135428, 1.00000322, -1.21071935e-08, 2.39349902e-07, 1.11758709e-08, 1, 2.19792128e-07, -3.00584361e-07, 2.01165676e-07, 1.0000031),
+CFrame.new(-0.0436706543, 1.49998975, -0.031870842, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+CFrame.new(0.687333524, 0.211406618, -0.815611422, 0.500000238, 0.813797593, 0.296197981, 0, 0.342019975, -0.939692676, -0.866025388, 0.469846487, 0.171010062),
+CFrame.new(-1.30885708, 0.759990096, 0.515828252, -0.234716937, 0.926352441, -0.29458335, -0.0210989937, -0.307833105, -0.951206446, -0.971834779, -0.217048839, 0.0917987302),
+CFrame.new(0.500015259, -1.77985549, 0.729058385, 1, 0, 0, 0, 0.76604414, 0.642788053, 0, -0.642788053, 0.76604414),
+CFrame.new(-0.495445162, -2.01339388, 0.00208995491, 0.984807968, 0, 0.173647001, 0, 1, 0, -0.173647001, 0, 0.984807968),
+}, .5, false)
+end
+so(158037267,LeftArm,.8,1)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0.00827010814, -4.09172827e-07, -0.57207197, 3.51455867e-07, -9.31427935e-10, -1.00000548, 7.15250906e-07, 1, -2.93939406e-15, 1.00000536, 2.98427949e-12, 4.13155988e-07),
+CFrame.new(0.0720604658, 1.49999046, 0.00826480612, 0.766044259, 3.42721876e-07, 0.642787874, -2.50567325e-07, 1, -2.34566073e-07, -0.642787874, 1.86263627e-08, 0.766044259),
+CFrame.new(1.04996192, -0.0618722625, -0.60625875, 0.500002384, 0.150384277, 0.852873385, -2.49386289e-09, 0.984807968, -0.173647016, -0.866030276, 0.0868239254, 0.492406517),
+CFrame.new(-0.550303876, 0.448357344, -0.729969025, 0.399810284, -0.915730119, 0.0400139615, 0.0270380024, -0.0318540074, -0.999126732, 0.916205108, 0.400543034, 0.0120239574),
+CFrame.new(0.80001545, -2.00000119, 7.61750289e-06, 0.939694345, -0.342015564, -3.68559938e-09, 0.342015594, 0.939694285, -7.42008988e-09, 6.00111605e-09, 5.71207437e-09, 1),
+CFrame.new(-0.495453179, -2.01340103, 0.00208870322, 0.984808028, 2.42602312e-08, 0.173647031, -2.73465162e-09, 1, -1.24201193e-07, -0.173647046, 1.21839477e-07, 0.984808028),
+MagnitudeDamage(LeftArm,3,"Blunt",10,12,6,"Normal",RootPart,.4,1)
+}, .5, false)
+end
+swait(2)
+Humanoid.WalkSpeed = 16
+LATr.Enabled = false
+attack = false
+end
+
+function attackfour()
+attack = true
+LLTr.Enabled = true
+Humanoid.WalkSpeed = 2
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(-0.0301548094, -0.0724081025, -0.559211493, 0.321394473, 0.116978027, -0.939692438, -0.342020094, 0.939692676, 4.69497827e-08, 0.88302213, 0.321393639, 0.342020839),
+CFrame.new(0.0225492716, 1.48197627, 0.160110101, 0.321394086, -0.183489025, 0.928998351, 0.116977885, 0.981226087, 0.153335288, -0.939692557, 0.0593912005, 0.336824387),
+CFrame.new(0.7839908, 0.500000119, -0.759810984, 0.499999404, 0.866025865, 1.1920929e-07, -1.15483999e-07, 2.08616257e-07, -1.00000012, -0.866025805, 0.499999344, 2.01165676e-07),
+CFrame.new(-1.10313094, -0.119031914, -0.00966702402, 0.919376969, -0.377211034, -0.111615703, 0.380350292, 0.924812317, 0.00748884678, 0.10039869, -0.0493381247, 0.993723273),
+CFrame.new(0.800008416, -1.99999881, -3.87945101e-06, 0.939692795, -0.342020094, -5.36441803e-07, 0.342020065, 0.939692676, -2.30967999e-07, 5.36441803e-07, 4.69497827e-08, 1),
+CFrame.new(-0.42619139, -1.33903706, -0.172390282, 0.312324524, -0.336822361, 0.888259172, 0.171015799, 0.939692855, 0.296194136, -0.934455514, 0.0593976751, 0.351091057),
+}, .5, false)
+end
+so(200632136, LeftLeg, .7, 1)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(-0.0301469415, -0.0586996675, -0.437210172, 0.321393996, 0.116978295, -0.939692676, -0.49015975, 0.86961025, -0.0593912825, 0.810215533, 0.479687631, 0.336824983),
+CFrame.new(0.0225491524, 1.48198009, 0.160110533, 0.321394026, -0.183488876, 0.928998351, 0.116977893, 0.981226146, 0.153335184, -0.939692616, 0.0593912527, 0.336824328),
+CFrame.new(0.783987582, 0.500001311, -0.759808958, 0.499998629, 0.866026282, -2.08616257e-07, -4.13507223e-07, 8.94069672e-08, -1.00000012, -0.866026282, 0.499998659, 4.02331352e-07),
+CFrame.new(-1.10312903, -0.119031809, -0.00967045873, 0.919376493, -0.377212375, -0.111615419, 0.380351573, 0.92481184, 0.00748815387, 0.100398645, -0.0493375398, 0.993723273),
+CFrame.new(1.02219689, -1.90949571, 0.0872627348, 0.871276855, -0.49015975, -0.0249014199, 0.490767866, 0.86961025, 0.0541392565, -0.00488203764, -0.0593912825, 0.998223186),
+CFrame.new(-1.33761406, -1.70827067, -0.524259567, 0.486513674, 0.819252968, -0.303527921, -0.873673022, 0.456210732, -0.169018984, 3.40305269e-06, 0.347414166, 0.937711895),
+MagnitudeDamage(LeftLeg,3,"Blunt",12,14,6,"Normal",RootPart,.4,1)
+}, .5, false)
+end
+swait(3)
+Humanoid.WalkSpeed = 16
+LLTr.Enabled = false
+attack = false
+end
+
+function jattack()
+attack = true
+LLTr.Enabled = true
+so(200632136, LeftLeg, .7, 1)
+local par
+coroutine.wrap(function()
+repeat swait() par = rayCast(RootPart.Position,Vector3.new(0,-1,0),3,chara) until par~=nil or Torso.Velocity.Y == 0
+LLTr.Enabled = false
+attack = false
+end)()
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(-0.0301543549, -0.0587017909, -0.437208563, 0.321394026, 0.116978273, -0.939692497, -0.49015981, 0.86961031, -0.0593912788, 0.810215592, 0.479687661, 0.336824954),
+CFrame.new(0.0225486755, 1.48198104, 0.160110414, 0.321394056, -0.183488876, 0.92899853, 0.116977863, 0.981226146, 0.153335184, -0.939692497, 0.0593912415, 0.336824298),
+CFrame.new(0.783988774, 0.500003517, -0.759812713, 0.499998719, 0.866026521, -2.08616257e-07, -4.35858965e-07, 8.94069672e-08, -1.00000024, -0.866026223, 0.499998599, 3.7252903e-07),
+CFrame.new(-1.5387224, 0.336511105, -0.0620384961, 0.879926026, 0.461813837, -0.111617982, -0.463960439, 0.885824561, 0.00748144835, 0.102328926, 0.0452032089, 0.993723154),
+CFrame.new(-0.315333247, -1.53402376, -0.49589175, -0.134368047, 0.810216188, -0.57052201, -0.407345563, 0.479686826, 0.777155399, 0.903335512, 0.336824328, 0.265583307),
+CFrame.new(-1.33761203, -1.70826972, -0.524270773, 0.486513793, 0.819253027, -0.303527981, -0.873673081, 0.456210762, -0.169018969, 3.40305269e-06, 0.347414106, 0.937711835),
+MagnitudeDamage(LeftLeg,6,"Blunt",9,11,4,"Normal",RootPart,.4,1)
+}, .5, false)
+end
+end
+
+zhold = false
+function kfpalm()
+attack = true
+LATr.Enabled = true
+Humanoid.WalkSpeed = 0
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0, -0.599999428, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0),
+CFrame.new(0, 1.49999595, 0, 0.500000238, 0, 0.866025388, 0, 1, 0, -0.866025388, 0, 0.500000238),
+CFrame.new(0.662911594, 0.399999619, -0.623933315, 0.342019022, 0.939693093, 0, 0, 0, -1, -0.939693093, 0.342018992, 0),
+CFrame.new(-0.473205, -0.0999996662, 0.499996185, 0, 1, 0, 1, 0, 0, 0, 0, -1),
+CFrame.new(1.1031599, -1.592327, 0, 0.64278698, -0.766044974, 0, 0.766044974, 0.64278698, 0, 0, 0, 1),
+CFrame.new(-0.599999666, -1.40000069, -0.199996278, 0.866025388, 0, 0.500000238, 0, 1, 0, -0.500000238, 0, 0.866025388),
+}, .5, false)
+end
+local t = 0
+repeat swait() t=t+1 until t == 10 or zhold == false
+if t == 10 then
+supereff()
+swait(5)
+for i=1,2 do
+so(158037267,LeftArm,.5,1)
+local ve = Instance.new("BodyVelocity", Torso)
+ve.P = 6000
+ve.Name = "WUUB"
+ve.maxForce = Vector3.new(5000, 0, 5000) * 5000000000
+ve.velocity = RootPart.CFrame.lookVector * 30
+game:GetService("Debris"):AddItem(ve,.1)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0, -0.599999428, 0, 1.34110837e-06, 0, -1.00000548, 0, 1, 0, 1.00000644, 0, -1.34110837e-06),
+CFrame.new(0, 1.49999595, 0, 0.50000459, 0, 0.866030216, 0, 1, 0, -0.866030753, 0, 0.500001729),
+CFrame.new(0.662920713, 0.399999619, -0.62394017, 0.342022449, 0.939698696, 0, 0, 0, -1, -0.939698637, 0.342019558, 0),
+CFrame.new(-1.77321196, 0.199999332, 6.86993644e-07, 0, 1.00000322, 9.53674316e-07, 1, 0, 0, 0, -3.87430191e-07, -1.00000274),
+CFrame.new(1.30833769, -1.50339675, -5.62785135e-06, 0.642791152, -0.766049802, -1.34110837e-06, 0.766044974, 0.64278698, 0, -8.59985107e-07, 1.05675122e-06, 1.00000548),
+CFrame.new(-0.357623726, -1.425565, -0.224466428, 0.813800395, -0.296199203, 0.500001609, 0.342020124, 0.939692616, 3.24837544e-07, -0.469848782, 0.171010628, 0.866027236),
+MagnitudeDamage(LeftArm,3,"HardBlunt",9,13,10,"Normal",RootPart,.4,1)
+}, .5, false)
+end
+swait(5)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0, -0.599999428, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0),
+CFrame.new(0, 1.49999595, 0, 0.500000238, 0, 0.866025388, 0, 1, 0, -0.866025388, 0, 0.500000238),
+CFrame.new(0.662911594, 0.399999619, -0.623933315, 0.342019022, 0.939693093, 0, 0, 0, -1, -0.939693093, 0.342018992, 0),
+CFrame.new(-0.473205, -0.0999996662, 0.499996185, 0, 1, 0, 1, 0, 0, 0, 0, -1),
+CFrame.new(1.1031599, -1.592327, 0, 0.64278698, -0.766044974, 0, 0.766044974, 0.64278698, 0, 0, 0, 1),
+CFrame.new(-0.599999666, -1.40000069, -0.199996278, 0.866025388, 0, 0.500000238, 0, 1, 0, -0.500000238, 0, 0.866025388),
+}, .5, false)
+end
+end
+end
+so(158037267,LeftArm,.5,1)
+local ve = Instance.new("BodyVelocity", Torso)
+ve.P = 6000
+ve.Name = "WUUB"
+ve.maxForce = Vector3.new(5000, 0, 5000) * 5000000000
+ve.velocity = RootPart.CFrame.lookVector * 50
+game:GetService("Debris"):AddItem(ve,.1)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0, -0.599999428, 0, 1.34110837e-06, 0, -1.00000548, 0, 1, 0, 1.00000644, 0, -1.34110837e-06),
+CFrame.new(0, 1.49999595, 0, 0.50000459, 0, 0.866030216, 0, 1, 0, -0.866030753, 0, 0.500001729),
+CFrame.new(0.662920713, 0.399999619, -0.62394017, 0.342022449, 0.939698696, 0, 0, 0, -1, -0.939698637, 0.342019558, 0),
+CFrame.new(-1.77321196, 0.199999332, 6.86993644e-07, 0, 1.00000322, 9.53674316e-07, 1, 0, 0, 0, -3.87430191e-07, -1.00000274),
+CFrame.new(1.30833769, -1.50339675, -5.62785135e-06, 0.642791152, -0.766049802, -1.34110837e-06, 0.766044974, 0.64278698, 0, -8.59985107e-07, 1.05675122e-06, 1.00000548),
+CFrame.new(-0.357623726, -1.425565, -0.224466428, 0.813800395, -0.296199203, 0.500001609, 0.342020124, 0.939692616, 3.24837544e-07, -0.469848782, 0.171010628, 0.866027236),
+MagnitudeDamage(LeftArm,3,"HardBlunt",15,18,15,"Knockdown",RootPart,.4,1)
+}, .5, false)
+end
+swait(10)
+Humanoid.WalkSpeed = 16
+LATr.Enabled = false
+attack = false
+end
+
+function kfblow()
+attack = true
+LATr.Enabled = true
+Humanoid.WalkSpeed = 0
+swait(5)
+so(158037267,LeftArm,.5,1)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(8.86628623e-05, -0.599999428, -2.50004721, 2.68223084e-06, 0, -1.00001097, 0, 1, 0, 1.00001287, 0, -2.68223084e-06),
+CFrame.new(0, 1.49999619, 0, 0.500008941, 0, 0.866035163, 0, 1, 0, -0.866036177, 0, 0.500003278),
+CFrame.new(1.46291614, 0.899966896, 0.0760855153, 3.90002497e-05, -1.00000644, -3.9845796e-05, 1, 3.89999987e-05, 0, 1.44937817e-09, -3.71635433e-05, 1.00000548),
+CFrame.new(-1.5732199, 0.899998665, 2.13230014e-05, 0, 1.00000644, -7.88460457e-05, -1, 0, 0, 0, 7.61637566e-05, 1.00000548),
+CFrame.new(1.3083545, -1.50339651, -7.38252675e-06, 0.642795265, -0.766054749, -2.68223084e-06, 0.766044974, 0.64278698, 0, -1.72204273e-06, 2.08411257e-06, 1.00001097),
+CFrame.new(-0.494233549, -1.52556598, -0.261073679, 0.866031349, 0, 0.500002563, 0, 1, 0, -0.500004411, 0, 0.866029203),
+MagnitudeDamage(LeftArm,3,"HardBlunt",17,20,20,"Knockdown",RootPart,.4,1)
+}, .5, false)
+end
+swait(15)
+Humanoid.WalkSpeed = 16
+LATr.Enabled = false
+attack = false
+end
+
+chold = false
+function kfupper()
+attack = true
+LATr.Enabled = true
+Humanoid.WalkSpeed = 0
+for i=0,1,.1 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(-0.0145354364, 0, 0.0638134554, 0.939692736, 0, 0.342019886, 0, 1, 0, -0.342019916, 0, 0.939692736),
+CFrame.new(0.0354900658, 1.49999619, -0.054992158, 0.925416768, -0.163175747, -0.342019916, 0.173647985, 0.984807849, 0, 0.336823881, -0.0593910627, 0.939692736),
+CFrame.new(1.12378109, 1.0451771, -0.257020772, 0.866024971, 0.500000834, -9.53674316e-07, 0.433012992, -0.749999881, -0.49999994, -0.250001103, 0.433012009, -0.866025448),
+CFrame.new(-1.11433101, 0, 0.459626645, 0.766043544, 0, 0.642788708, 0, 1, 0, -0.642788708, 0, 0.766043544),
+CFrame.new(0.449996918, -2, 0.0866026133, 0.866025686, 0, -0.499999642, 0, 1, 0, 0.499999642, 0, 0.866025686),
+CFrame.new(-0.5, -1.99999976, 1.37090683e-06, 1, 1.49011612e-08, 0, 0, 0.86602509, 0.500000656, -2.98023224e-08, -0.500000715, 0.86602509),
+}, .3, false)
+end
+local t = 0
+repeat swait() t=t+1 until t == 10 or chold == false
+if t == 10 then
+supereff()
+swait(5)
+so(158037267,LeftArm,.5,1)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0.185260773, 0, -0.528930187, 0, 0, -1, 0, 1, 0, 1, 0, 0),
+CFrame.new(0.202135861, 1.39999592, 0.185260773, 0, 0.500000238, 0.866025388, 0, 0.866025388, -0.500000238, -1, 0, 0),
+CFrame.new(1.17679906, -0.0261177868, 0.186703265, 0.866024673, -0.500001371, 2.23987331e-06, -0.321392894, -0.556670129, -0.766045034, 0.383024842, 0.663413107, -0.64278692),
+CFrame.new(-1.20000052, 1.49999857, 0.300003052, 0, 0.173647985, -0.984807849, 0, -0.984807849, -0.173647985, -1, 0, 0),
+CFrame.new(0.781915069, -1.89739513, -3.81469727e-06, 0.939692736, -0.342019886, 0, 0.342019916, 0.939692736, 0, 0, 0, 1),
+CFrame.new(-0.500001073, -2, 2.98023224e-08, 0.866025984, 0, 0.499998987, 0, 1, 0, -0.499998987, 0, 0.866025984),
+MagnitudeDamage(LeftArm,3,"HardBlunt",25,36,50,"Up",RootPart,.4,1)
+}, .5, false)
+end
+swait(20)
+else
+so(158037267,LeftArm,.5,1)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0.185260773, 0, -0.528930187, 0, 0, -1, 0, 1, 0, 1, 0, 0),
+CFrame.new(0.202135861, 1.39999592, 0.185260773, 0, 0.500000238, 0.866025388, 0, 0.866025388, -0.500000238, -1, 0, 0),
+CFrame.new(1.17679906, -0.0261177868, 0.186703265, 0.866024673, -0.500001371, 2.23987331e-06, -0.321392894, -0.556670129, -0.766045034, 0.383024842, 0.663413107, -0.64278692),
+CFrame.new(-1.20000052, 1.49999857, 0.300003052, 0, 0.173647985, -0.984807849, 0, -0.984807849, -0.173647985, -1, 0, 0),
+CFrame.new(0.781915069, -1.89739513, -3.81469727e-06, 0.939692736, -0.342019886, 0, 0.342019916, 0.939692736, 0, 0, 0, 1),
+CFrame.new(-0.500001073, -2, 2.98023224e-08, 0.866025984, 0, 0.499998987, 0, 1, 0, -0.499998987, 0, 0.866025984),
+MagnitudeDamage(LeftArm,3,"HardBlunt",18,21,10,"Up",RootPart,.4,1)
+}, .5, false)
+end
+swait(5)
+end
+Humanoid.WalkSpeed = 16
+LATr.Enabled = false
+attack = false
+end
+
+function kfupper()
+attack = true
+LATr.Enabled = true
+Humanoid.WalkSpeed = 0
+for i=0,1,.1 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(-0.0145354364, 0, 0.0638134554, 0.939692736, 0, 0.342019886, 0, 1, 0, -0.342019916, 0, 0.939692736),
+CFrame.new(0.0354900658, 1.49999619, -0.054992158, 0.925416768, -0.163175747, -0.342019916, 0.173647985, 0.984807849, 0, 0.336823881, -0.0593910627, 0.939692736),
+CFrame.new(1.12378109, 1.0451771, -0.257020772, 0.866024971, 0.500000834, -9.53674316e-07, 0.433012992, -0.749999881, -0.49999994, -0.250001103, 0.433012009, -0.866025448),
+CFrame.new(-1.11433101, 0, 0.459626645, 0.766043544, 0, 0.642788708, 0, 1, 0, -0.642788708, 0, 0.766043544),
+CFrame.new(0.449996918, -2, 0.0866026133, 0.866025686, 0, -0.499999642, 0, 1, 0, 0.499999642, 0, 0.866025686),
+CFrame.new(-0.5, -1.99999976, 1.37090683e-06, 1, 1.49011612e-08, 0, 0, 0.86602509, 0.500000656, -2.98023224e-08, -0.500000715, 0.86602509),
+}, .3, false)
+end
+so(158037267,LeftArm,.5,1)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0.185260773, 0, -0.528930187, 0, 0, -1, 0, 1, 0, 1, 0, 0),
+CFrame.new(0.202135861, 1.39999592, 0.185260773, 0, 0.500000238, 0.866025388, 0, 0.866025388, -0.500000238, -1, 0, 0),
+CFrame.new(1.17679906, -0.0261177868, 0.186703265, 0.866024673, -0.500001371, 2.23987331e-06, -0.321392894, -0.556670129, -0.766045034, 0.383024842, 0.663413107, -0.64278692),
+CFrame.new(-1.20000052, 1.49999857, 0.300003052, 0, 0.173647985, -0.984807849, 0, -0.984807849, -0.173647985, -1, 0, 0),
+CFrame.new(0.781915069, -1.89739513, -3.81469727e-06, 0.939692736, -0.342019886, 0, 0.342019916, 0.939692736, 0, 0, 0, 1),
+CFrame.new(-0.500001073, -2, 2.98023224e-08, 0.866025984, 0, 0.499998987, 0, 1, 0, -0.499998987, 0, 0.866025984),
+MagnitudeDamage(LeftArm,3,"HardBlunt",18,21,50,"Up",RootPart,.4,1)
+}, .5, false)
+end
+swait(20)
+Humanoid.WalkSpeed = 16
+LATr.Enabled = false
+attack = false
+end
+
+vhold = false
+function kfgrab()
+attack = true
+LATr.Enabled = true
+RATr.Enabled = true
+Humanoid.WalkSpeed = 0
+local grab
+local torsy
+local hum
+so(200632136, RootPart, .7, 1)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0, -0.395585239, -1.53837633, 1, 0, 0, 0, 0.76604414, 0.642788053, 0, -0.642788053, 0.76604414),
+CFrame.new(0, 1.49998748, -1.19209304e-07, 1, 0, 0, 0, 1.00000012, 0, 0, 0, 1.00000012),
+CFrame.new(1.17525268, 1.16086817, -0.78494978, 0.939693093, 0.342018992, 0, 0.219845742, -0.604023516, -0.76604414, -0.262001663, 0.719846368, -0.642788053),
+CFrame.new(-1.02679563, 1.23295736, -0.870862126, 0.866025984, -0.499998987, 0, -0.321393371, -0.556671143, -0.76604414, 0.383021295, 0.663414121, -0.642788053),
+CFrame.new(0.5, -2.00000238, -1.66893028e-06, 1, 0, 0, 0, 1.00000012, 0, 0, 0, 1.00000012),
+CFrame.new(-0.5, -1.16437745, -0.995859087, 1, 0, 0, 0, 0.76604414, -0.642788053, 0, 0.642788053, 0.76604414),
+}, .4, false)
+end
+  for _, c in pairs(workspace:GetDescendants()) do
+    local hum = c:FindFirstChildOfClass("Humanoid")
+    if hum ~= nil then
+      local torsy = (c:findFirstChild("Torso") or c:findFirstChild("UpperTorso"))
+      if torsy ~= nil then
+        local targ = torsy.Position - (RootPart.Position+RootPart.CFrame.lookVector*3)
+        local mag = targ.magnitude
+        if 5 >= mag and c.Name ~= Player.Name then
+		grab = c
+        end
+      end
+    end
+  end
+if grab ~= nil then
+local hum = grab:FindFirstChildOfClass("Humanoid")
+local torsy = grab:findFirstChild("Torso") or grab:findFirstChild("UpperTorso")
+local gra = Instance.new("Part",chara)
+gra.Size = Vector3.new(0,0,0)
+gra.CanCollide = false
+gra.Anchored = true
+gra.CFrame = RootPart.CFrame*CFrame.new(0,0,-2)
+gra.Transparency = 1
+so(240429615, torsy, 1, 1)
+for i=0,1,.1 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0.028383255, -0.0148591995, 0.0813131332, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+CFrame.new(0, 1.49998522, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+CFrame.new(1.38014948, 1.17801905, -0.00539569557, 0.984808207, 0.111618228, -0.133019865, 0.111618027, -0.993723094, -0.00748204906, -0.133020028, -0.00747903017, -0.991085231),
+CFrame.new(-1.35678291, 1.26276112, 0.0936147273, 0.984807968, -0.111617692, 0.133022264, -0.111617997, -0.993723154, -0.00747833261, 0.133021995, -0.00748295756, -0.991084933),
+CFrame.new(0.499997497, -1.99999893, 4.32133675e-07, 0.76604414, 0, -0.642788053, 0, 1, 0, 0.642788053, 0, 0.76604414),
+CFrame.new(-0.991907299, -1.90381634, 0.00414514542, 0.866025388, 0.500000238, 0, -0.500000238, 0.866025388, 0, 0, 0, 1),
+}, .2, false)
+gra.CFrame = clerp(gra.CFrame,RootPart.CFrame*CFrame.new(0,3,0)*CFrame.Angles(math.rad(90),0,0),.4)
+torsy.CFrame = gra.CFrame
+hum.PlatformStand = true
+end
+Humanoid.WalkSpeed = 6
+repeat 
+swait()
+hum.PlatformStand = true
+gra.CFrame = clerp(gra.CFrame,RootPart.CFrame*CFrame.new(0,3,0)*CFrame.Angles(math.rad(90),0,0),.4)
+torsy.CFrame = gra.CFrame
+until vhold == false
+Humanoid.WalkSpeed = 0
+so(200632136, RootPart, .8, 1)
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0.330770075, -0.873712957, -2.02488899, 0.586823881, -0.17589277, 0.790379405, -0.642787814, 0.492403865, 0.58682394, -0.492403865, -0.852408528, 0.175892636),
+CFrame.new(-4.81307461e-06, 1.49998868, -5.76675029e-06, 1, -2.98023224e-08, 1.49011612e-08, -2.98023224e-08, 1.00000012, -2.98023224e-08, 1.49011612e-08, -2.98023224e-08, 1.00000024),
+CFrame.new(1.24594641, 0.0247616023, 0.244213641, 0.864328623, -0.0301527083, -0.502022803, -0.229708791, 0.864329934, -0.447401255, 0.447403759, 0.502020836, 0.74013859),
+CFrame.new(-1.32204497, 1.00634372, -0.37866655, 0.984807432, -0.173649818, 1.54972076e-06, -0.111619025, -0.633023739, -0.766043425, 0.133024216, 0.754405081, -0.642789066),
+CFrame.new(0.630423486, -0.846706271, -0.543594122, 0.586823881, -0.642787814, -0.492403865, -0.17589277, 0.492403865, -0.852408528, 0.790379405, 0.58682394, 0.175892636),
+CFrame.new(-0.175789148, -1.96953273, -0.437953353, 0.939692736, -0.342019975, -1.43051147e-06, 0.296197295, 0.81379807, -0.5, 0.171011195, 0.469845951, 0.866025507),
+}, .4, false)
+gra.CFrame = clerp(gra.CFrame,RootPart.CFrame*CFrame.new(0,2,-6)*CFrame.Angles(math.rad(90),0,0),.4)
+torsy.CFrame = gra.CFrame
+torsy.Velocity = RootPart.CFrame.lookVector*60
+end
+coroutine.wrap(function()
+local par,pos
+repeat swait() par,pos = rayCast(torsy.Position,Vector3.new(0,-1,0),2,grab) until par
+Damagefunc(RootPart,torsy,15,20,0,"Normal",RootPart,.4,1)
+MagnitudeDamage(torsy,6,0,10,15,5,"Knockdown",RootPart,.4,1)
+Effects.Wave.Create(BrickColor.new("White"), CFrame.new(pos), 0, 0, 0, 1, .2, 1, 0.1)
+so(260430079,torsy,1,5)
+swait(60)
+hum.PlatformStand = false
+end)()
+gra:Destroy()
+end
+swait(5)
+Humanoid.WalkSpeed = 16
+LATr.Enabled = false
+RATr.Enabled = false
+attack = false
+end
+
+function kfbow()
+attack = true
+Humanoid.WalkSpeed = 0
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+CFrame.new(0, 1.49999619, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+CFrame.new(1.20945108, -0.213500202, -4.76837158e-07, 0.939692736, 0.342019886, 0, -0.342019916, 0.939692736, 0, 0, 0, 1),
+CFrame.new(-1.20945334, -0.213505104, -4.76837158e-07, 0.939692736, -0.342019886, 0, 0.342019916, 0.939692736, 0, 0, 0, 1),
+CFrame.new(0.5, -2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+CFrame.new(-0.5, -2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+}, .3, false)
+end
+for i=0,1.5,.1 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0, -0.577677608, -0.882485688, 1, 0, 0, 0, 0.342019916, 0.939692736, 0, -0.939692736, 0.342019886),
+CFrame.new(0, 1.49999499, 4.4554472e-06, 1, 0, 0, 0, 1, 2.98023224e-08, 0, 2.98023224e-08, 1),
+CFrame.new(1.20944607, -0.213502392, 1.31413049e-06, 0.939692974, 0.342019141, -4.0802891e-07, -0.342019141, 0.939692974, 0, 3.65078449e-07, 1.78813934e-07, 1),
+CFrame.new(-1.20944905, -0.213505507, 1.67175949e-06, 0.939692974, -0.342019141, 4.0802891e-07, 0.342019141, 0.939692974, 0, -3.65078449e-07, 1.78813934e-07, 1),
+CFrame.new(0.5, -1.31572783, -1.03471863, 1, 0, 0, 0, 0.342019916, -0.939692736, 0, 0.939692736, 0.342019886),
+CFrame.new(-0.5, -1.31572783, -1.03471863, 1, 0, 0, 0, 0.342019916, -0.939692736, 0, 0.939692736, 0.342019886),
+}, .2, false)
+end
+for i=0,1.5,.1 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+CFrame.new(0, 1.49999619, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+CFrame.new(1.20945108, -0.213500202, -4.76837158e-07, 0.939692736, 0.342019886, 0, -0.342019916, 0.939692736, 0, 0, 0, 1),
+CFrame.new(-1.20945334, -0.213505104, -4.76837158e-07, 0.939692736, -0.342019886, 0, 0.342019916, 0.939692736, 0, 0, 0, 1),
+CFrame.new(0.5, -2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+CFrame.new(-0.5, -2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+}, .2, false)
+end
+Humanoid.WalkSpeed = 16
+LATr.Enabled = false
+attack = false
+end
+
+ehold = false
+function kfblock()
+attack = true
+Humanoid.WalkSpeed = 0
+for i=0,1,.2 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0, 0, 1.90734863e-06, 0, 0, -1, 0, 1, 0, 1, 0, 0),
+CFrame.new(-1.90734863e-06, 1.49999642, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0),
+CFrame.new(0.29999733, 0, -0.799991608, 0, 1, 0, 0, 0, -1, -1, 0, 0),
+CFrame.new(-1.5, 0.999999762, 0, 1, 0, 0, 0, -1, 0, 0, 0, -1),
+CFrame.new(0.500000238, -2, 2.38418579e-07, 0.866025388, 0, -0.500000238, 0, 1, 0, 0.500000238, 0, 0.866025388),
+CFrame.new(-0.5, -2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+}, .3, false)
+end
+local oldhp = Humanoid.Health
+repeat
+swait()
+if Humanoid.Health < oldhp then
+so(260430060,Torso,math.random(9,11)/10,1)
+local vp = Instance.new("BodyVelocity", Torso)
+vp.MaxForce = Vector3.new(4800000, 0, 4800000)
+vp.P = 200000
+vp.Velocity = RootPart.CFrame.lookVector * -30
+game:GetService("Debris"):AddItem(vp,.01)
+end
+Humanoid.Health = oldhp
+until ehold == false
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+--Intro--
+Humanoid.WalkSpeed = 0
+for i=0,2,.1 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0, 0, 0, 0.64278698, 0, -0.766044974, 0, 1, 0, 0.766044974, 0, 0.64278698),
+CFrame.new(0, 1.49999809, 0, 0.64278698, 0, 0.766044974, 0, 1, 0, -0.766044974, 0, 0.64278698),
+CFrame.new(0.7839728, 0.499999523, -0.759808064, 0.499999493, 0.866025746, 0, 0, 0, -1, -0.866025746, 0.499999493, 0),
+CFrame.new(-1.54284048, 0.314144075, -0.263591081, 0.939692736, 0.342019975, -8.04662704e-07, 0.26200217, -0.719847202, -0.64278698, -0.219846487, 0.604022026, -0.766045094),
+CFrame.new(0.499999404, -1.99999809, -1.63912773e-07, 0.866025209, 0, -0.500000298, 0, 1, 0, 0.500000298, 0, 0.866025209) * CFrame.new(0,-.05 * math.cos((sine)/10), 0),
+CFrame.new(-0.49999696, -1.91339612, -0.0500007272, 0.64278698, -0.262002647, 0.719846904, 0, 0.939692736, 0.342019886, -0.766044974, -0.219845951, 0.604022264) * CFrame.new(0,-.05 * math.cos((sine)/10), 0),
+}, .3, false)
+end
+local wood = Instance.new("Part",chara)
+wood.Size = Vector3.new(2,.4,1)
+wood.BrickColor = BrickColor.new("Bright orange")
+wood.Material = "Wood"
+wood.Anchored = true
+wood.CanCollide = false
+wood.CFrame = RootPart.CFrame * CFrame.new(0,0,-10)
+for i=0,1,.1 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(0, 0, 0, 0.64278698, 0, -0.766044974, 0, 1, 0, 0.766044974, 0, 0.64278698),
+CFrame.new(0, 1.49999809, 0, 0.64278698, 0, 0.766044974, 0, 1, 0, -0.766044974, 0, 0.64278698),
+CFrame.new(0.7839728, 0.499999523, -0.759808064, 0.499999493, 0.866025746, 0, 0, 0, -1, -0.866025746, 0.499999493, 0),
+CFrame.new(-1.54284048, 0.314144075, -0.263591081, 0.939692736, 0.342019975, -8.04662704e-07, 0.26200217, -0.719847202, -0.64278698, -0.219846487, 0.604022026, -0.766045094),
+CFrame.new(0.499999404, -1.99999809, -1.63912773e-07, 0.866025209, 0, -0.500000298, 0, 1, 0, 0.500000298, 0, 0.866025209) * CFrame.new(0,-.05 * math.cos((sine)/10), 0),
+CFrame.new(-0.49999696, -1.91339612, -0.0500007272, 0.64278698, -0.262002647, 0.719846904, 0, 0.939692736, 0.342019886, -0.766044974, -0.219845951, 0.604022264) * CFrame.new(0,-.05 * math.cos((sine)/10), 0),
+}, .3, false)
+wood.CFrame = RootPart.CFrame * CFrame.new(0,3-(i*3.5),-10+(i*6))
+end
+LLTr.Enabled = true
+local bwood = Instance.new("Part",chara)
+bwood.Size = Vector3.new(1,.4,1)
+bwood.BrickColor = BrickColor.new("Bright orange")
+bwood.Material = "Wood"
+bwood.CFrame = wood.CFrame * CFrame.new(.5,0,0)
+bwood.Velocity = wood.CFrame.rightVector*10
+local bwood2 = bwood:Clone()
+bwood2.Parent = chara
+bwood2.CFrame = wood.CFrame * CFrame.new(-.5,0,0)
+bwood2.Velocity = wood.CFrame.rightVector*-10
+wood:Destroy()
+so(158712406,Torso,1,1)
+for i=0,1,.25 do
+swait()
+PlayAnimationFromTable({
+CFrame.new(-0.0301469415, -0.0586996675, -0.437210172, 0.321393996, 0.116978295, -0.939692676, -0.49015975, 0.86961025, -0.0593912825, 0.810215533, 0.479687631, 0.336824983),
+CFrame.new(0.0225491524, 1.48198009, 0.160110533, 0.321394026, -0.183488876, 0.928998351, 0.116977893, 0.981226146, 0.153335184, -0.939692616, 0.0593912527, 0.336824328),
+CFrame.new(0.783987582, 0.500001311, -0.759808958, 0.499998629, 0.866026282, -2.08616257e-07, -4.13507223e-07, 8.94069672e-08, -1.00000012, -0.866026282, 0.499998659, 4.02331352e-07),
+CFrame.new(-1.10312903, -0.119031809, -0.00967045873, 0.919376493, -0.377212375, -0.111615419, 0.380351573, 0.92481184, 0.00748815387, 0.100398645, -0.0493375398, 0.993723273),
+CFrame.new(1.02219689, -1.90949571, 0.0872627348, 0.871276855, -0.49015975, -0.0249014199, 0.490767866, 0.86961025, 0.0541392565, -0.00488203764, -0.0593912825, 0.998223186),
+CFrame.new(-1.33761406, -1.70827067, -0.524259567, 0.486513674, 0.819252968, -0.303527921, -0.873673022, 0.456210732, -0.169018984, 3.40305269e-06, 0.347414166, 0.937711895),
+}, .7, false)
+end
+swait(30)
+LLTr.Enabled = false
+Humanoid.WalkSpeed = 16
+
+qhold = false
+justsprinted = false
+function kfsprint()
+attack = true
+--print("supurinto?")
+--justsprinted = true
+--coroutine.wrap(function()
+--swait(10)
+--justsprinted = false
+--end)()
+repeat
+swait()
+PlayAnimationFromTable({		
+CFrame.new(-2.4138464e-07, 0.123327732, -0.188363045, 1, -4.38293796e-07, 1.20420327e-06, 0, 0.939692736, 0.342019886, -1.28148622e-06, -0.342019916, 0.939692736) * CFrame.new(0, 0- .08 * math.cos((sine/2.5)), 0),
+CFrame.new(0, 1.41422474, 0.0894482136, 1, 0, 0, 0, 0.939692736, -0.342019916, 0, 0.342019886, 0.939692736),
+CFrame.new(1.35015142, 0.126790166, -0.561941147, 0.984807968, 0.173646942, 7.42582699e-07, 7.4505806e-07, 2.98023224e-08, -1.00000012, -0.173646927, 0.984808028, -5.96046448e-08),
+CFrame.new(-1.14804685, 0.0496482477, -0.419735074, 0.985491097, -0.134464785, 0.103568703, -0.000598754734, -0.612957954, -0.790115416, 0.16972594, 0.778589547, -0.604145229),
+CFrame.new(0.540300786, -1.99793816, -9.82598067e-07, 0.998698533, -0.0510031395, 6.36324955e-07, 0.0510031395, 0.998698533, -1.00461093e-05, -8.35937328e-08, 1.08393433e-05, 1.00000024) * CFrame.new(0, 0, 0+ 1 * math.cos((sine) / 2.5)) * CFrame.Angles(math.rad(0 - 60 * math.cos((sine) / 2.5)), 0, 0), 
+CFrame.new(-0.539563596, -1.99794078, 1.12228372e-06, 0.998635888, 0.0523072146, -1.77852357e-07, -0.0523072146, 0.998635888, -1.00715051e-05, -3.89727461e-07, 1.08406466e-05, 1.00000024) * CFrame.new(0, 0, 0- 1 * math.cos((sine) / 2.5)) * CFrame.Angles(math.rad(0 + 60 * math.cos((sine) / 2.5)), 0, 0), 
+}, .3, false)
+Humanoid.WalkSpeed = 40
+until qhold == false or Torso.Velocity == Vector3.new(0,0,0)
+--print'sutoppu'
+Humanoid.WalkSpeed = 16
+attack = false
+end
+
+Mouse.Button1Down:connect(function()
+	if attack == false then
+	if Anim == "Jump" or Anim == "Fall" then
+	jattack()
+	else
+	if combo == 1 then
+	attackone()
+	combo = 2
+	elseif combo == 2 then
+	attacktwo()
+	combo = 3
+	elseif combo == 3 then
+	attackthree()
+	combo = 4
+	elseif combo == 4 then
+	attackfour()
+	combo = 1
+	end
+	end
+	end
+end)
+
+local sprintt = 0
+Mouse.KeyDown:connect(function(k)
+	k = k:lower()
+	if attack == false then
+	if k == 'z' then
+	zhold = true
+	kfpalm()
+	elseif k == 'x' then
+	kfblow()
+	elseif k == 'c' then
+	chold = true
+	kfupper()
+	elseif k == 'v' then
+	vhold = true
+	kfgrab()
+	elseif k == 'g' then
+	kfbow()
+	elseif k == 'e' then
+	ehold = true
+	kfblock()
+	elseif k == 'q' then
+	qhold = true
+--	if sprintt > 1 then
+--	print("supurinto")
+	kfsprint()
+--	end
+--	sprintt = 20
+	end
+	end
+end)
+
+Mouse.KeyUp:connect(function(k)
+	k = k:lower()
+	if k == 'e' then
+	ehold = false
+	elseif k == 'v' then
+	vhold = false
+	elseif k == 'q' then
+	qhold = false
+	elseif k == 'z' then
+	zhold = false
+	elseif k == 'c' then
+	chold = false
+	end
+end)
+
+	for i, v in pairs(chara:GetDescendants()) do
+	if v:IsA("BasePart") then
+	v.CanCollide = false
+	end
+	end
+
+coroutine.wrap(function()
+while 1 do
+swait()
+if doe <= 360 then
+	doe = doe + 2
+else
+	doe = 0
+end
+end
+end)()
+while true do
+	swait()
+	for i, v in pairs(chara:GetChildren()) do
+		if v:IsA("Part") then
+			v.Material = "SmoothPlastic"
+		elseif v:IsA("Accessory") then
+			v:WaitForChild("Handle").Material = "SmoothPlastic"
+		end
+	end
+while true do
+swait()
+	if sprintt >= 1 then
+	sprintt = sprintt - 1
+	end
+	Torsovelocity = (RootPart.Velocity * Vector3.new(1, 0, 1)).magnitude
+	velocity = RootPart.Velocity.y
+	sine = sine + change
+	local hit, pos = rayCast(RootPart.Position, (CFrame.new(RootPart.Position, RootPart.Position - Vector3.new(0, 1, 0))).lookVector, 4, chara)
+		if RootPart.Velocity.y > 1 and hit == nil then 
+			Anim = "Jump"
+			if attack == false then
+		PlayAnimationFromTable({
+CFrame.new(0, 0.0999999046, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+CFrame.new(0, 1.48263168, -0.0984806865, 1, 0, 0, 0, 0.984807849, 0.173647985, 0, -0.173647985, 0.984807849),
+CFrame.new(0.985772133, 0.399999619, -0.61283654, 0.76604414, 0.642788053, 0, 0, 0, -1, -0.642788053, 0.76604414, 0),
+CFrame.new(-1.18379903, 0.160391688, -0.480695665, 0.904800713, -0.234747261, -0.355288029, -0.043829985, 0.778562307, -0.626034975, 0.423573852, 0.582009137, 0.69415462),
+CFrame.new(0.5, -1.29999959, 0.299999923, 1, 0, 0, 0, 0.499998987, 0.866025984, 0, -0.866025984, 0.499998987),
+CFrame.new(-0.5, -1.29999959, 0.299999923, 1, 0, 0, 0, 0.499998987, 0.866025984, 0, -0.866025984, 0.499998987),
+		}, .3, false)
+					end
+		elseif RootPart.Velocity.y < -1 and hit == nil then 
+			Anim = "Fall"
+			if attack == false then
+		PlayAnimationFromTable({
+CFrame.new(0, 0.0999999046, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+CFrame.new(0, 1.44842887, -0.192449093, 1, 0, 0, 0, 0.939692736, 0.342019886, 0, -0.342019916, 0.939692736),
+CFrame.new(0.985773325, 0.399999619, -0.61283505, 0.76604414, 0.642788053, 0, 0, 0, -1, -0.642788053, 0.76604414, 0),
+CFrame.new(-1.11267483, 0.241841823, -0.624208629, 0.904803991, -0.355280727, 0.234745428, -0.043827001, -0.626036167, -0.778561532, 0.423566997, 0.694157362, -0.582010925),
+CFrame.new(0.500001907, -1.41961551, 8.94069672e-07, 1, 0, 0, 0, 0.866025388, 0.500000238, 0, -0.500000238, 0.866025388),
+CFrame.new(-0.499990463, -2.09950018, -0.492020726, 1, 0, 0, 0, 0.939692736, -0.342019886, 0, 0.342019916, 0.939692736),
+		}, .3, false)
+					end
+		elseif Torsovelocity < 1 and hit ~= nil then
+			Anim = "Idle"
+			if attack == false then
+				change = 1
+		PlayAnimationFromTable({
+CFrame.new(0, 0, 0, 0.64278698, 0, -0.766044974, 0, 1, 0, 0.766044974, 0, 0.64278698) * CFrame.new(0,.05 * math.cos((sine)/10), 0),
+CFrame.new(0, 1.49999809, 0, 0.64278698, 0, 0.766044974, 0, 1, 0, -0.766044974, 0, 0.64278698),
+CFrame.new(0.7839728, 0.499999523, -0.759808064, 0.499999493, 0.866025746, 0, 0, 0, -1, -0.866025746, 0.499999493, 0),
+CFrame.new(-1.54284048, 0.314144075, -0.263591081, 0.939692736, 0.342019975, -8.04662704e-07, 0.26200217, -0.719847202, -0.64278698, -0.219846487, 0.604022026, -0.766045094),
+CFrame.new(0.499999404, -1.99999809, -1.63912773e-07, 0.866025209, 0, -0.500000298, 0, 1, 0, 0.500000298, 0, 0.866025209) * CFrame.new(0,-.05 * math.cos((sine)/10), 0),
+CFrame.new(-0.49999696, -1.91339612, -0.0500007272, 0.64278698, -0.262002647, 0.719846904, 0, 0.939692736, 0.342019886, -0.766044974, -0.219845951, 0.604022264) * CFrame.new(0,-.05 * math.cos((sine)/10), 0),
+		}, .3, false)
+			end
+		elseif Torsovelocity > 2 and hit ~= nil then
+			Anim = "Walk"
+			if attack == false then
+		PlayAnimationFromTable({		
+CFrame.new(0, 0, 0, 1, -2.21689355e-12, -5.11591203e-13, -2.21689355e-12, 1, 7.74860496e-07, -5.11591203e-13, 7.74860496e-07, 1.00000048) * CFrame.new(0, 0- .08 * math.cos((sine) / 3.5), 0) * CFrame.Angles(0, 0, 0), 
+CFrame.new(-2.09923631e-14, 1.48262846, -0.0984891504, 1, -1.42108547e-14, 0, 0, 0.984807491, 0.173649743, 0, -0.173649758, 0.984807491),
+CFrame.new(0.921487212, 0.226793781, -0.689451039, 0.76604414, 0.556670785, -0.321393877, 0, -0.499999821, -0.866025567, -0.642787933, 0.663413823, -0.383021951),
+CFrame.new(-1.1480391, 0.049652271, -0.419738829, 0.985491574, -0.1695766, -0.00709223049, -0.000597000238, 0.0383229814, -0.999265254, 0.169723794, 0.984771609, 0.0376657322),
+CFrame.new(0.540300786, -1.99793816, -9.82598067e-07, 0.998698533, -0.0510031395, 6.36324955e-07, 0.0510031395, 0.998698533, -1.00461093e-05, -8.35937328e-08, 1.08393433e-05, 1.00000024) * CFrame.new(0, 0, 0+ .5 * math.cos((sine) / 5)) * CFrame.Angles(math.rad(0 - 30 * math.cos((sine) / 5)), 0, 0), 
+CFrame.new(-0.539563596, -1.99794078, 1.12228372e-06, 0.998635888, 0.0523072146, -1.77852357e-07, -0.0523072146, 0.998635888, -1.00715051e-05, -3.89727461e-07, 1.08406466e-05, 1.00000024) * CFrame.new(0, 0, 0- .5 * math.cos((sine) / 5)) * CFrame.Angles(math.rad(0 + 30 * math.cos((sine) / 5)), 0, 0), 
+		}, .3, false)
+			end
+		end
+	if 0 < #Effects then
+		for e = 1, #Effects do
+			if Effects[e] ~= nil then
+				local Thing = Effects[e]
+				if Thing ~= nil then
+					local Part = Thing[1]
+					local Mode = Thing[2]
+					local Delay = Thing[3]
+					local IncX = Thing[4]
+					local IncY = Thing[5]
+					local IncZ = Thing[6]
+					if Thing[2] == "Shoot" then
+						local Look = Thing[1]
+						local move = 30
+						if Thing[8] == 3 then
+							move = 10
+						end
+						local hit, pos = rayCast(Thing[4], Thing[1], move, m)
+						if Thing[10] ~= nil then
+							da = pos
+							cf2 = CFrame.new(Thing[4], Thing[10].Position)
+							cfa = CFrame.new(Thing[4], pos)
+							tehCF = cfa:lerp(cf2, 0.2)
+							Thing[1] = tehCF.lookVector
+						end
+						local mag = (Thing[4] - pos).magnitude
+						Effects["Head"].Create(Torso.BrickColor, CFrame.new((Thing[4] + pos) / 2, pos) * CFrame.Angles(1.57, 0, 0), 1, mag * 5, 1, 0.5, 0, 0.5, 0.2)
+						if Thing[8] == 2 then
+							Effects["Ring"].Create(Torso.BrickColor, CFrame.new((Thing[4] + pos) / 2, pos) * CFrame.Angles(1.57, 0, 0) * CFrame.fromEulerAnglesXYZ(1.57, 0, 0), 1, 1, 0.1, 0.5, 0.5, 0.1, 0.1, 1)
+						end
+						Thing[4] = Thing[4] + Look * move
+						Thing[3] = Thing[3] - 1
+						if 2 < Thing[5] then
+							Thing[5] = Thing[5] - 0.3
+							Thing[6] = Thing[6] - 0.3
+						end
+						if hit ~= nil then
+							Thing[3] = 0
+							if Thing[8] == 1 or Thing[8] == 3 then
+								Damage(hit, hit, Thing[5], Thing[6], Thing[7], "Normal", RootPart, 0, "", 1)
+							else
+								if Thing[8] == 2 then
+									Damage(hit, hit, Thing[5], Thing[6], Thing[7], "Normal", RootPart, 0, "", 1)
+									if (hit.Parent:FindFirstChildOfClass("Humanoid")) ~= nil or (hit.Parent.Parent:FindFirstChildOfClass("Humanoid")) ~= nil then
+										ref = CFuncs.Part.Create(workspace, "Neon", 0, 1, BrickColor.new("Really red"), "Reference", Vector3.new())
+										ref.Anchored = true
+										ref.CFrame = CFrame.new(pos)
+										CFuncs["Sound"].Create("161006093", ref, 1, 1.2)
+										game:GetService("Debris"):AddItem(ref, 0.2)
+										Effects["Block"].Create(Torso.BrickColor, CFrame.new(ref.Position) * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50)), 1, 1, 1, 10, 10, 10, 0.1, 2)
+										Effects["Ring"].Create(BrickColor.new("Bright yellow"), CFrame.new(ref.Position) * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50)), 1, 1, 0.1, 4, 4, 0.1, 0.1)
+										MagnitudeDamage(ref, 15, Thing[5] / 1.5, Thing[6] / 1.5, 0, "Normal", "", 1)
+									end
+								end
+							end
+							ref = CFuncs.Part.Create(workspace, "Neon", 0, 1, BrickColor.new("Really red"), "Reference", Vector3.new())
+							ref.Anchored = true
+							ref.CFrame = CFrame.new(pos)
+							Effects["Sphere"].Create(Torso.BrickColor, CFrame.new(pos), 5, 5, 5, 1, 1, 1, 0.07)
+							game:GetService("Debris"):AddItem(ref, 1)
+						end
+						if Thing[3] <= 0 then
+							table.remove(Effects, e)
+						end
+					end
+					do
+						do
+							if Thing[2] == "FireWave" then
+								if Thing[3] <= Thing[4] then
+									Thing[1].CFrame = Thing[1].CFrame * CFrame.fromEulerAnglesXYZ(0, 1, 0)
+									Thing[3] = Thing[3] + 1
+									Thing[6].Scale = Thing[6].Scale + Vector3.new(Thing[5], 0, Thing[5])
+								else
+									Part.Parent = nil
+									table.remove(Effects, e)
+								end
+							end
+							if Thing[2] ~= "Shoot" and Thing[2] ~= "Wave" and Thing[2] ~= "FireWave" then
+								if Thing[1].Transparency <= 1 then
+									if Thing[2] == "Block1" then
+										Thing[1].CFrame = Thing[1].CFrame * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50))
+										Mesh = Thing[7]
+										Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+										Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+									else
+										if Thing[2] == "Block2" then
+											Thing[1].CFrame = Thing[1].CFrame
+											Mesh = Thing[7]
+											Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+											Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+										else
+											if Thing[2] == "Fire" then
+												Thing[1].CFrame = CFrame.new(Thing[1].Position) + Vector3.new(0, 0.2, 0)
+												Thing[1].CFrame = Thing[1].CFrame * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50))
+												Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+											else
+												if Thing[2] == "Cylinder" then
+													Mesh = Thing[7]
+													Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+													Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+												else
+													if Thing[2] == "Blood" then
+														Mesh = Thing[7]
+														Thing[1].CFrame = Thing[1].CFrame * CFrame.new(0, 0.5, 0)
+														Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+														Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+													else
+														if Thing[2] == "Elec" then
+															Mesh = Thing[10]
+															Mesh.Scale = Mesh.Scale + Vector3.new(Thing[7], Thing[8], Thing[9])
+															Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+														else
+															if Thing[2] == "Disappear" then
+																Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+															else
+																if Thing[2] == "Shatter" then
+														Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+														Thing[4] = Thing[4] * CFrame.new(0, Thing[7], 0)
+														Thing[1].CFrame = Thing[4] * CFrame.fromEulerAnglesXYZ(Thing[6], 0, 0)
+														Thing[6] = Thing[6] + Thing[5]
+																end
+															end
+														end
+													end
+												end
+											end
+										end
+									end
+								else
+									Part.Parent = nil
+									table.remove(Effects, e)
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end
+end
