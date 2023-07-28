@@ -1570,6 +1570,39 @@ end
 
 --Usage: MagnitudeDamage(HITWEAPONSOUNDS[MRANDOM(1, #HITWEAPONSOUNDS)], HITARMORSOUNDS[MRANDOM(1, #HITARMORSOUNDS)], HITBLOCKSOUNDS[MRANDOM(1, #HITBLOCKSOUNDS)], HITPLAYERSOUNDS[MRANDOM(1, #HITPLAYERSOUNDS)], 1, 1, 1, 1, Part, 5, true, 5, 10, MRANDOM(5, 10), "Normal", Part, 0.5, false, true, 1, MRANDOM(5, 10), nil, true, false, nil, 0, 0, false)
 function MagnitudeDamage(HITWEAPONSOUND, HITARMORSOUND, HITBLOCKSOUND, HITPLAYERSOUND, HITWEAPONSOUNDPITCH, HITARMORSOUNDPITCH, HITBLOCKSOUNDPITCH, HITPLAYERSOUNDPITCH, PART, MAGNITUDE, HITEVENWHENDEAD, MINIMUMDAMAGE, MAXIMUMDAMAGE, KNOCKBACK, TYPE, PROPERTY, DELAY, KNOCKBACKTYPE, INCREASESTUN, STAGGER, STAGGERHIT, RANGED, MAGNITUDEDECREASETHESTAT, MAGNITUDEDECREASEAMOUNT, MAGNITUDEDECREASEDURATION, MAGNITUDESHOWDECREASEDSTAT)
+	for _, c in pairs(workspace:GetChildren()) do
+		local HUMANOID = c:FindFirstChild("Humanoid")
+		local HEAD = nil
+		if HUMANOID ~= nil then
+			for _, d in pairs(c:GetChildren()) do
+				if d.ClassName == "Model" and RANGED ~= true then
+					HEAD = d:FindFirstChild("Hitbox")
+					if HEAD ~= nil then
+						local THEMAGNITUDE = (HEAD.Position - PART.Position).magnitude
+						if THEMAGNITUDE <= (MAGNITUDE * Player_Size) and c.Name ~= Player.Name then
+							if Play_Hitbox_Hit_Sound == true then
+								local HitRefpart = CreatePart(3, Effects, "SmoothPlastic", 0, 1, "Really black", "Effect", VT())
+								HitRefpart.Anchored = true
+								HitRefpart.CFrame = CF(HEAD.Position)
+								CreateSound(HITWEAPONSOUND, HitRefpart, 1, HITWEAPONSOUNDPITCH)
+							end
+							if Enable_Stagger_Hit == true then
+								StaggerHit.Value = true
+							end
+						end
+					end
+				elseif d:IsA"BasePart" then
+					HEAD = d
+					if HEAD ~= nil then
+						local THEMAGNITUDE = (HEAD.Position - PART.Position).magnitude
+						if THEMAGNITUDE <= (MAGNITUDE * Player_Size) and c.Name ~= Player.Name then
+							DamageFunction(HITWEAPONSOUND, HITARMORSOUND, HITBLOCKSOUND, HITPLAYERSOUND, HITWEAPONSOUNDPITCH, HITARMORSOUNDPITCH, HITBLOCKSOUNDPITCH, HITPLAYERSOUNDPITCH, HEAD, HITEVENWHENDEAD, MINIMUMDAMAGE, MAXIMUMDAMAGE, KNOCKBACK, TYPE, PROPERTY, DELAY, KNOCKBACKTYPE, INCREASESTUN, STAGGER, STAGGERHIT, RANGED, MAGNITUDEDECREASETHESTAT, MAGNITUDEDECREASEAMOUNT, MAGNITUDEDECREASEDURATION, MAGNITUDESHOWDECREASEDSTAT)
+						end
+					end
+				end
+			end
+		end
+	end
 end
 
 --Usage: MagnitudeBuffOrDebuff(Part, 5, "Defense", -0.1, 3, true, true)
