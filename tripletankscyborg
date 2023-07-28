@@ -928,21 +928,140 @@ end
 --\\=================================//
 
 function ApplyDamage(Humanoid,Damage,CritRate,CritMultiplier)
+	local defence = Instance.new("BoolValue",Humanoid.Parent)
+	defence.Name = ("HitBy"..Player.Name)
+	game:GetService("Debris"):AddItem(defence, 0.5)
+	if Humanoid.Health ~= 0 then
+		local CritChance = MRANDOM(1,100)
+		if CritChance < CritRate + 1 then
+			Damage = Damage*CritMultiplier
+		end
+		if Damage > Humanoid.Health then
+			Damage = Humanoid.Health
+		end
+		Humanoid.Health = Humanoid.Health - Damage
+		if Humanoid.Parent:FindFirstChild("Head") then
+			if CritChance < CritRate + 1 then
+				StatLabel("Normal", Humanoid.Parent.Head.CFrame * CF(0, 0 + (Humanoid.Parent.Head.Size.z - 1), 0), "CRIT//"..Damage, C3(1, 0, 0))
+			else
+				StatLabel("Normal", Humanoid.Parent.Head.CFrame * CF(0, 0 + (Humanoid.Parent.Head.Size.z - 1), 0), Damage, C3(0, 0, 0))
+			end
+		end
+	end
 end
 
 function AoEDamage(position,radius,min,max,maxstrength,critrate,critmultiplier,CanBeDodgedByJumping)
+	local dmg = math.random(min,max)
+	for i,v in ipairs(workspace:GetChildren()) do
+	if v:FindFirstChild("HitBy"..Player.Name) == nil then
+		local body = v:GetChildren()
+			for part = 1, #body do
+				if(v:FindFirstChild("HitBy"..Player.Name) == nil and (body[part].ClassName == "Part" or body[part].ClassName == "MeshPart") and v ~= Character) then
+					if(body[part].Position - position).Magnitude < radius then
+						if v.ClassName == "Model" then
+							if v:FindFirstChildOfClass("Humanoid") then
+								if CanBeDodgedByJumping == true then
+									if body[part].Position.Y < position.Y+5 then
+										ApplyDamage(v:FindFirstChildOfClass("Humanoid"),dmg,critrate,critmultiplier)
+									end
+								else
+									ApplyDamage(v:FindFirstChildOfClass("Humanoid"),dmg,critrate,critmultiplier)
+								end
+								local bv = Instance.new("BodyVelocity") 
+								bv.maxForce = Vector3.new(1e9, 1e9, 1e9)
+								bv.velocity = RootPart.CFrame.lookVector*maxstrength
+								bv.Parent = body[part]
+								Debris:AddItem(bv,0.2)
+							end
+						end
+					end
+				end
+			end
+		end
+		if v:FindFirstChild("HitBy"..Player.Name) then
+			v:FindFirstChild("HitBy"..Player.Name):remove()
+		end
+	end
 end
 
 function AoEStun(POS,RANGE,LAST)
+	for i,v in ipairs(workspace:GetChildren()) do
+	if v:FindFirstChild("StunnedBy"..Player.Name) == nil then
+		local body = v:GetChildren()
+			for part = 1, #body do
+				if(v:FindFirstChild("StunnedBy"..Player.Name) == nil and (body[part].ClassName == "Part" or body[part].ClassName == "MeshPart") and v ~= Character) then
+					if(body[part].Position - POS).Magnitude < RANGE then
+						if v.ClassName == "Model" then
+							if v:FindFirstChild("Humanoid") then
+								if v.Humanoid.Health ~= 0 then
+									Stun(v.Humanoid,LAST)
+									local defence = Instance.new("BoolValue",v)
+									defence.Name = ("StunnedBy"..Player.Name)
+									game:GetService("Debris"):AddItem(defence, 0.1)
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
 end
 
 function Stun(HUMANOID,LAST)
+	if HUMANOID.Parent:FindFirstChild("StunnedBy"..Player.Name) == nil then
+		HUMANOID.PlatformStand = true
+		local defence = Instance.new("BoolValue",HUMANOID.Parent)
+		defence.Name = ("StunnedBy"..Player.Name)
+		game:GetService("Debris"):AddItem(defence, LAST)
+		if HUMANOID.Parent:FindFirstChild("Head") then
+			StatLabel("Normal", HUMANOID.Parent.Head.CFrame * CF(0, 0 + (HUMANOID.Parent.Head.Size.z - 1), 0), "Stunned!", C3(0.3, 0.3, 0.3))
+		end
+		coroutine.resume(coroutine.create(function()
+			Swait(LAST*100)
+			HUMANOID.PlatformStand = false
+		end))
+	end
 end
 
 function Poison(HUMANOID,LAST,DAMAGE)
+	if HUMANOID.Parent:FindFirstChild("PoisonedBy"..Player.Name) == nil then
+		local defence = Instance.new("BoolValue",HUMANOID.Parent)
+		defence.Name = ("PoisonedBy"..Player.Name)
+		game:GetService("Debris"):AddItem(defence, LAST)
+		coroutine.resume(coroutine.create(function()
+			for i = 1, LAST/2 do
+				if HUMANOID.Parent:FindFirstChild("Head") then
+					StatLabel("Normal", HUMANOID.Parent.Head.CFrame * CF(0, 0 + (HUMANOID.Parent.Head.Size.z - 1), 0), "POISON/"..DAMAGE, C3(0,1,0))
+				end
+				Swait(2)
+				HUMANOID.Health = HUMANOID.Health - DAMAGE
+			end
+		end))
+	end
 end
 
 function killnearest(position,range,maxstrength)
+	for i,v in ipairs(workspace:GetChildren()) do
+	local body = v:GetChildren()
+		for part = 1, #body do
+			if((body[part].ClassName == "Part" or body[part].ClassName == "MeshPart") and v ~= Character) then
+				if(body[part].Position - position).Magnitude < range then
+					if v.ClassName == "Model" then
+						v:BreakJoints()
+					end
+					--table.insert(Effects2,{body[part],"Disappear",0.02,2,2,2,2})
+					body[part].Velocity = CFrame.new(position,body[part].Position).lookVector*5*maxstrength
+				end
+			end
+		end
+		if v.ClassName == "Part" then
+			if v.Anchored == false and (v.Position - position).Magnitude < range then
+				--table.insert(Effects2,{v,"Disappear",0.02,2,2,2,2})
+				v.Velocity = CFrame.new(position,v.Position).lookVector*5*maxstrength
+			end
+		end
+	end
 end
 
 --//=================================\\
@@ -1211,6 +1330,121 @@ function RadioactiveSludge()
 end
 
 function AcidicBreath()
+	ATTACK = true
+	Rooted = false
+	local HASGRABBED = false
+	local GRABTARGET = nil
+	local TORS = nil
+	local WELD = nil
+	for i=0, 1, 0.1 / Animation_Speed do
+		Swait()
+		RootJoint.C0 = Clerp(RootJoint.C0,ROOTC0 * CF(0, -0.25, -0.25 + 0.05 * COS(SINE / 12)) * ANGLES(RAD(22.5), RAD(0), RAD(0)), 0.5 / Animation_Speed)
+		Neck.C0 = Clerp(Neck.C0, NECKC0 * CF(0, 0, 0 + ((1) - 1)) * ANGLES(RAD(-17.5 - 2.5 * SIN(SINE / 12)), RAD(0), RAD(0)), 0.5 / Animation_Speed)
+		RightShoulder.C0 = Clerp(RightShoulder.C0, CF(1.5, 0.5, 0) * ANGLES(RAD(120), RAD(0), RAD(25)) * RIGHTSHOULDERC0, 0.5 / Animation_Speed)
+		LeftShoulder.C0 = Clerp(LeftShoulder.C0, CF(-1.5, 0.5, 0) * ANGLES(RAD(120), RAD(0), RAD(-25)) * LEFTSHOULDERC0, 0.5 / Animation_Speed)
+		RightHip.C0 = Clerp(RightHip.C0, CF(1, -1 - 0.05 * COS(SINE / 12), -0.01) * ANGLES(RAD(22.5), RAD(90), RAD(0)) * ANGLES(RAD(-8), RAD(0), RAD(0)), 0.5 / Animation_Speed)
+		LeftHip.C0 = Clerp(LeftHip.C0, CF(-1, -1 - 0.05 * COS(SINE / 12), -0.01) * ANGLES(RAD(22.5), RAD(-90), RAD(0)) * ANGLES(RAD(-8), RAD(0), RAD(0)), 0.5 / Animation_Speed)
+	end
+	local GRAB1 = RightArm.Touched:Connect(function(hit)
+		if hit.Parent:FindFirstChild("Humanoid") then
+			if hit.Parent.Humanoid.Health ~= 0 then
+				UNANCHOR = false
+				RootPart.Anchored = true
+				TORS = hit.Parent:FindFirstChild("Torso") or hit.Parent:FindFirstChild("UpperTorso")
+				TORS.CFrame = RootPart.CFrame * CF(0,0,-2.3) * ANGLES(RAD(0),RAD(180),RAD(0))
+           		WELD = weldBetween(RootPart,TORS)
+				HASGRABBED = true
+				Rooted = true
+			end
+		end
+	end)
+	local GRAB2 = LeftArm.Touched:Connect(function(hit)
+		if hit.Parent:FindFirstChild("Humanoid") then
+			if hit.Parent.Humanoid.Health ~= 0 then
+				UNANCHOR = false
+				RootPart.Anchored = true
+				TORS = hit.Parent:FindFirstChild("Torso") or hit.Parent:FindFirstChild("UpperTorso")
+				TORS.CFrame = RootPart.CFrame * CF(0,0,-2.3) * ANGLES(RAD(0),RAD(180),RAD(0))
+           		WELD = weldBetween(RootPart,TORS)
+				HASGRABBED = true
+				Rooted = true
+			end
+		end
+	end)
+	for i=0, 1, 0.1 / Animation_Speed do
+		Swait()
+		if HASGRABBED == true then
+			break
+		end
+		RootJoint.C0 = Clerp(RootJoint.C0,ROOTC0 * CF(0, -0.25, -0.25 + 0.05 * COS(SINE / 12)) * ANGLES(RAD(22.5), RAD(0), RAD(0)), 0.5 / Animation_Speed)
+		Neck.C0 = Clerp(Neck.C0, NECKC0 * CF(0, 0, 0 + ((1) - 1)) * ANGLES(RAD(-17.5 - 2.5 * SIN(SINE / 12)), RAD(0), RAD(0)), 0.5 / Animation_Speed)
+		RightShoulder.C0 = Clerp(RightShoulder.C0, CF(1, 0.5, -1) * ANGLES(RAD(110), RAD(0), RAD(-35)) * RIGHTSHOULDERC0, 0.5 / Animation_Speed)
+		LeftShoulder.C0 = Clerp(LeftShoulder.C0, CF(-1, 0.5, -1) * ANGLES(RAD(110), RAD(0), RAD(35)) * LEFTSHOULDERC0, 0.5 / Animation_Speed)
+		RightHip.C0 = Clerp(RightHip.C0, CF(1, -1 - 0.05 * COS(SINE / 12), -0.01) * ANGLES(RAD(22.5), RAD(90), RAD(0)) * ANGLES(RAD(-8), RAD(0), RAD(0)), 0.5 / Animation_Speed)
+		LeftHip.C0 = Clerp(LeftHip.C0, CF(-1, -1 - 0.05 * COS(SINE / 12), -0.01) * ANGLES(RAD(22.5), RAD(-90), RAD(0)) * ANGLES(RAD(-8), RAD(0), RAD(0)), 0.5 / Animation_Speed)
+	end
+	GRAB1:disconnect()
+	GRAB2:disconnect()
+	if HASGRABBED == true then
+		TORS.Anchored = false
+		GRABTARGET = TORS.Parent
+		for i=0, 2, 0.1 / Animation_Speed do
+			Swait()
+			RootJoint.C0 = Clerp(RootJoint.C0,ROOTC0 * CF(0, 0, 0 + 0.05 * COS(SINE / 12)) * ANGLES(RAD(0), RAD(0), RAD(0)), 0.15 / Animation_Speed)
+			Neck.C0 = Clerp(Neck.C0, NECKC0 * CF(0, 0, 0 + ((1) - 1)) * ANGLES(RAD(-35 - 2.5 * SIN(SINE / 12)), RAD(0), RAD(0)), 0.15 / Animation_Speed)
+			RightShoulder.C0 = Clerp(RightShoulder.C0, CF(1.35, 0.5, -1) * ANGLES(RAD(90), RAD(0), RAD(35)) * RIGHTSHOULDERC0, 0.15 / Animation_Speed)
+			LeftShoulder.C0 = Clerp(LeftShoulder.C0, CF(-1.35, 0.5, -1) * ANGLES(RAD(90), RAD(0), RAD(-35)) * LEFTSHOULDERC0, 0.15 / Animation_Speed)
+			RightHip.C0 = Clerp(RightHip.C0, CF(1, -1 - 0.05 * COS(SINE / 12), -0.01) * ANGLES(RAD(0), RAD(90), RAD(0)) * ANGLES(RAD(-8), RAD(0), RAD(0)), 0.15 / Animation_Speed)
+			LeftHip.C0 = Clerp(LeftHip.C0, CF(-1, -1 - 0.05 * COS(SINE / 12), -0.01) * ANGLES(RAD(0), RAD(-90), RAD(0)) * ANGLES(RAD(-8), RAD(0), RAD(0)), 0.15 / Animation_Speed)
+		end
+		local ECH = 0
+		CreateSound("305734380", Head, 10, 0.8)
+		Head.face.Texture = "rbxassetid://1297068763"
+		for i=0, 8, 0.1 / Animation_Speed do
+			Swait()
+			ECH = ECH + 1
+			local COLORS = {"Dark indigo","Royal purple","Magenta"}
+			coroutine.resume(coroutine.create(function()
+				local COLOR = COLORS[MRANDOM(1,#COLORS)]
+				local FIRE = CreatePart(3, Effects, "Neon", 0, 0.5, COLOR, "FirePart", VT(0.4,0.4,0.4))
+				MakeForm(FIRE,"Ball")
+				FIRE.CFrame = Head.CFrame*CF(0,-0.25,-0.5)
+				for i = 1, 45 do
+					Swait()
+					FIRE.CFrame = FIRE.CFrame*CF(0,0,-0.03)
+					FIRE.Transparency = FIRE.Transparency + (0.5/45)
+					FIRE.Size = FIRE.Size * 1.1
+				end
+				FIRE:remove()
+			end))
+			if ECH >= 120 and GRABTARGET:FindFirstChild("Head") then
+				GRABTARGET.Head.Transparency = 1
+				if GRABTARGET:FindFirstChild("Skull") == nil then
+					GRABTARGET.Head:ClearAllChildren()
+					local SKULL = IT("Part",GRABTARGET)
+					SKULL.CFrame = GRABTARGET.Head.CFrame
+ 					CreateMesh("SpecialMesh", SKULL, "FileMesh", "36869983", "36869975", VT(GRABTARGET.Head.Size.Y*0.5,GRABTARGET.Head.Size.Y*0.5,GRABTARGET.Head.Size.Y*0.5), VT(0,0,0))
+					SKULL.Size = GRABTARGET.Head.Size
+					SKULL.Name = "Skull"
+					SKULL.Size = SKULL.Size * 0.8
+					weldBetween(GRABTARGET.Head,SKULL)
+				end
+				Slice(0.6,15,GRABTARGET.Head.CFrame*ANGLES(RAD(MRANDOM(-180,180)),RAD(MRANDOM(-180,180)),RAD(MRANDOM(-180,180))),COLORS[MRANDOM(1,#COLORS)],1.05)
+			end
+			RootJoint.C0 = Clerp(RootJoint.C0,ROOTC0 * CF(0, -0.25, -0.25 + 0.05 * COS(SINE / 12)) * ANGLES(RAD(22.5), RAD(0), RAD(0)), 0.5 / Animation_Speed)
+			Neck.C0 = Clerp(Neck.C0, NECKC0 * CF(0, 0, 0 + ((1) - 1)) * ANGLES(RAD(-17.5 - 2.5 * SIN(SINE / 12)), RAD(25 * SIN(SINE / 3)), RAD(0)), 0.5 / Animation_Speed)
+			RightShoulder.C0 = Clerp(RightShoulder.C0, CF(1.35, 0.5, -1) * ANGLES(RAD(110), RAD(0), RAD(35)) * RIGHTSHOULDERC0, 0.5 / Animation_Speed)
+			LeftShoulder.C0 = Clerp(LeftShoulder.C0, CF(-1.35, 0.5, -1) * ANGLES(RAD(110), RAD(0), RAD(-35)) * LEFTSHOULDERC0, 0.5 / Animation_Speed)
+			RightHip.C0 = Clerp(RightHip.C0, CF(1, -1 - 0.05 * COS(SINE / 12), -0.01) * ANGLES(RAD(22.5), RAD(90), RAD(0)) * ANGLES(RAD(-8), RAD(0), RAD(0)), 0.5 / Animation_Speed)
+			LeftHip.C0 = Clerp(LeftHip.C0, CF(-1, -1 - 0.05 * COS(SINE / 12), -0.01) * ANGLES(RAD(22.5), RAD(-90), RAD(0)) * ANGLES(RAD(-8), RAD(0), RAD(0)), 0.5 / Animation_Speed)
+		end
+		WELD:remove()
+		GRABTARGET.Head:remove()
+		GRABTARGET:BreakJoints()
+	end
+	UNANCHOR = true
+	ATTACK = false
+	Rooted = false
 end
 
 function AcidicSludge()
@@ -1338,8 +1572,6 @@ function KeyDown(Key)
 			Flamethrower()
 		elseif CHOSENBRICK == "Earth green" then
 			PowerOutburst()
-		elseif CHOSENBRICK == "Dark indigo" then
-			AcidicBreath()
 		end
 	end
 
@@ -1513,7 +1745,7 @@ while true do
 		SKILL1TEXT.Text = "[Z] Power outburst"
 		SKILL2TEXT.Text = "[B] Radioactive sludge"
 	elseif CHOSENBRICK == "Dark indigo" then
-		SKILL1TEXT.Text = "[Z] Acidic breath"
+		SKILL1TEXT.Text = "BROKEN"
 		SKILL2TEXT.Text = "[B] Acidic sludge"
 	end
 end
