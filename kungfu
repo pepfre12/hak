@@ -3,6 +3,7 @@
 ---------------------------------
 --By CKbackup (Sugarie Saffron)--
 ---------------------------------
+
 function Reanimate()
  game:GetService("Players").LocalPlayer.Character.Head.Anchored = true
  for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
@@ -747,7 +748,19 @@ Damagefunc=function(Part,hit,minim,maxim,knockback,Type,Property,Delay,Knockback
 end
 
 function MagnitudeDamage(par,magni,efftyp,minim,maxim,knockback,Type,Property,Delay,KnockbackType,decreaseblock)
- 		  end
+  for _, c in pairs(workspace:GetDescendants()) do
+    local hum = c:FindFirstChildOfClass("Humanoid")
+    if hum ~= nil and c:FindFirstChild("IsTeamMateOfCK")==nil then
+      local head = (c:findFirstChild("Torso") or c:findFirstChild("UpperTorso"))
+      if head ~= nil then
+        local targ = head.Position - par.Position
+        local mag = targ.magnitude
+        if magni >= mag and c.Name ~= Player.Name then
+		  if efftyp == "Blunt" then
+		  puncheff(head)
+		  elseif efftyp == "HardBlunt" then
+		  hpuncheff(head)
+		  end
           Damagefunc(RootPart,head,minim,maxim,knockback,Type,Property,Delay,KnockbackType,decreaseblock)
         end
       end
