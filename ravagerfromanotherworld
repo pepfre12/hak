@@ -1605,10 +1605,6 @@ bomb = Bombs:GetChildren()
 		if bomb[lol].ClassName == "Part" then
 			MagicSphere2(2,5,bomb[lol].CFrame,"Really black")
 		end
-
---//=================================\\
---\\=================================//
-
 	end
 end
 
