@@ -1,3 +1,4 @@
+--Scripted By coolallball
 function Reanimate()
  game:GetService("Players").LocalPlayer.Character.Head.Anchored = true
  for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
@@ -86,7 +87,6 @@ coroutine.resume(coroutine.create(function()
 	end
 end))
 
---Scripted By coolallball
 wait()
 if game.Players.LocalPlayer.Character.Animate.Disabled==false then
 	game.Players.LocalPlayer.Character.Animate.Disabled=true
