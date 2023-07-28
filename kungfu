@@ -747,6 +747,12 @@ Damagefunc=function(Part,hit,minim,maxim,knockback,Type,Property,Delay,Knockback
 end
 
 function MagnitudeDamage(par,magni,efftyp,minim,maxim,knockback,Type,Property,Delay,KnockbackType,decreaseblock)
+ 		  end
+          Damagefunc(RootPart,head,minim,maxim,knockback,Type,Property,Delay,KnockbackType,decreaseblock)
+        end
+      end
+    end
+  end
 end
 
 combo = 1
