@@ -2,7 +2,7 @@
 --||  CREATED BY SHACKLUSTER ||--
 --\\=========================//--
 function Reanimate()
- game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
+ game:GetService("Players").LocalPlayer.Character.Head.Anchored = true
  for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
   if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then
   game:GetService("RunService").Heartbeat:connect(function()
@@ -74,7 +74,7 @@ function Reanimate()
  att2.Position = Vector3.new(-0, -0, 0.5) 
  att2.Rotation = Vector3.new(0, 0, -45)
  
- game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = false
+ game:GetService("Players").LocalPlayer.Character.Head.Anchored = false
  setfpscap(120)
 end
 Reanimate() --Reanimate your character (idk why i did this lmao)
