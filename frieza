@@ -1,0 +1,1139 @@
+function Reanimate()
+ game:GetService("Players").LocalPlayer.Character.Head.Anchored = true
+ for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+  if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then
+  game:GetService("RunService").Heartbeat:connect(function()
+  v.Velocity = Vector3.new(0,35,0)
+     wait(0.5)
+    end)
+   end
+ end
+ game.TestService.IsSleepAllowed = false
+ for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+	 if v:IsA("BasePart") then 
+		 game:GetService("RunService").Heartbeat:connect(function()
+			 v.Velocity = Vector3.new(-40,0,-10)
+			 pcall(function()
+				 v.CanCollide = false
+			 end)
+			 pcall(function()
+				 v.CanQuery = false
+			 end)
+		 end)
+	 end
+ end
+ --loadstring(game:HttpGet(("https://raw.githubusercontent.com/BloxinStud10/RNTE/main/Tool%20Fling%20Reanimate"),true))()
+ loadstring(game:HttpGet(("https://raw.githubusercontent.com/BloxinStud10/RNTE/main/idk%20lol"),true))()
+ local cplayer = game.Players.LocalPlayer.Character
+ local function gp(parent, name, className)
+     if typeof(parent) == "Instance" then
+         for i, v in pairs(parent:GetChildren()) do
+             if (v.Name == name) and v:IsA(className) then
+                 return v
+             end
+         end
+     end
+     return nil
+ end
+
+ local hat2 = gp(cplayer, "MeshPartAccessory", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Torso"] --any part of humanoid
+ att2.Position = Vector3.new(-0, 0.025, 0)
+ att2.Rotation = Vector3.new(180, 0, -15)--you can delete this 
+
+ local hat2 = gp(cplayer, "Extra Left hand (Blocky)_white", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Left Arm"]
+ att2.Position = Vector3.new(-0, -0, -0)
+ att2.Rotation = Vector3.new(-120, 0, 0)
+
+ local hat2 = gp(cplayer, "Extra Right hand (Blocky)_white", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Right Arm"]
+ att2.Position = Vector3.new(0, -0, 0)
+ att2.Rotation = Vector3.new(-120, 0, 0) --LavanderHair
+
+ local hat2 = gp(cplayer, "Lipstick_Bag_3.0", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Right Leg"]
+ att2.Position = Vector3.new(0, -0, 0.5) --Robloxclassicred
+ att2.Rotation = Vector3.new(0, -5, -45)
+
+ local hat2 = gp(cplayer, "Lipstick_Bag_1.0", "Accessory")
+ local handle2 = gp(hat2, "Handle", "BasePart")
+ local att2 = gp(handle2, "att1_Handle", "Attachment")
+ att2.Parent = cplayer["Left Leg"]
+ att2.Position = Vector3.new(-0, -0, 0.5) 
+ att2.Rotation = Vector3.new(0, 0, -45)
+ 
+ game:GetService("Players").LocalPlayer.Character.Head.Anchored = false
+ setfpscap(120)
+end
+Reanimate() --Reanimate your character (idk why i did this lmao)
+
+--Best Netless Ever
+coroutine.resume(coroutine.create(function()
+	while true do
+	    if game.TestService.IsSleepAllowed == true then
+		    game.TestService.IsSleepAllowed = false
+		end
+		game:GetService("RunService").Heartbeat:Wait()
+	end
+end))
+
+local Player = game.Players.localPlayer
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+local Mouse = Player:GetMouse()
+local LeftArm = Character["Left Arm"]
+local RightArm = Character["Right Arm"]
+local LeftLeg = Character["Left Leg"]
+local RightLeg = Character["Right Leg"]
+local BodyColor = BrickColor.new("Bright violet")
+local Head = Character.Head
+local Torso = Character.Torso
+local Camera = game.Workspace.CurrentCamera
+local RootPart = Character.HumanoidRootPart
+local RootJoint = RootPart.RootJoint
+Head.BrickColor = BrickColor.new("White")
+Head.face.Texture = "rbxassetid://683106091"
+Character.Shirt.ShirtTemplate = "rbxassetid://60043868"
+Character.Pants.PantsTemplate = "rbxassetid://60043897"
+local MAXSP = 0.5
+local hitted = false
+local Damage = 0
+local Pause = false
+local Spaz = false
+local attack = false
+local LOL = false
+local Anim = 'Idle'
+local attacktype = 1
+local delays = false
+local play = true
+local targetted = nil
+local Torsovelocity = (RootPart.Velocity * Vector3.new(1, 0, 1)).magnitude 
+local velocity = RootPart.Velocity.y
+local sine = 0
+local change = 1
+local doe = 0
+FELOADLIBRARY = {}
+loadstring(game:GetObjects("rbxassetid://5209815302")[1].Source)()
+local Create = FELOADLIBRARY.Create
+Humanoid.WalkSpeed = 25
+Humanoid.MaxHealth = 1000
+wait(0.01)
+Humanoid.Health = 1000
+Humanoid.Animator.Parent = nil
+Character.Animate.Parent = nil
+local He = Instance.new("Part",Character)
+He.Size = Vector3.new(1,1,1)
+He.BrickColor = BrickColor.new("Bright violet")
+He.CanCollide = false
+He.Material = "SmoothPlastic"
+local He2 = Instance.new("SpecialMesh",He)
+He2.MeshType = "Sphere"
+He2.Scale = Vector3.new(1.1,1,1.2)
+local He3 = Instance.new("Weld",He)
+He3.Part0 = Head
+He3.Part1 = He
+He3.C0 = CFrame.new(0,0.3,0.001)
+Eh = Instance.new("Part",Head)
+Eh.Size = Vector3.new(1,1,1)
+Eh.BrickColor = BrickColor.new("White")
+Eh.Material = "SmoothPlastic"
+local Eh2 = Instance.new("SpecialMesh",Eh)
+Eh2.MeshType = "Cylinder"
+Eh2.Scale = Vector3.new(0.08,1,0.4)
+local Eh3 = Instance.new("Weld",Eh)
+Eh3.Part0 = Head
+Eh3.Part1 = Eh
+Eh3.C0 = CFrame.new(-0.6,0.1,0)
+local InnerEh = Instance.new("Part",Eh)
+InnerEh.Size = Vector3.new(1,1,1)
+InnerEh.BrickColor = BrickColor.new("Really black")
+InnerEh.TopSurface = 0
+InnerEh.BottomSurface = 0
+local InnerEh2 = Instance.new("SpecialMesh",InnerEh)
+InnerEh2.MeshType = "Cylinder"
+InnerEh2.Scale = Vector3.new(0.005,1,0.33)
+local InnerEh3 = Instance.new("Weld",InnerEh)
+InnerEh3.Part0 = Head
+InnerEh3.Part1 = InnerEh
+InnerEh3.C0 = CFrame.new(-0.64,0.1,0)
+LEh = Instance.new("Part",Head)
+LEh.Size = Vector3.new(1,1,1)
+LEh.BrickColor = BrickColor.new("White")
+LEh.Material = "SmoothPlastic"
+local LEh2 = Instance.new("SpecialMesh",LEh)
+LEh2.MeshType = "Cylinder"
+LEh2.Scale = Vector3.new(0.08,1,0.4)
+local LEh3 = Instance.new("Weld",Eh)
+LEh3.Part0 = Head
+LEh3.Part1 = LEh
+LEh3.C0 = CFrame.new(0.6,0.1,0)
+local LInnerEh = Instance.new("Part",LEh)
+LInnerEh.Size = Vector3.new(1,1,1)
+LInnerEh.BrickColor = BrickColor.new("Really black")
+LInnerEh.TopSurface = 0
+LInnerEh.BottomSurface = 0
+local LInnerEh2 = Instance.new("SpecialMesh",LInnerEh)
+LInnerEh2.MeshType = "Cylinder"
+LInnerEh2.Scale = Vector3.new(0.005,1,0.33)
+local LInnerEh3 = Instance.new("Weld",LInnerEh)
+LInnerEh3.Part0 = Head
+LInnerEh3.Part1 = LInnerEh
+LInnerEh3.C0 = CFrame.new(0.64,0.1,0)
+for i,v in pairs(Character.Head:children()) do
+    if v:IsA("Sound") then
+        v:Destroy()
+    end
+end
+for i,v in pairs(Character:children()) do
+    if v:IsA("Hat") then
+        v:Destroy()
+    end
+end
+for i,v in pairs(Character:children()) do
+    if v:IsA("Accessory") then
+        v:Destroy()
+    end
+end
+for i,v in pairs(Character:children()) do
+    if v:IsA("Hair") then
+        v:Destroy()
+    end
+end
+
+local newMotor = function(part0, part1, c0, c1)
+	local w = Create('Motor'){
+		Parent = part0,
+		Part0 = part0,
+		Part1 = part1,
+		C0 = c0,
+		C1 = c1,
+	}
+	return w
+end
+function clerp(a, b, t)
+	return a:lerp(b, t)
+end
+
+RootCF = CFrame.fromEulerAnglesXYZ(-1.57, 0, 3.14)
+NeckCF = CFrame.new(0, 1, 0, -1, -0, -0, 0, 0, 1, 0, 1, 0)
+
+local RW = newMotor(Torso, RightArm, CFrame.new(1.5, 0, 0), CFrame.new(0, 0, 0)) 
+local LW = newMotor(Torso, LeftArm, CFrame.new(-1.5, 0, 0), CFrame.new(0, 0, 0))
+local RH = newMotor(Torso, RightLeg, CFrame.new(.5, -2, 0), CFrame.new(0, 0, 0))
+local LH = newMotor(Torso, LeftLeg, CFrame.new(-.5, -2, 0), CFrame.new(0, 0, 0))
+RootJoint.C1 = CFrame.new(0, 0, 0)
+RootJoint.C0 = CFrame.new(0, 0, 0)
+Torso.Neck.C1 = CFrame.new(0, 0, 0)
+Torso.Neck.C0 = CFrame.new(0, 1.5, 0)
+
+local rarmc1 = RW.C1
+local larmc1 = LW.C1
+local rlegc1 = RH.C1
+local llegc1 = LH.C1
+
+local resetc1 = false
+
+function PlayAnimationFromTable(table, speed, bool)
+	RootJoint.C0 = clerp(RootJoint.C0, table[1], speed) 
+	Torso.Neck.C0 = clerp(Torso.Neck.C0, table[2], speed) 
+	RW.C0 = clerp(RW.C0, table[3], speed) 
+	LW.C0 = clerp(LW.C0, table[4], speed) 
+	RH.C0 = clerp(RH.C0, table[5], speed) 
+	LH.C0 = clerp(LH.C0, table[6], speed) 
+	if bool == true then
+		if resetc1 == false then
+			resetc1 = true
+			RootJoint.C1 = RootJoint.C1
+			Torso.Neck.C1 = Torso.Neck.C1
+			RW.C1 = rarmc1
+			LW.C1 = larmc1
+			RH.C1 = rlegc1
+			LH.C1 = llegc1
+		end
+	end
+end
+
+ArtificialHB = Create("BindableEvent", script){
+	Parent = script,
+	Name = "Heartbeat",
+}
+
+script:WaitForChild("Heartbeat")
+
+frame = 1 / 30
+tf = 0
+allowframeloss = false
+tossremainder = false
+lastframe = tick()
+script.Heartbeat:Fire()
+
+game:GetService("RunService").Heartbeat:connect(function(s, p)
+	tf = tf + s
+	if tf >= frame then
+		if allowframeloss then
+			script.Heartbeat:Fire()
+			lastframe = tick()
+		else
+			for i = 1, math.floor(tf / frame) do
+				script.Heartbeat:Fire()
+			end
+			lastframe = tick()
+		end
+		if tossremainder then
+			tf = 0
+		else
+			tf = tf - frame * math.floor(tf / frame)
+		end
+	end
+end)
+
+function swait(num)
+	if num == 0 or num == nil then
+		ArtificialHB.Event:wait()
+	else
+		for i = 0, num do
+			ArtificialHB.Event:wait()
+		end
+	end
+end
+
+
+
+
+
+New = function(Object, Parent, Name, Data)
+	local Object = Instance.new(Object)
+	for Index, Value in pairs(Data or {}) do
+		Object[Index] = Value
+	end
+	Object.Parent = Parent
+	Object.Name = Name
+	return Object
+end
+function rayCast(Position, Direction, Range, Ignore)
+	return game:service("Workspace"):FindPartOnRay(Ray.new(Position, Direction.unit * (Range or 999.999)), Ignore) 
+end 
+
+function Spam()
+if not D then D = true
+Pause = true
+Spaz = true
+while Spaz do
+	local SFXZ = Instance.new("Sound",Torso)
+			SFXZ.SoundId = "rbxassetid://294188882"
+			SFXZ.Volume = 1
+			SFXZ.Pitch = 1
+			SFXZ.Looped = false
+			SFXZ:Play()
+			local Grab = Instance.new("Part",RightArm)
+	Grab.Size = Vector3.new(1,1,1)
+	Grab.CanCollide = false
+	Grab.Transparency = math.huge
+	local Grabo = Instance.new("Weld",Grab)
+	Grabo.Part0 = RightArm
+	Grabo.Part1 = Grab
+	Grabo.C0 = CFrame.new(0,-1.1,0)
+	Grab.Touched:connect(function(hit)
+		if hit.Parent:FindFirstChild("Humanoid")and hit.Parent ~= nil and hit.Parent.Name ~= Player.Character.Name then
+			Grab:remove()
+			hit.Parent.Humanoid:TakeDamage(0)
+			local SFXZ = Instance.new("Sound",Torso)
+			SFXZ.SoundId = "rbxassetid://743886825"
+			SFXZ.Volume = 1
+			SFXZ.Pitch = 1
+			SFXZ.Looped = false
+			wait(0.01)
+			SFXZ:Play()
+		end
+	end)
+		local GrabAF = Instance.new("Part",RightArm)
+	GrabAF.Size = Vector3.new(1,1,1)
+	GrabAF.CanCollide = false
+	GrabAF.Transparency = math.huge
+	local GraboAF = Instance.new("Weld",GrabAF)
+	GraboAF.Part0 = LeftArm
+	GraboAF.Part1 = GrabAF
+	GraboAF.C0 = CFrame.new(0,-1.1,0)
+	local SFXZ = Instance.new("Sound",Torso)
+	Grab.Touched:connect(function(hit)
+		if hit.Parent:FindFirstChild("Humanoid")and hit.Parent ~= nil and hit.Parent.Name ~= Player.Character.Name then
+			GrabAF:remove()
+			hit.Parent.Humanoid:TakeDamage(Damage)
+			local SFXZ = Instance.new("Sound",Torso)
+			SFXZ.SoundId = "rbxassetid://743886825"
+			SFXZ.Volume = 1
+			SFXZ.Pitch = 1
+			SFXZ.Looped = false
+			wait(0.01)
+			SFXZ:Play()
+		end
+	end)
+		for i = 0,MAXSP,0.1 do
+swait()
+PlayAnimationFromTable({
+         CFrame.new(0,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 1.5, 0), 
+         CFrame.new(0,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, -1.2, 0), 
+         CFrame.new(1.95,0.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0,0,1.55), 
+         CFrame.new(-1.5,0,0.3) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.7, 0, 0), 
+         CFrame.new(0.6,-2,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0.1), 
+         CFrame.new(-0.6,-2,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, -0.1),  
+	}, .5, false)
+		end
+		for i = 0,MAXSP,0.1 do
+swait()
+PlayAnimationFromTable({
+         CFrame.new(0,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, -1.5, 0), 
+         CFrame.new(0,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 1.2, 0), 
+         CFrame.new(1.5,0,0.3) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.7,0,0), 
+         CFrame.new(-1.95,0.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, -1.55), 
+         CFrame.new(0.6,-2,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0.1), 
+         CFrame.new(-0.6,-2,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, -0.1),   
+	}, .5, false)
+		end
+		GrabAF:remove()
+		Grab:remove()
+		game:GetService("RunService").RenderStepped:wait()
+end
+wait(0.5)
+D = false
+end 
+end
+
+function Woosh()
+	if not Z then Z = true
+	Pause = true
+	for i = 0,1,0.1 do
+swait()
+PlayAnimationFromTable({
+         CFrame.new(0,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0.2, 0, 0), 
+         CFrame.new(0,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0.6, 0, 0), 
+         CFrame.new(0.8,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(2.6,0,-1), 
+         CFrame.new(-0.8,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(2.6, 0, 1), 
+         CFrame.new(0.6,-2,0.1) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.2, 0, 0.1), 
+         CFrame.new(-0.6,-2,0.1) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.2, 0, -0.1), 
+	}, .5, false)
+	end
+	coroutine.resume(coroutine.create(function()
+	for i = 0,1,0.1 do
+swait()
+PlayAnimationFromTable({
+         CFrame.new(0,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.2, 0, 0), 
+         CFrame.new(0,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.3, 0, 0), 
+         CFrame.new(1.8,0.5,-0.2) * CFrame.new(0, 0, 0) * CFrame.Angles(1.55,0,1), 
+         CFrame.new(-1.8,0.5,-0.2) * CFrame.new(0, 0, 0) * CFrame.Angles(1.55, 0, -1), 
+         CFrame.new(0.6,-2,-0.1) * CFrame.new(0, 0, 0) * CFrame.Angles(0.2, 0, 0.1), 
+         CFrame.new(-0.6,-2,-0.1) * CFrame.new(0, 0, 0) * CFrame.Angles(0.2, 0, -0.1), 
+	}, .5, false)
+	end
+	end))
+	local S = Instance.new("Sound",Torso)
+	S.SoundId = "rbxassetid://492208959"
+	S.Volume = math.huge
+	S.Pitch = 1
+	S.Looped = false
+	S:play()
+	local Rin = Instance.new("Part",Character)
+	Rin.Size = Vector3.new(1,1,1)
+	Rin.Anchored = true
+	Rin.CanCollide = false
+	Rin.CFrame = Torso.CFrame*CFrame.new(0,-2.1,0)*CFrame.Angles(1.35,0,0)
+	local Rin2 = Instance.new("SpecialMesh",Rin)
+	Rin2.MeshId = "rbxassetid://3270017"
+	coroutine.resume(coroutine.create(function()
+		for i = 1,200 do
+			Rin2.Scale = Rin2.Scale + Vector3.new(1,1,1)
+			Rin.Transparency = Rin.Transparency + 0.01
+			game:GetService("RunService").RenderStepped:wait()
+		end
+		Rin:remove()
+	end))
+	AS = Instance.new("Part",Torso)
+	AS.Transparency = math.huge
+	AS.CanCollide = false
+	local AS2 = Instance.new("Weld",AS)
+	AS2.Part0 = Torso
+	AS2.Part1 = AS
+	AS2.C0 = CFrame.new(0,1.9,0)*CFrame.Angles(0,0,0)
+Fl = Instance.new("ParticleEmitter",AS)
+Fl.Texture = "rbxassetid://347730682"
+Fl.Transparency = NumberSequence.new(0.8)
+Fl.Size = NumberSequence.new(7)
+Fl.Color = ColorSequence.new(Color3.fromRGB(157, 31, 188))
+Fl.EmissionDirection = "Top"
+Fl.Lifetime = NumberRange.new(0.3,0.3)
+Fl.Rate = 80
+Fl.LightEmission = 0.5
+Fl.Speed = NumberRange.new(10)
+Fl.LockedToPart = true
+MAXSP = 0.35
+Damage = 0
+Humanoid.MaxHealth = 5000
+wait()
+Humanoid.Health = 5000
+wait(2.4)
+S:remove()
+Pause = false
+wait(3)
+Z = false
+end
+end
+
+function Woosh2()
+	if not Z then Z = true
+	Pause = true
+	for i = 0,1,0.1 do
+swait()
+PlayAnimationFromTable({
+         CFrame.new(0,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0.2, 0, 0), 
+         CFrame.new(0,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0.6, 0, 0), 
+         CFrame.new(0.8,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(2.6,0,-1), 
+         CFrame.new(-0.8,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(2.6, 0, 1), 
+         CFrame.new(0.6,-2,0.1) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.2, 0, 0.1), 
+         CFrame.new(-0.6,-2,0.1) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.2, 0, -0.1), 
+	}, .5, false)
+	end
+	coroutine.resume(coroutine.create(function()
+	for i = 1,30 do
+	local Char = Instance.new("Part",Torso)
+	Char.Size = Vector3.new(1,1,1)
+	Char.Material = "Neon"
+	Char.CanCollide = false
+	Char.BrickColor = BrickColor.new("New Yeller")
+	Char.CFrame = Torso.CFrame*CFrame.new(0,0,0)
+	Char.Anchored = true
+	local Char2 = Instance.new("SpecialMesh",Char)
+	Char2.MeshType = "Sphere"
+	Char2.Scale = Vector3.new(1,1,1)
+	coroutine.resume(coroutine.create(function()
+	for i = 1,200 do
+		Char2.Scale = Char2.Scale + Vector3.new(1,1,1)
+		Char.Transparency = Char.Transparency + 0.05
+		wait(0.0000000001)
+	end
+	Char:remove()
+	end))
+	wait(0.5)
+	end
+	wait(0.001)
+	end))
+	wait(10)
+	for i = 0,1,0.1 do
+swait()
+PlayAnimationFromTable({
+         CFrame.new(0,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.2, 0, 0), 
+         CFrame.new(0,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.3, 0, 0), 
+         CFrame.new(1.8,0.5,-0.2) * CFrame.new(0, 0, 0) * CFrame.Angles(1.55,0,1), 
+         CFrame.new(-1.8,0.5,-0.2) * CFrame.new(0, 0, 0) * CFrame.Angles(1.55, 0, -1), 
+         CFrame.new(0.6,-2,-0.1) * CFrame.new(0, 0, 0) * CFrame.Angles(0.2, 0, 0.1), 
+         CFrame.new(-0.6,-2,-0.1) * CFrame.new(0, 0, 0) * CFrame.Angles(0.2, 0, -0.1), 
+	}, .5, false)
+	end
+	local Chaq = Instance.new("Part",Torso)
+	Chaq.Size = Vector3.new(1,1,1)
+	Chaq.Material = "Neon"
+	Chaq.BrickColor = BrickColor.new("New Yeller")
+	Chaq.CFrame = Torso.CFrame*CFrame.new(0,0,0)
+	Chaq.Anchored = true
+	Chaq.CanCollide = false
+	local Chaq2 = Instance.new("SpecialMesh",Chaq)
+	Chaq2.MeshType = "Sphere"
+	Chaq2.Scale = Vector3.new(1,1,1)
+	for i = 1,300 do
+		Chaq2.Scale = Chaq2.Scale + Vector3.new(4,4,4)
+		Chaq.Transparency = Chaq.Transparency + 0.005
+		game:GetService("RunService").RenderStepped:wait()
+	end
+	local Char = Instance.new("Part",Torso)
+	Char.Size = Vector3.new(1,1,1)
+	Char.Material = "Neon"
+	Char.CanCollide = false
+	Char.BrickColor = BrickColor.new("New Yeller")
+	Char.CFrame = Torso.CFrame*CFrame.new(0,0,0)
+	Char.Anchored = true
+	local Char2 = Instance.new("SpecialMesh",Char)
+	Char2.MeshType = "Sphere"
+	Char2.Scale = Vector3.new(1,1,1)
+	for i = 1,10 do
+		Char2.Scale = Char2.Scale + Vector3.new(1,1,1)
+		game:GetService("RunService").RenderStepped:wait()
+	end
+	wait(1)
+	local Player = game.Players.localPlayer
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+local Mouse = Player:GetMouse()
+local LeftArm = Character["Left Arm"]
+local RightArm = Character["Right Arm"]
+local LeftLeg = Character["Left Leg"]
+local RightLeg = Character["Right Leg"]
+local BodyColor = BrickColor.new("Bright violet")
+local Head = Character.Head
+local Torso = Character.Torso
+local RARM = Instance.new("Part",Character)
+RARM.Size = Vector3.new(1,1,1)
+RARM.BrickColor = BrickColor.new("Fawn brown")
+RARM.Material = "SmoothPlastic"
+local RARM2 = Instance.new("SpecialMesh",RARM)
+RARM2.MeshType = "Brick"
+RARM2.Scale = Vector3.new(1.05,1.85,1.05)
+local RARM3 = Instance.new("Weld",RARM)
+RARM3.Part0 = RightArm
+RARM3.Part1 = RARM
+RARM3.C0 = CFrame.new(0,0.1,0)
+local MAT = Instance.new("Part",RARM)
+MAT.Size = Vector3.new(1,1,1)
+MAT.BrickColor = BrickColor.new("Bright yellow")
+MAT.Material = "SmoothPlastic"
+MAT.Reflectance = 0.5
+local MAT2 = Instance.new("SpecialMesh",MAT)
+MAT2.MeshType = "Brick"
+MAT2.Scale = Vector3.new(1.08,0.6,1.08)
+local MAT3 = Instance.new("Weld",MAT)
+MAT3.Part0 = RARM
+MAT3.Part1 = MAT
+MAT3.C0 = CFrame.new(0,-0.62,0)
+local Rin = Instance.new("Part",RARM)
+Rin.Size = Vector3.new(1,1,1)
+Rin.BrickColor = BrickColor.new("Bright yellow")
+Rin.Material = "SmoothPlastic"
+Rin.Reflectance = 0.5
+local Rin2 = Instance.new("SpecialMesh",Rin)
+Rin2.MeshType = "Cylinder"
+Rin2.Scale = Vector3.new(0.005,1,0.43)
+local Rin3 = Instance.new("Weld",Rin)
+Rin3.Part0 = RARM
+Rin3.Part1 = Rin
+Rin3.C0 = CFrame.new(0.55,-0.35,0)
+local Orb = Instance.new("Part",RARM)
+Orb.Size = Vector3.new(1,1,1)
+Orb.BrickColor = BrickColor.new("Bright violet")
+Orb.Material = "SmoothPlastic"
+Orb.CanCollide = false
+local Orb2 = Instance.new("SpecialMesh",Orb)
+Orb2.MeshType = "Sphere"
+Orb2.Scale = Vector3.new(0.3,0.35,0.3)
+local Orb3 = Instance.new("Weld",Orb)
+Orb3.Part0 = RARM
+Orb3.Part1 = Orb
+Orb3.C0 = CFrame.new(0.5,-0.4,0)
+local LARM = Instance.new("Part",Character)
+LARM.Size = Vector3.new(1,1,1)
+LARM.BrickColor = BrickColor.new("Fawn brown")
+LARM.Material = "SmoothPlastic"
+local LARM2 = Instance.new("SpecialMesh",LARM)
+LARM2.MeshType = "Brick"
+LARM2.Scale = Vector3.new(1.05,1.85,1.05)
+local LARM3 = Instance.new("Weld",LARM)
+LARM3.Part0 = LeftArm
+LARM3.Part1 = LARM
+LARM3.C0 = CFrame.new(0,0.1,0)*CFrame.Angles(0,3.1,0)
+local MATAS = Instance.new("Part",LARM)
+MATAS.Size = Vector3.new(1,1,1)
+MATAS.BrickColor = BrickColor.new("Bright yellow")
+MATAS.Material = "SmoothPlastic"
+MATAS.Reflectance = 0.5
+local MAT2AS = Instance.new("SpecialMesh",MATAS)
+MAT2AS.MeshType = "Brick"
+MAT2AS.Scale = Vector3.new(1.08,0.6,1.08)
+local MAT3AS = Instance.new("Weld",MATAS)
+MAT3AS.Part0 = LARM
+MAT3AS.Part1 = MATAS
+MAT3AS.C0 = CFrame.new(0,-0.62,0)
+local RinAS = Instance.new("Part",LARM)
+RinAS.Size = Vector3.new(1,1,1)
+RinAS.BrickColor = BrickColor.new("Bright yellow")
+RinAS.Material = "SmoothPlastic"
+RinAS.Reflectance = 0.5
+local Rin2AS = Instance.new("SpecialMesh",RinAS)
+Rin2AS.MeshType = "Cylinder"
+Rin2AS.Scale = Vector3.new(0.005,1,0.43)
+local Rin3AS = Instance.new("Weld",RinAS)
+Rin3AS.Part0 = LARM
+Rin3AS.Part1 = RinAS
+Rin3AS.C0 = CFrame.new(0.55,-0.35,0)
+local OrbAS = Instance.new("Part",LARM)
+OrbAS.Size = Vector3.new(1,1,1)
+OrbAS.BrickColor = BrickColor.new("Bright violet")
+OrbAS.Material = "SmoothPlastic"
+OrbAS.CanCollide = false
+local Orb2AS = Instance.new("SpecialMesh",OrbAS)
+Orb2AS.MeshType = "Sphere"
+Orb2AS.Scale = Vector3.new(0.3,0.35,0.3)
+local Orb3AS = Instance.new("Weld",OrbAS)
+Orb3AS.Part0 = LARM
+Orb3AS.Part1 = OrbAS
+Orb3AS.C0 = CFrame.new(0.5,-0.4,0)
+local LLEG = Instance.new("Part",Character)
+LLEG.Size = Vector3.new(1,1,1)
+LLEG.CanCollide = false
+LLEG.BrickColor = BrickColor.new("Fawn brown")
+LLEG.Material = "SmoothPlastic"
+local LLEG2 = Instance.new("SpecialMesh",LLEG)
+LLEG2.MeshType = "Brick"
+LLEG2.Scale = Vector3.new(1.05,1.85,1.05)
+local LLEG3 = Instance.new("Weld",LLEG)
+LLEG3.Part0 = LeftLeg
+LLEG3.Part1 = LLEG
+LLEG3.C0 = CFrame.new(0,0.1,0)*CFrame.Angles(0,1.55,0)
+local MATLL = Instance.new("Part",LLEG)
+MATLL.Size = Vector3.new(1,1,1)
+MATLL.BrickColor = BrickColor.new("Bright yellow")
+MATLL.Material = "SmoothPlastic"
+MATLL.Reflectance = 0.5
+MATLL.CanCollide = false
+local MAT2LL = Instance.new("SpecialMesh",MATLL)
+MAT2LL.MeshType = "Brick"
+MAT2LL.Scale = Vector3.new(1.08,0.6,1.08)
+local MAT3LL = Instance.new("Weld",MATLL)
+MAT3LL.Part0 = LLEG
+MAT3LL.Part1 = MATLL
+MAT3LL.C0 = CFrame.new(0,-0.62,0)
+local RinLL = Instance.new("Part",LLEG)
+RinLL.Size = Vector3.new(1,1,1)
+RinLL.BrickColor = BrickColor.new("Bright yellow")
+RinLL.Material = "SmoothPlastic"
+RinLL.Reflectance = 0.5
+RinLL.CanCollide = false
+local Rin2LL = Instance.new("SpecialMesh",RinLL)
+Rin2LL.MeshType = "Cylinder"
+Rin2LL.Scale = Vector3.new(0.005,1,0.43)
+local Rin3LL = Instance.new("Weld",RinLL)
+Rin3LL.Part0 = LLEG
+Rin3LL.Part1 = RinLL
+Rin3LL.C0 = CFrame.new(0.55,-0.35,0)
+local OrbLL = Instance.new("Part",LLEG)
+OrbLL.Size = Vector3.new(1,1,1)
+OrbLL.BrickColor = BrickColor.new("Bright violet")
+OrbLL.Material = "SmoothPlastic"
+OrbLL.CanCollide = false
+local Orb2LL = Instance.new("SpecialMesh",OrbLL)
+Orb2LL.MeshType = "Sphere"
+Orb2LL.Scale = Vector3.new(0.3,0.35,0.3)
+local Orb3LL = Instance.new("Weld",OrbLL)
+Orb3LL.Part0 = LLEG
+Orb3LL.Part1 = OrbLL
+Orb3LL.C0 = CFrame.new(0.5,-0.4,0)
+local RLEG = Instance.new("Part",Character)
+RLEG.Size = Vector3.new(1,1,1)
+RLEG.BrickColor = BrickColor.new("Fawn brown")
+RLEG.Material = "SmoothPlastic"
+local RLEG2 = Instance.new("SpecialMesh",RLEG)
+RLEG2.MeshType = "Brick"
+RLEG2.Scale = Vector3.new(1.05,1.85,1.05)
+local RLEG3 = Instance.new("Weld",RLEG)
+RLEG3.Part0 = RightLeg
+RLEG3.Part1 = RLEG
+RLEG3.C0 = CFrame.new(0,0.1,0)*CFrame.Angles(0,1.55,0)
+local MATZZ = Instance.new("Part",RLEG)
+MATZZ.Size = Vector3.new(1,1,1)
+MATZZ.BrickColor = BrickColor.new("Bright yellow")
+MATZZ.Material = "SmoothPlastic"
+MATZZ.Reflectance = 0.5
+MATZZ.CanCollide = false
+local MAT2ZZ = Instance.new("SpecialMesh",MATZZ)
+MAT2ZZ.MeshType = "Brick"
+MAT2ZZ.Scale = Vector3.new(1.08,0.6,1.08)
+local MAT3ZZ = Instance.new("Weld",MATZZ)
+MAT3ZZ.Part0 = RLEG
+MAT3ZZ.Part1 = MATZZ
+MAT3ZZ.C0 = CFrame.new(0,-0.62,0)
+local RinZZ = Instance.new("Part",RLEG)
+RinZZ.Size = Vector3.new(1,1,1)
+RinZZ.BrickColor = BrickColor.new("Bright yellow")
+RinZZ.Material = "SmoothPlastic"
+RinZZ.Reflectance = 0.5
+RinZZ.CanCollide = false
+local Rin2ZZ = Instance.new("SpecialMesh",RinZZ)
+Rin2ZZ.MeshType = "Cylinder"
+Rin2ZZ.Scale = Vector3.new(0.005,1,0.43)
+local Rin3ZZ = Instance.new("Weld",RinZZ)
+Rin3ZZ.Part0 = RLEG
+Rin3ZZ.Part1 = RinZZ
+Rin3ZZ.C0 = CFrame.new(0.55,-0.35,0)
+local OrbZZ = Instance.new("Part",RLEG)
+OrbZZ.Size = Vector3.new(1,1,1)
+OrbZZ.BrickColor = BrickColor.new("Bright violet")
+OrbZZ.Material = "SmoothPlastic"
+OrbZZ.CanCollide = false
+local Orb2ZZ = Instance.new("SpecialMesh",OrbZZ)
+Orb2ZZ.MeshType = "Sphere"
+Orb2ZZ.Scale = Vector3.new(0.3,0.35,0.3)
+local Orb3ZZ = Instance.new("Weld",OrbZZ)
+Orb3ZZ.Part0 = RLEG
+Orb3ZZ.Part1 = OrbZZ
+Orb3ZZ.C0 = CFrame.new(0.5,-0.4,0)
+local Tor = Instance.new("Part",Character)
+Tor.Size = Vector3.new(1,1,1)
+Tor.BrickColor = BrickColor.new("Bright yellow")
+Tor.CanCollide = false
+Tor.Material = "SmoothPlastic"
+Tor.Reflectance = 0.5
+local Tor2 = Instance.new("SpecialMesh",Tor)
+Tor2.MeshType = "Brick"
+Tor2.Scale = Vector3.new(2.08,2.08,1.08)
+local Tor3 = Instance.new("Weld",Tor)
+Tor3.Part0 = Torso
+Tor3.Part1 = Tor
+Tor3.C0 = CFrame.new(0,0,0)
+local HEDD = Instance.new("Part",Character)
+HEDD.Size = Vector3.new(1,1,1)
+HEDD.BrickColor = BrickColor.new("Bright yellow")
+HEDD.Material = "SmoothPlastic"
+HEDD.Reflectance = 0.5
+local HEDD2 = Instance.new("SpecialMesh",HEDD)
+HEDD2.MeshType = "Head"
+HEDD2.Scale = Vector3.new(2.28,1.28,1.28)
+local HEDD3 = Instance.new("Weld",HEDD)
+HEDD3.Part0 = Head
+HEDD3.Part1 = HEDD
+HEDD3.C0 = CFrame.new(0,0,0)
+Character.Shirt:remove()
+Character.Pants:remove()
+	Eh.BrickColor = BrickColor.new("Bright yellow")
+	Eh.Material = "SmoothPlastic"
+	Eh.Reflectance = 0.5
+	LEh.Reflectance = 0.5
+	Eh.Material = "SmoothPlastic"
+	LEh.Material = "SmoothPlastic"
+	LEh.BrickColor = BrickColor.new("Bright yellow")
+	Head.BrickColor = BrickColor.new("Bright violet")
+	MAXSP = 0.1
+	Damage = 0
+	local AQ = Instance.new("Part",Character)
+	AQ.Transparency = 12121
+	AQ.CanCollide = false
+	local AQ2 = Instance.new("Weld",AQ)
+	AQ2.Part0 = Torso
+	AQ2.Part1 = AQ
+	AQ2.C0 = CFrame.new(0,0,0)
+	local FlA = Instance.new("ParticleEmitter",AQ)
+FlA.Texture = "rbxassetid://569507414"
+FlA.Size = NumberSequence.new(0.8,0.2)
+FlA.Color = ColorSequence.new(Color3.fromRGB(255,153,28), Color3.fromRGB(255,153,28))
+FlA.EmissionDirection = "Top"
+FlA.Lifetime = NumberRange.new(1,2)
+FlA.Rate = 70
+FlA.Transparency = NumberSequence.new(0.5,0.6)
+FlA.LightEmission = 0.75
+FlA.Speed = NumberRange.new(3)
+FlA.Acceleration = Vector3.new(0, 0, 0)
+FlA.VelocitySpread = 50
+	Fl.Color = ColorSequence.new(Color3.fromRGB(255,153,28),Color3.fromRGB(255,33,36))
+	Fl.Transparency = NumberSequence.new(0.6)
+	for i = 1,80 do
+		Char2.Scale = Char2.Scale + Vector3.new(1,1,1)
+		Char.Transparency = Char.Transparency + 0.05
+		game:GetService("RunService").RenderStepped:wait()
+	end
+	Char:remove()
+	Humanoid.MaxHealth = 10000
+	wait()
+	Humanoid.Health = 10000
+	Pause = false
+	wait(1241241142)
+	Z = false
+	end
+end
+
+
+function DeathBall()
+	if not D then D = true
+	Pause = true
+	for i = 0,1,0.1 do
+	swait()
+	PlayAnimationFromTable({
+         CFrame.new(0,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0.8, 0, 0), 
+         CFrame.new(1.5,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0,0,0), 
+         CFrame.new(-1.5,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5,-2,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.5,-2,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .5, false)
+	end
+	local sbs = Instance.new("BodyPosition", RootPart)
+        sbs.P = 3000
+        sbs.D = 1000
+        sbs.maxForce = Vector3.new(500000, 500000000, 500000)
+        sbs.position = RootPart.CFrame.p + Vector3.new(0, 200, 0)
+wait(3)
+for i = 0,1,0.1 do
+	swait()
+	PlayAnimationFromTable({
+         CFrame.new(0,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.3, 0, 0), 
+         CFrame.new(1.5,1,0) * CFrame.new(0, 0, 0) * CFrame.Angles(3.15,0,0), 
+         CFrame.new(-1.5,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.2, 0, 0), 
+         CFrame.new(0.6,-2,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0.1), 
+         CFrame.new(-0.6,-2,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, -0.1), 
+	}, .5, false)
+end
+local AZ = Instance.new("Part",Character)
+AZ.Size = Vector3.new(1,1,1)
+AZ.Shape = "Ball"
+AZ.BrickColor = BrickColor.new("Deep orange")
+AZ.Anchored = true
+AZ.CanCollide = false
+AZ.CFrame = RightArm.CFrame*CFrame.new(0,-100,0)
+AZ.Material = "Neon"
+AZ.Touched:connect(function(hit)
+if hitted == false then
+hitted = true
+wait(1)
+AZ.Anchored = true
+coroutine.resume(coroutine.create(function()
+for i = 1,50 do
+local Cha = Instance.new("Part",AZ)
+Cha.Size = Vector3.new(1,1,1)
+Cha.Transparency = 1
+Cha.BrickColor = AZ.BrickColor
+Cha.Material = "Neon"
+Cha.Anchored = true
+Cha.CanCollide = false
+Cha.CFrame = AZ.CFrame*CFrame.new(0,0,0)
+local Cha2 = Instance.new("SpecialMesh",Cha)
+Cha2.MeshType = "Sphere"
+Cha2.Scale = Vector3.new(1000,1000,1000)
+coroutine.resume(coroutine.create(function()
+for i = 1,100 do
+	Cha2.Scale = Cha2.Scale - Vector3.new(6,6,6)
+	Cha.Transparency = Cha.Transparency - 0.005
+	wait(0.0000000000000000000000001)
+end
+Cha:remove()
+end))
+wait(0.5)
+end
+wait(0.5)
+end))
+local HitBox = Instance.new("Part",AZ)
+HitBox.Size = Vector3.new(800,800,800)
+HitBox.CanCollide = false
+HitBox.Anchored = true
+HitBox.Transparency = 1211
+HitBox.CFrame = AZ.CFrame*CFrame.new(0,0,0)
+HitBox.Touched:connect(function(hit)
+	if hit.Parent:FindFirstChild("Humanoid") and hit.Parent ~= nil and hit.Parent.Name ~= Character.Name then
+		hit:remove()
+	end
+end)
+wait(30)
+HitBox:remove()
+AZ:remove()
+end
+end)
+local AZZ = Instance.new("ParticleEmitter",AZ)
+AZZ.Texture = "rbxassetid://569507523"
+AZZ.Color = ColorSequence.new(Color3.fromRGB(255, 3, 3), Color3.fromRGB(113, 1, 1))
+AZZ.EmissionDirection = "Top"
+AZZ.Rotation = NumberRange.new(-20, 20)
+AZZ.Size = NumberSequence.new(20)
+AZZ.Lifetime = NumberRange.new(0.4,0.5)
+AZZ.Rate = 1111
+AZZ.LightEmission = 0.75
+AZZ.Speed = NumberRange.new(3)
+AZZ.VelocitySpread = 100
+local FZA = Instance.new("ParticleEmitter",AZ)
+FZA.Texture = "rbxassetid://258128463"
+FZA.Size = NumberSequence.new(20)
+FZA.LightEmission = 0.75
+FZA.Color = ColorSequence.new(Color3.fromRGB(232, 171, 45), Color3.fromRGB(216, 104, 11))
+FZA.Lifetime = NumberRange.new(1,2)
+FZA.Rate = 11123
+for i = 1,300 do
+	AZ.Size = AZ.Size + Vector3.new(0.5,0.5,0.5)
+	game:GetService("RunService").RenderStepped:wait()
+end
+AZ.Anchored = false
+local Fly = Instance.new("BodyVelocity",AZ)
+Fly.maxForce = Vector3.new(math.huge,math.huge,math.huge)
+Fly.velocity = Mouse.hit.lookVector*120
+		for i = 0,2,0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.4, 0, 0), 
+         CFrame.new(0,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.2, 0, 0), 
+         CFrame.new(1.5,0.5,-0.5) * CFrame.new(0, 0, 0) * CFrame.Angles(1.55,0,0), 
+         CFrame.new(-1.5,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.5,-1.8,0.2) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.2, 0, 0), 
+         CFrame.new(-0.5,-1.5,-0.3) * CFrame.new(0, 0, 0) * CFrame.Angles(-0.4, 0, 0), 
+		}, .5, false)
+		end
+wait(2)
+sbs:remove()
+Pause = false
+wait(1)
+D = false
+end
+end
+function DeathBeam()
+	if not D then D = true
+		Pause = true
+		for i = 0,2,0.1 do
+		swait()
+		PlayAnimationFromTable({
+         CFrame.new(0,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 1.6, 0), 
+         CFrame.new(0,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, -1.55, 0), 
+         CFrame.new(1.95,0.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0,0,1.55), 
+         CFrame.new(-1.8,0,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, -0.4), 
+         CFrame.new(0.6,-2,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0.1), 
+         CFrame.new(-0.6,-2,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, -0.1),  
+		}, .5, false)
+		end
+		local Dea = Instance.new("Part",RightArm)
+		Dea.Size = Vector3.new(1,1,1)
+		Dea.Material = "Neon"
+		Dea.Transparency = 1
+		Dea.BrickColor = BrickColor.new("Plum")
+		local Dea2 = Instance.new("SpecialMesh",Dea)
+		Dea2.MeshType = "Sphere"
+		Dea2.Scale = Vector3.new(3.5,3.5,3.5)
+		local Dea3 = Instance.new("Weld",Dea)
+		Dea3.Part0 = RightArm
+		Dea3.Part1 = Dea
+		Dea3.C0 = CFrame.new(0,-1.1,0)
+		for i = 1,100 do
+			Dea.Transparency = Dea.Transparency - 0.01
+			game:GetService("RunService").RenderStepped:wait()
+		end
+	local Cy = Instance.new("Part",Torso)
+	Cy.Size = Vector3.new(2,2,2)
+	Cy.Material = "Neon"
+	Cy.BrickColor = Dea.BrickColor
+	Cy.Anchored = true
+	Cy.Shape = "Cylinder"
+	Cy.CanCollide = false
+	Cy.CFrame = RightArm.CFrame*CFrame.new(0,0,0)*CFrame.Angles(0,0,1.55)
+	Cy.Touched:connect(function(hit)
+		if hit.Parent:FindFirstChild("Humanoid") and hit.Parent ~= nil and hit.Parent.Name ~= Character.Name then
+			hit:remove()
+		end
+	end)
+	for i = 1,200 do
+		Cy.Size = Cy.Size + Vector3.new(3,0,0)
+		Cy.CFrame = RightArm.CFrame*CFrame.new(-0.03*i,-1.5*i,0)*CFrame.new(0,-3,0)*CFrame.Angles(0,0,1.55)
+		game:GetService("RunService").RenderStepped:wait()
+	end
+	for i = 1,10 do
+		Cy.Transparency = Cy.Transparency + 0.1
+		Dea.Transparency = Dea.Transparency + 0.1
+		game:GetService("RunService").RenderStepped:wait()
+	end
+	Cy:remove()
+	Dea:remove()
+	Pause = false
+		wait(2)
+		D = false
+	end
+end
+Mouse.Button1Down:connect(function()
+	Spam()
+end)
+
+Mouse.Button1Up:connect(function()
+	Pause = false
+	Spaz = false
+end)
+
+Mouse.KeyDown:connect(function(key)
+	if key == "q" then
+		DeathBeam()
+	end
+	if key == "e" then
+		DeathBall()
+	end
+	if key == "m" and attack == false and attacktype == 1 then
+		Woosh()
+		attacktype = 2
+	elseif key == "m" and attack == false and attacktype == 2 then
+		Woosh2()
+	end
+end)
+coroutine.wrap(function()
+while 1 do
+swait()
+if doe <= 360 then
+	doe = doe + 2
+else
+	doe = 0
+end
+end
+end)()
+while true do
+	swait()
+	RightArm.BrickColor = BodyColor
+	LeftArm.BrickColor = BodyColor
+	RightLeg.BrickColor = BodyColor
+	LeftLeg.BrickColor = BodyColor
+	Torso.BrickColor = BodyColor
+	for i, v in pairs(Character:GetChildren()) do
+		if v:IsA("Part") then
+			v.Material = "SmoothPlastic"
+		elseif v:IsA("Accessory") then
+			v:WaitForChild("Handle").Material = "SmoothPlastic"
+		end
+	end
+
+	Torsovelocity = (RootPart.Velocity * Vector3.new(1, 0, 1)).magnitude 
+	velocity = RootPart.Velocity.y
+	sine = sine + change
+	local hit, pos = rayCast(RootPart.Position, (CFrame.new(RootPart.Position, RootPart.Position - Vector3.new(0, 1, 0))).lookVector, 4, Character)
+		if RootPart.Velocity.y > 1 and hit == nil then 
+			Anim = "Jump"
+			if Pause == false then
+		PlayAnimationFromTable({
+         CFrame.new(0, 0, 0, 1, -2.21689355e-12, -5.11591203e-13, -2.21689355e-12, 1, 7.74860496e-07, -5.11591203e-13, 7.74860496e-07, 1.00000048) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.0579944476, 1.48445117, -0.000906195492, 0.999631822, -0.0259140469, -0.00804444961, 0.0262291897, 0.998776913, 0.0419151038, 0.0069484422, -0.0421099029, 0.999089062) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.68067598, 0.167780995, 5.50026158e-08, 0.965881884, -0.258982956, -3.41060513e-13, 0.258982956, 0.965881884, 4.47034836e-07, 8.49010675e-08, 3.16640808e-07, 1.00000024) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.67620921, 0.188169807, -3.04922651e-07, 0.95698452, 0.290146649, -2.61441073e-07, -0.290146649, 0.95698452, -1.0069979e-05, -2.89639524e-06, 1.04542296e-05, 1.00000024) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.537238836, -1.93797374, 0.176598221, 0.998698533, -0.0506777391, -0.00574572897, 0.0510024093, 0.992341697, 0.112511501, -6.35704041e-08, -0.112657718, 0.993634105) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.536944568, -1.94808352, 0.126473114, 0.998626292, 0.0520468242, 0.00521374354, -0.0523067154, 0.993665218, 0.0995327011, -3.84102691e-07, -0.099668026, 0.995023906) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+					end
+		elseif RootPart.Velocity.y < -1 and hit == nil then 
+			Anim = "Fall"
+			if Pause == false then
+		PlayAnimationFromTable({
+         CFrame.new(0, 0, 0, 1, -2.21689355e-12, -5.11591203e-13, -2.21689355e-12, 1, 7.74860496e-07, -5.11591203e-13, 7.74860496e-07, 1.00000048) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.0576509275, 1.50532985, -0.129091382, 0.999631822, -0.0231846143, -0.0140984114, 0.0262298863, 0.958684564, 0.283279002, 0.00694822101, -0.283544153, 0.958935201) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.68622994, 0.21415168, 7.02040666e-08, 0.881990671, -0.471266806, -3.41060513e-13, 0.471266806, 0.881990671, 4.47034836e-07, 1.54493137e-07, 2.89139166e-07, 1.00000024) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-1.72513735, 0.240890861, 2.54038241e-07, 0.814108491, 0.58071363, -2.61430017e-07, -0.580713034, 0.814108849, -1.00698489e-05, -6.08482924e-06, 8.98058715e-06, 1.00000024) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(0.536720514, -1.92783141, 0.223740995, 0.998698533, -0.0498600565, -0.0107376017, 0.0510031059, 0.976314366, 0.210260883, -3.04512355e-07, -0.210534185, 0.977587521) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(-0.535922825, -1.92850935, 0.222419083, 0.99863112, 0.0512506701, 0.0104565797, -0.0523065142, 0.978474379, 0.199629858, -3.7062793e-07, -0.199902818, 0.97981596) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+		}, .3, false)
+					end
+		elseif Torsovelocity < 1 and hit ~= nil then
+			Anim = "Idle"
+			if Pause == false then
+				change = 1
+		PlayAnimationFromTable({
+         CFrame.new(0,0,0) * CFrame.new(0, 0-.05*math.sin(tick()*1.5), 0) * CFrame.Angles(-0.2, 0, 0), 
+         CFrame.new(0,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
+         CFrame.new(1.9,0.4,-0.5) * CFrame.new(0, 0-.1*math.sin(tick()*1.5), 0) * CFrame.Angles(1.2,0,1), 
+         CFrame.new(-1.9,0.4,-0.5) * CFrame.new(0, 0-.1*math.sin(tick()*1.5), 0) * CFrame.Angles(1.2,0,-1), 
+         CFrame.new(0.6,-2,-0.2) * CFrame.new(0, 0+.05*math.sin(tick()*1.5), 0) * CFrame.Angles(0.15, 0, 0.1), 
+         CFrame.new(-0.6,-2,-0.2) * CFrame.new(0, 0+.05*math.sin(tick()*1.5), 0) * CFrame.Angles(0.15, 0, -0.1), 
+		}, .3, false)
+			end
+		elseif Torsovelocity > 2 and hit ~= nil then
+			Anim = "Walk"
+			if Pause == false then
+		PlayAnimationFromTable({		
+        CFrame.new(0,1,0) * CFrame.new(0,0-.2*math.sin(tick()*4),0)*CFrame.Angles(-0.5,0,0), 
+         CFrame.new(0,1.5,0) * CFrame.new(0, 0, 0) * CFrame.Angles(0.3, 0, 0), 
+         CFrame.new(0.3,0.45,-1) * CFrame.new(0,0,0)*CFrame.Angles(0,0,-1.4), 
+         CFrame.new(-0.3,0.45,-1) * CFrame.new(0,0,0)*CFrame.Angles(0,0,1.4), 
+         CFrame.new(0.5,-2,0.3) * CFrame.new(0,0,0)*CFrame.Angles(-0.3,0,0), 
+         CFrame.new(-0.5,-1.5,-0.5) * CFrame.new(0,0,0)*CFrame.Angles(0,0,0)  
+		}, .3, false)
+			end
+		end
+end
